@@ -5,7 +5,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import UserModal from "./UserModal";
 import CarShop from "./CarShop";
 
-export default function NavBar(): JSX.Element {
+export default function NavBar({setCurrentPage}:any): JSX.Element {
   return (
     <div className={style["nav"]}>
       <div className={style["nav-content"]}>
@@ -16,7 +16,7 @@ export default function NavBar(): JSX.Element {
             </Link>
           </div>
           <div>
-            <SearchBar></SearchBar>
+            <SearchBar setCurrentPage={setCurrentPage}></SearchBar>
           </div>
           <div className={style["user-cart"]}>
             <UserModal></UserModal>

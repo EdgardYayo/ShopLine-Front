@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./ProductCard.module.css"
+import style from "../../style/ProductCard/ProductCard.module.css"
 
 interface product {
   title: string;

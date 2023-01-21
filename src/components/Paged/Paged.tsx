@@ -1,6 +1,6 @@
 import React, { MouseEventHandler } from "react";
 import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
-import style from "./Paged.module.css";
+import style from "../../style/Paged/Paged.module.css";
 
 interface pagedElements {
     paged: Function

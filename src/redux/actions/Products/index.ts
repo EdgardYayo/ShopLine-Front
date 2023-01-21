@@ -29,14 +29,21 @@ export const getCategories = () => {
   };
 };
 
-export const filterByName = (name: string) => {
-  return async function (dispatch: AppDispatch) {
-    const response = await axios.get(`${API_ENDPOINT}/products?name=${name}`);
-    dispatch({
+// export const filterByName = (name: string) => {
+//   return async function (dispatch: AppDispatch) {
+//     const response = await axios.get(`${API_ENDPOINT}/products?name=${name}`);
+//     dispatch({
+//       type: FILTER_BY_NAME,
+//       payload: response.data,
+//     });
+//   };
+// };
+
+export const filterByName = (payload:string) => {
+    return {
       type: FILTER_BY_NAME,
-      payload: response.data,
-    });
-  };
+      payload
+    }
 };
 
 export const filterByCategory = (payload: string) => {

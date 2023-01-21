@@ -27,9 +27,14 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
         categories: action.payload
       }
     case FILTER_BY_NAME:
+      let filteredName;
+      if(action.payload){
+        filteredName = state.productsBackUp.filter(elem => elem.title.trim() === action.payload.trim())
+      }
+
       return {
         ...state,
-        products: action.payload
+        products: filteredName
       }
     case FILTER_BY_CATEGORY:
       let filteredCategory;

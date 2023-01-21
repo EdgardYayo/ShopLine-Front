@@ -5,9 +5,8 @@ import { filterByName } from "../../redux/actions/Products";
 import { ChangeEvent, MouseEvent, useState } from "react";
 import { useAppDispatch } from "../../redux/store/hooks";
 
-export default function SearchBar(): JSX.Element {
+export default function SearchBar({setCurrentPage}:any): JSX.Element {
   const [name, setName] = useState("");
-
   const dispatch = useAppDispatch();
 
   /*Input de busqueda*/
@@ -21,13 +20,15 @@ export default function SearchBar(): JSX.Element {
 
   function handleSubmit(e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) {
     e.preventDefault();
-    dispatch(filterByName(name)); //&& paginated(1);
+    dispatch(filterByName(name));
+    setCurrentPage(1);
     setName("");
   }
 
   return (
     <div className={style.search}>
       <input
+        value={name}
         type="text"
         placeholder="Search"
         onChange={(e) => handleInputChange(e)}
