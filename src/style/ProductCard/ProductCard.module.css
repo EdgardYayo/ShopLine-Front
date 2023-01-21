@@ -37,3 +37,12 @@
 .price:hover {
     transform: scale(1.1);
 }
+
+.icon-dollar {
+    color: green
+}
+
+.icon-bag {
+    font-size: 30px;
+    color: #0685FC;
+}

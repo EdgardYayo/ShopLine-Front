@@ -10,11 +10,13 @@
 .paged-button:hover{
     transform: translate(-2px, -3px);
     box-shadow: 2px 3px 0 #aaa;
-    background: black;
+    background: #0685FC;
     color: white;
 }
 
 .paged-button:focus{
-    background: black;
+    transform: translate(-2px, -3px);
+    box-shadow: 2px 3px 0 #aaa;
+    background: #0685FC;
     color: white;
 }

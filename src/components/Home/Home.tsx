@@ -4,12 +4,14 @@ import { getProducts } from "../../redux/actions/Products";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import Paged from "../Paged/Paged";
 import NavBar from "../NavBar/NavBar";
+import Sorts from "../Sorts/Sorts";
 
 export default function Home(): JSX.Element {
   const dispatch = useAppDispatch();
   const allProducts = useAppSelector((state) => state.products);
   //console.log(allProducts);
 
+  /*Paged Logic*/
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(5);
   const lastIndex: number = currentPage * productsPerPage;
@@ -21,6 +23,9 @@ export default function Home(): JSX.Element {
   }
 
 
+  /*Order*/
+  const [order, setOrder] = useState("");
+
   useEffect(() => {
     dispatch(getProducts())
   },[dispatch])
@@ -28,6 +33,7 @@ export default function Home(): JSX.Element {
   return (
     <div>
       <NavBar setCurrentPage={setCurrentPage}></NavBar>
+      <Sorts setCurrentPage={setCurrentPage} setOrder={setOrder}></Sorts>
       {currentProducts &&
         currentProducts?.map((product: any) => {
           return (
