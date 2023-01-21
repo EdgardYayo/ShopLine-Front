@@ -11,7 +11,7 @@ export const ORDER_BY_NAME = "ORDER_BY_NAME";
 
 export const getProducts = () => {
   return async function (dispatch: AppDispatch) {
-    const response = await axios.get(`${API_ENDPOINT}/products`);
+    const response = await axios.get('https://fakestoreapi.com/products');
     dispatch({
       type: GET_PRODUCTS,
       payload: response.data,

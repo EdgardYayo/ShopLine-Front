@@ -1,0 +1,38 @@
+.container {
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 50px;
+    border: 2px solid #fff;
+    border-radius: 40px;
+    transition: all 500ms ease;
+    padding: 15px;
+}
+
+.container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px black;
+    border-color: #aaa;
+}
+
+
+.image {
+    width: 200px;
+    height: 200px;
+}
+
+.title {
+    font-style:italic;
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+
+.price {
+    font-size: 30px;
+    font-weight: 100;
+    transition: all 500ms ease;
+}
+
+.price:hover {
+    transform: scale(1.1);
+}
