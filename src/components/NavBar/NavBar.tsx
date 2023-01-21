@@ -4,6 +4,7 @@ import logo from "../../img/logo/Mi proyecto.png";
 import SearchBar from "../SearchBar/SearchBar";
 import UserModal from "./UserModal";
 import CarShop from "./CarShop";
+import SubNav from "../SubNav/SubNav";
 
 export default function NavBar({setCurrentPage}:any): JSX.Element {
   return (
@@ -24,6 +25,8 @@ export default function NavBar({setCurrentPage}:any): JSX.Element {
           </div>
         </nav>
       </div>
+      <SubNav></SubNav>
+
     </div>
   );
 }

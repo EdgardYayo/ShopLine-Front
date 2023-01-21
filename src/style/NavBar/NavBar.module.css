@@ -7,11 +7,12 @@
   width: 100%;
   z-index: 100;
   top: 0;
-  box-shadow: 0px 0px 8px #5E17EB;
   height: 120px;
 }
 
 .elements {
+  margin-top: 20px;
+  height: 80px;
   display: flex;
   align-items: center;
   gap: 300px;
