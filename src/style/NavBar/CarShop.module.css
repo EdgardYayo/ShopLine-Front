@@ -1,0 +1,14 @@
+.shop {
+  align-items: center;
+  height: 25px;
+  background-color: white;
+  color: #FD680B;
+  padding: 0.7em 0.9em;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+
+.btn{
+  border: none;
+}

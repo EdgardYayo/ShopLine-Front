@@ -1,0 +1,28 @@
+/* Navbar */
+
+.nav {
+  background: #ecf0f1;
+  text-decoration: none;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+  box-shadow: 0px 0px 8px #5E17EB;
+  height: 120px;
+}
+
+.elements {
+  display: flex;
+  align-items: center;
+  gap: 300px;
+}
+
+.elem img {
+  width: 150px;
+  height: 150px;
+}
+
+.user-cart{
+  width: 100px;
+  display: flex;
+}

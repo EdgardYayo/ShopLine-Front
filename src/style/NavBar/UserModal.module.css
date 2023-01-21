@@ -1,0 +1,17 @@
+.user {
+  align-items: center;
+  height: 25px;
+  background-color: white;
+  color: #0685FC;
+  padding: 0.7em 0.9em;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.user-content{
+  margin-right: 20px;
+}
+
+.btn{
+  border: none;
+}
