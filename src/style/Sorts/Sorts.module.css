@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    justify-content: right;
+    margin-top: 300px;
+    margin-right: 20px;
+}
+
+
+.container select {
+    border-radius: 5px;
+    padding: 2px;
+    background: #eee;
+    border: 1px solid #fff;
+    box-shadow: 0 0 12px #0685FC;
+    margin-left: 4px;
+    letter-spacing: 2px;
+    outline: none;
+}
+
+.container select:active{
+    border: none;
+}
+
+.container option {
+    border: none;
+    border-radius: 5px;
+    font-style: italic;
+}
