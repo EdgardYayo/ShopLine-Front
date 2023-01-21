@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch } from "../../redux/store";
 import ProductCard from "../ProductCard/ProductCard";
 import { getProducts } from "../../redux/actions/Products";
-import { useAppSelector } from "../../redux/store/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 
 export default function Home(): JSX.Element {
-  const dispatch: AppDispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const allProducts = useAppSelector((state) => state.products);
+  console.log(allProducts);
+  
 
   useEffect(() => {
     dispatch(getProducts())
