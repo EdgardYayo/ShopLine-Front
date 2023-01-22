@@ -26,12 +26,14 @@
     font-style:italic;
     font-weight: 500;
     letter-spacing: 3px;
+    color: black;
 }
 
 .price {
     font-size: 30px;
     font-weight: 100;
     transition: all 500ms ease;
+    color: black;
 }
 
 .price:hover {

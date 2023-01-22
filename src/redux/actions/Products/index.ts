@@ -32,9 +32,9 @@ export const getCategories = () => {
   };
 };
 
-export const getDetail = (id:any) => {
+export const getDetail = (id:number) => {
   return async function (dispatch: AppDispatch) {
-    const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
+    const response = await axios.get(`${API_ENDPOINT}/products/${id}`);
     dispatch({
       type: GET_DETAIL,
       payload: response.data,

@@ -14,13 +14,13 @@ interface StateProducts {
   products: any[];
   productsBackUp: any[];
   categories: any[];
-  detail: any;
+  detail: any[];
 }
 const initialState: StateProducts = {
   products: [],
   productsBackUp: [],
   categories: [],
-  detail: {},
+  detail: [],
 };
 
 function rootReducer(state: StateProducts = initialState, action: AnyAction) {
