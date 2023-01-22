@@ -8,7 +8,6 @@ import { getCategories, filterByCategory } from "../../redux/actions/Products";
 
 export default function SubNav({ setOrder, setCurrentPage }: any): JSX.Element {
   const categories = useAppSelector((state) => state.categories);
-  console.log(categories);
   const [menu, setMenu] = useState(false);
 
   const dispatch = useAppDispatch();
@@ -24,7 +23,6 @@ export default function SubNav({ setOrder, setCurrentPage }: any): JSX.Element {
   function handleFilterByCategory(e: ChangeEvent<any>) {
     e.preventDefault();
     dispatch(filterByCategory(e.target.value));
-    console.log(e.target.value);
 
     setCurrentPage(1);
     setOrder("");

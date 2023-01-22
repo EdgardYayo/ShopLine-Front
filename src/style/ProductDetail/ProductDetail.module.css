@@ -1,0 +1,120 @@
+.container {
+    margin-top: 230px;
+}
+
+.title{
+    letter-spacing: 3px;
+    font-style: italic;
+    font-weight: 100;
+}
+
+.items-container {
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+.image {
+    width: 350px;
+    height: 350px;
+    margin-left: 100px;
+}
+
+
+.sm-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    margin-right: 10px;
+    border: none;
+    background: linear-gradient(var(--purple), var(--blue));
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.sm-container label {
+    text-align: justify;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+
+.sm-container span, p {
+    text-transform: capitalize;
+    font-weight: 300;
+    color: white;
+
+}
+
+.sm-container span {
+    text-align: justify;
+    font-size: large;
+}
+
+.sm-container p {
+    font-size: 18px;
+    text-align: justify;
+}
+
+.sub-sm-container {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+.sub-sm-container button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    transition: all 500ms;
+    font-size: 18px;
+}
+
+.sub-sm-container button:hover {
+    transform: translateY(-3px);
+}
+
+.sub-sm-container button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 3px black;
+}
+
+.icon-cart{
+    color: black;
+}
+
+.icon-tag{
+    color: blue
+    
+}
+
+.icon-dollar{
+    color: white;
+}
+
+.icon-star{
+    color: yellow;
+}
+
+.icon-gift{
+    color: red;
+}
+
+.icon-cart, .icon-dollar, .icon-gift, .icon-star, .icon-tag {
+    margin-right: 5px;
+}
+
+.btn-buy{
+    background: black;
+    color: white;
+}
+
+.btn-buy:hover{
+    box-shadow: 0 3px 0 white;
+}
+
+.btn-cart:hover {
+    box-shadow: 0 3px 0 black;
+}
