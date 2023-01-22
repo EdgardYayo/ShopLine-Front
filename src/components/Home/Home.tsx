@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import Paged from "../Paged/Paged";
 import NavBar from "../NavBar/NavBar";
 import Sorts from "../Sorts/Sorts";
+import { Link } from "react-router-dom";
 
 export default function Home(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -37,12 +38,14 @@ export default function Home(): JSX.Element {
       {currentProducts &&
         currentProducts?.map((product: any) => {
           return (
+            <Link to={"/detail/" + product.id}>
             <ProductCard
               key={product.id}
               image={product.image}
               title={product.title}
               price={product.price}
-            />
+              />
+            </Link>
           );
         })}
         <Paged

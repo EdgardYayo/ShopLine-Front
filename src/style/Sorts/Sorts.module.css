@@ -26,3 +26,23 @@
     border-radius: 5px;
     font-style: italic;
 }
+
+.inside-container{
+    width: 150px; 
+    box-shadow: 0 0 5px #0685FC;
+    font-style: italic;
+    border-radius: 4px;
+    transition: all 500ms;
+}
+
+.inside-container:hover {
+    outline: none;
+    box-shadow: 0 3px 5px #aaa;
+    transform: translateY(-3px);
+    z-index: 2;
+}
+
+.inside-container:focus-within{
+    box-shadow: 0 0 12px purple;
+    
+}
