@@ -13,7 +13,7 @@ import style from "../../style/Footer/Footer.module.css";
 export default function Footer(): JSX.Element {
   return (
     <div className={style["footer"]}>
-      <p>
+      <p className={style["copy"]}>
         Copyright &copy; 2023 <b>ShopLine</b> -
         Todos los derechos reservados.
       </p>

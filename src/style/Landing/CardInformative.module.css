@@ -12,6 +12,13 @@
   color: var(--main-color-font-dark);
   overflow: hidden;
 }
+
+.price{
+  color: black;
+}
+
+
+
 .cardInformative > div {
   width: 50%;
 }

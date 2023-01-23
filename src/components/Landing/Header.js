@@ -10,7 +10,7 @@ import style from "../../style/Landing/Header.module.css"
 export default function Header() {
   return (
     <main className={style["flow"]}>
-      <Titulo>Productos Destacados</Titulo>
+      <Titulo className={style["pro"]}>Productos Destacados</Titulo>
       <Slideshow
         controles={true}
         autoplay={true}
