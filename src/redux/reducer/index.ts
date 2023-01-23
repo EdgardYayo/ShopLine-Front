@@ -14,7 +14,7 @@ interface StateProducts {
   products: any[];
   productsBackUp: any[];
   categories: any[];
-  detail: any[];
+  detail: any;
 }
 const initialState: StateProducts = {
   products: [],
@@ -42,15 +42,15 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
         detail: action.payload
       };
     case FILTER_BY_NAME:
-      let filteredName;
-      if (action.payload) {
-        filteredName = state.productsBackUp.filter(
-          (elem) => elem.title.trim().toLowerCase().includes(action.payload.trim().toLowerCase())
-        );
-      }
+      // let filteredName;
+      // if (action.payload) {
+      //   filteredName = state.productsBackUp.filter(
+      //     (elem) => elem.title.trim().toLowerCase().includes(action.payload.trim().toLowerCase())
+      //   );
+      // }
       return {
         ...state,
-        products: filteredName
+        products: action.payload
       };
     case FILTER_BY_CATEGORY:
       let filteredCategory;

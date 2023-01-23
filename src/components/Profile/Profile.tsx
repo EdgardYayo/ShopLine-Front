@@ -13,12 +13,12 @@ import { useAuth0 } from "@auth0/auth0-react";
           try {
             const accessToken = await getAccessTokenSilently({
               authorizationParams: {
-                audience: `https://${domain}/api/v2/`,
+                audience: `https://dev-4zbd8xzwtn8q8w80.us.auth0.com/api/v2/`,
                 scope: "read:current_user",
               },
             });
       
-            const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user?.sub}`;
+            const userDetailsByIdUrl = `https://dev-4zbd8xzwtn8q8w80.us.auth0.com/api/v2/users/${user?.sub}`;
       
             const metadataResponse = await fetch(userDetailsByIdUrl, {
               headers: {

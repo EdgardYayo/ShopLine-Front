@@ -1,4 +1,5 @@
 import axios from "axios";
+import swa from "sweetalert";
 import { AppDispatch } from "../../store/index";
 
 const API_ENDPOINT = "http://localhost:3001";
@@ -14,7 +15,7 @@ export const ORDER_BY_PRICE = "ORDER_BY_PRICE";
 
 export const getProducts = () => {
   return async function (dispatch: AppDispatch) {
-    const response = await axios.get('https://fakestoreapi.com/products');
+    const response = await axios.get(`${API_ENDPOINT}/products`);
     dispatch({
       type: GET_PRODUCTS,
       payload: response.data,
@@ -42,22 +43,27 @@ export const getDetail = (id:number) => {
   };
 };
 
-// export const filterByName = (name: string) => {
-//   return async function (dispatch: AppDispatch) {
-//     const response = await axios.get(`${API_ENDPOINT}/products?name=${name}`);
-//     dispatch({
-//       type: FILTER_BY_NAME,
-//       payload: response.data,
-//     });
-//   };
-// };
-
-export const filterByName = (payload:string) => {
-    return {
-       type: FILTER_BY_NAME,
-       payload
-     }
+export const filterByName = (name: string) => {
+  return async function (dispatch: AppDispatch) {
+    try {
+      const response = await axios.get(`${API_ENDPOINT}/products?name=${name}`);
+      dispatch({
+        type: FILTER_BY_NAME,
+        payload: response.data,
+      });
+      
+    } catch (error) {
+      swa("This name doesn't match with any product", "Try other", "warning")
+    }
+  };
 };
+
+// export const filterByName = (payload:string) => {
+//     return {
+//        type: FILTER_BY_NAME,
+//        payload
+//      }
+// };
 
 export const filterByCategory = (payload: string) => {
   return {
