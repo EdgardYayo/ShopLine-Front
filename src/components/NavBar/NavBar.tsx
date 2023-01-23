@@ -14,7 +14,7 @@ export default function NavBar({setCurrentPage}:any): JSX.Element {
       <div className={style["nav-content"]}>
         <nav className={style["elements"]}>
           <div className={style["elem"]}>
-            <Link to={"/home"}>
+            <Link to={"/"}>
               <img src={logo} alt="img" className={style["logo"]} />
             </Link>
           </div>
