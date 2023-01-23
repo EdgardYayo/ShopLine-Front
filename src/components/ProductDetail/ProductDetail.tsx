@@ -30,14 +30,14 @@ export default function ProductDetail(props: any): JSX.Element {
         <img className={style["image"]} src={detail[0]?.image} alt="product" />
         <div className={style["sm-container"]}>
           <label>Description:</label>
-          <span>{detail[0]?.description}</span>
-          <p>
+          <span className={style["items-span"]}>{detail[0]?.description}</span>
+          <p className={style["items-p"]}>
             <FontAwesomeIcon className={style["icon-star"]} icon={faStar} /> {detail[0]?.rating}
           </p>
-          <p>
+          <p className={style["items-p"]}>
             <FontAwesomeIcon className={style["icon-gift"]} icon={faGifts} /> {detail[0]?.category}
           </p>
-          <p>
+          <p className={style["items-p"]}>
             <FontAwesomeIcon className={style["icon-tag"]} icon={faTag} /> ${detail[0]?.price}
           </p>
           <div className={style["sub-sm-container"]}>
