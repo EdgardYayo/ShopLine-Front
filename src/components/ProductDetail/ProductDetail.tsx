@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { getDetail } from "../../redux/actions/Products/index";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import style from "../../style/ProductDetail/ProductDetail.module.css";
