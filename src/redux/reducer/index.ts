@@ -45,12 +45,12 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
       let filteredName;
       if (action.payload) {
         filteredName = state.productsBackUp.filter(
-          (elem) => elem.title.trim() === action.payload.trim()
+          (elem) => elem.title.trim().toLowerCase().includes(action.payload.trim().toLowerCase())
         );
       }
       return {
         ...state,
-        products: filteredName  
+        products: filteredName
       };
     case FILTER_BY_CATEGORY:
       let filteredCategory;
