@@ -16,7 +16,7 @@ export default function CardInformative({ title, image, id, price }) {
           />
         </div>
         <div className={style["about"]}>
-          <Link to={"/animes/" + id}>
+          <Link to={"/detail/" + id}>
             <h4>{title}</h4>
           </Link>
         </div>
@@ -25,7 +25,7 @@ export default function CardInformative({ title, image, id, price }) {
         <h4>Price:</h4>
         <div className={style["description"]}>
           <p className={style["price"]}>{price} <FontAwesomeIcon icon={faDollar} className={style["dollar"]} /></p> 
-          <Link to={`/products/${id}`} className={style["read-more"]}>
+          <Link to={`/detail/${id}`} className={style["read-more"]}>
             view more
           </Link>
         </div>
