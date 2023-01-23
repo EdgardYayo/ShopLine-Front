@@ -5,6 +5,8 @@ import SearchBar from "../SearchBar/SearchBar";
 import UserModal from "./UserModal";
 import CarShop from "./CarShop";
 import SubNav from "../SubNav/SubNav";
+//import LoginButton from "../LoginButton/LoginButton";
+//import LogoutButton from "../LogoutButton/LogoutButton";
 
 export default function NavBar({setCurrentPage}:any): JSX.Element {
   return (
@@ -22,6 +24,8 @@ export default function NavBar({setCurrentPage}:any): JSX.Element {
           <div className={style["user-cart"]}>
             <UserModal></UserModal>
             <CarShop></CarShop>
+            {/* <LoginButton></LoginButton>
+            <LogoutButton></LogoutButton> */}
           </div>
         </nav>
       </div>

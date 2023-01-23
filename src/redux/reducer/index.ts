@@ -90,6 +90,8 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
         filteredPrice = state.productsBackUp.filter((elem) => elem.price < 900);
       } else if (action.payload === "moreThan900") {
         filteredPrice = state.productsBackUp.filter((elem) => elem.price > 900);
+      } else {
+        filteredPrice = state.productsBackUp;
       }
       return {
         ...state,

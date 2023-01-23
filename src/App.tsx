@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Landing from "./components/Landing/Landing";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import Footer from "./components/Footer/Footer";
+//import Profile from "./components/Profile/Profile";
 
 function App() {
   return (
