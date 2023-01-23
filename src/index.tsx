@@ -7,8 +7,8 @@ import { store } from "./redux/store/index";
 import { Provider } from "react-redux";
 import { Auth0Provider } from "@auth0/auth0-react";
 
-const domain: any = process.env.REACT_APP_AUTH0_DOMAIN;
-const clientId: any = process.env.REACT_APP_AUTH0_CLIENT_ID;
+//const domain: any = process.env.REACT_APP_AUTH0_DOMAIN;
+//const clientId: any = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -17,11 +17,11 @@ root.render(
   <Provider store={store}>
     <React.StrictMode>
       <Auth0Provider
-        domain={domain}
-        clientId={clientId}
+        domain={"dev-4zbd8xzwtn8q8w80.us.auth0.com"}
+        clientId={"HIluW97JfnE32EjpXVog5jRmBB4rsWvj"}
         authorizationParams={{
           redirect_url: window.location.origin,
-          audience: `https://${domain}/api/v2/`,
+          audience: `https://dev-4zbd8xzwtn8q8w80.us.auth0.com/api/v2/`,
           scope: "read:current_user update:current_user_metadata"
         }}
       >

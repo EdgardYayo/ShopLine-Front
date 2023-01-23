@@ -24,20 +24,20 @@ export default function ProductDetail(props: any): JSX.Element {
 
   return (
     <div className={style["container"]}>
-      <h1 className={style["title"]}>{detail[0]?.title}</h1>
+      <h1 className={style["title"]}>{detail?.title}</h1>
       <div className={style["items-container"]}>
-        <img className={style["image"]} src={detail[0]?.image} alt="product" />
+        <img className={style["image"]} src={detail?.image} alt="product" />
         <div className={style["sm-container"]}>
           <label>Description:</label>
-          <span className={style["items-span"]}>{detail[0]?.description}</span>
+          <span className={style["items-span"]}>{detail?.description}</span>
           <p className={style["items-p"]}>
-            <FontAwesomeIcon className={style["icon-star"]} icon={faStar} /> {detail[0]?.rating}
+            <FontAwesomeIcon className={style["icon-star"]} icon={faStar} /> {detail?.rating}
           </p>
           <p className={style["items-p"]}>
-            <FontAwesomeIcon className={style["icon-gift"]} icon={faGifts} /> {detail[0]?.category}
+            <FontAwesomeIcon className={style["icon-gift"]} icon={faGifts} /> {detail?.category}
           </p>
           <p className={style["items-p"]}>
-            <FontAwesomeIcon className={style["icon-tag"]} icon={faTag} /> ${detail[0]?.price}
+            <FontAwesomeIcon className={style["icon-tag"]} icon={faTag} /> ${detail?.price}
           </p>
           <div className={style["sub-sm-container"]}>
             <button className={style["btn-cart"]}>
