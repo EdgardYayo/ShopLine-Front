@@ -54,9 +54,9 @@ export const getDetail = (id:number) => {
 
 export const filterByName = (payload:string) => {
     return {
-      type: FILTER_BY_NAME,
-      payload
-    }
+       type: FILTER_BY_NAME,
+       payload
+     }
 };
 
 export const filterByCategory = (payload: string) => {

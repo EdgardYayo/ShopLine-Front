@@ -50,7 +50,7 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
       }
       return {
         ...state,
-        products: filteredName,
+        products: filteredName  
       };
     case FILTER_BY_CATEGORY:
       let filteredCategory;
