@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    justify-content: center;
+    transition: all 500ms;
+    margin-left: 10px;
+}
+
+.container:hover{
+    transform: translateY(-2px);
+}
+
+.icon {
+    margin-right: 5px;
+    color: black;
+}

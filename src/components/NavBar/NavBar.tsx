@@ -24,8 +24,8 @@ export default function NavBar({setCurrentPage}:any): JSX.Element {
           <div className={style["user-cart"]}>
             <UserModal></UserModal>
             <CarShop></CarShop>
-            {/* <LoginButton></LoginButton>
-            <LogoutButton></LogoutButton> */}
+             {/* <LoginButton></LoginButton>
+            <LogoutButton></LogoutButton>  */}
           </div>
         </nav>
       </div>

@@ -1,11 +1,13 @@
 import { AnyAction } from "redux";
 import {
+  CREATE_REVIEW,
   FILTER_BY_CATEGORY,
   FILTER_BY_NAME,
   FILTER_BY_PRICE,
   GET_CATEGORIES,
   GET_DETAIL,
   GET_PRODUCTS,
+  GET_REVIEWS,
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
 } from "../actions/Products";
@@ -15,12 +17,14 @@ interface StateProducts {
   productsBackUp: any[];
   categories: any[];
   detail: any;
+  reviews: any[];
 }
 const initialState: StateProducts = {
   products: [],
   productsBackUp: [],
   categories: [],
   detail: [],
+  reviews: []
 };
 
 function rootReducer(state: StateProducts = initialState, action: AnyAction) {
@@ -41,6 +45,11 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
         ...state,
         detail: action.payload
       };
+    case GET_REVIEWS:
+      return {
+        ...state,
+        reviews: action.payload
+      }
     case FILTER_BY_NAME:
       // let filteredName;
       // if (action.payload) {
@@ -136,6 +145,8 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
         ...state,
         products: action.payload === "all" ? state.products : orderedPrice,
       };
+    case CREATE_REVIEW:
+      return { ...state }
 
     default:
       return state;

@@ -4,4 +4,18 @@
 
 .pro{
     color: black;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    font-style: italic;
+    filter: drop-shadow(0 0 1px black);
+    font-size: 32px;
+}
+
+.descuento {
+    text-transform: capitalize;
+    font-weight: 100;
+    letter-spacing: 6px;
+    font-style: italic;
+    font-size: 21px;
+    filter: drop-shadow(0 0 1px black);
 }

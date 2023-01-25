@@ -10,6 +10,8 @@ import {
   faCartPlus,
   faMoneyCheckDollar,
 } from "@fortawesome/free-solid-svg-icons";
+import Reviews from "../Reviews/Reviews";
+import ShowReviews from "../ShowReviews/ShowReviews";
 
 export default function ProductDetail(props: any): JSX.Element {
   const id = props.match.params.id;
@@ -19,7 +21,8 @@ export default function ProductDetail(props: any): JSX.Element {
   console.log(detail);
 
   useEffect(() => {
-    dispatch(getDetail(id));
+    dispatch(getDetail(id))
+    window.scrollTo(0,0)
   }, [dispatch, id]);
 
   return (
@@ -31,23 +34,38 @@ export default function ProductDetail(props: any): JSX.Element {
           <label>Description:</label>
           <span className={style["items-span"]}>{detail?.description}</span>
           <p className={style["items-p"]}>
-            <FontAwesomeIcon className={style["icon-star"]} icon={faStar} /> {detail?.rating}
+            <FontAwesomeIcon className={style["icon-star"]} icon={faStar} />{" "}
+            {detail?.rating}
           </p>
           <p className={style["items-p"]}>
-            <FontAwesomeIcon className={style["icon-gift"]} icon={faGifts} /> {detail?.category}
+            <FontAwesomeIcon className={style["icon-gift"]} icon={faGifts} />{" "}
+            {detail?.category}
           </p>
           <p className={style["items-p"]}>
-            <FontAwesomeIcon className={style["icon-tag"]} icon={faTag} /> ${detail?.price}
+            <FontAwesomeIcon className={style["icon-tag"]} icon={faTag} /> $
+            {detail?.price}
           </p>
           <div className={style["sub-sm-container"]}>
             <button className={style["btn-cart"]}>
-             <FontAwesomeIcon className={style["icon-cart"]} icon={faCartPlus} />  Add to Cart 
+              <FontAwesomeIcon
+                className={style["icon-cart"]}
+                icon={faCartPlus}
+              />{" "}
+              Add to Cart
             </button>
             <button className={style["btn-buy"]}>
-             <FontAwesomeIcon className={style["icon-dollar"]} icon={faMoneyCheckDollar} />  Buy Now 
+              <FontAwesomeIcon
+                className={style["icon-dollar"]}
+                icon={faMoneyCheckDollar}
+              />{" "}
+              Buy Now
             </button>
           </div>
         </div>
+      </div>
+      <div className={style["reviews-container"]}>
+        <Reviews></Reviews>
+        <ShowReviews></ShowReviews>
       </div>
     </div>
   );

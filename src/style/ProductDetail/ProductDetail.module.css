@@ -118,3 +118,8 @@
 .btn-cart:hover {
     box-shadow: 0 3px 0 black;
 }
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
