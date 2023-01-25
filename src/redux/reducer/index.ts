@@ -12,19 +12,25 @@ import {
   ORDER_BY_PRICE,
 } from "../actions/Products";
 
+import { GET_USER_INFO } from "../actions/Users/index";
+
+import { UserInterface } from "../../types/types";
+
 interface StateProducts {
   products: any[];
   productsBackUp: any[];
   categories: any[];
   detail: any;
   reviews: any[];
+  user: UserInterface;
 }
 const initialState: StateProducts = {
   products: [],
   productsBackUp: [],
   categories: [],
   detail: [],
-  reviews: []
+  reviews: [],
+  user: {} as UserInterface,
 };
 
 function rootReducer(state: StateProducts = initialState, action: AnyAction) {
@@ -41,15 +47,15 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
         categories: action.payload,
       };
     case GET_DETAIL:
-      return { 
+      return {
         ...state,
-        detail: action.payload
+        detail: action.payload,
       };
     case GET_REVIEWS:
       return {
         ...state,
-        reviews: action.payload
-      }
+        reviews: action.payload,
+      };
     case FILTER_BY_NAME:
       // let filteredName;
       // if (action.payload) {
@@ -59,7 +65,7 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
       // }
       return {
         ...state,
-        products: action.payload
+        products: action.payload,
       };
     case FILTER_BY_CATEGORY:
       let filteredCategory;
@@ -146,7 +152,12 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
         products: action.payload === "all" ? state.products : orderedPrice,
       };
     case CREATE_REVIEW:
-      return { ...state }
+      return { ...state };
+    case GET_USER_INFO:
+      return {
+        ...state,
+        user: action.payload,
+      };
 
     default:
       return state;

@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./redux/store/index";
 import { Provider } from "react-redux";
-import { Auth0Provider } from "@auth0/auth0-react";
+import { Auth0ProviderWithHistory } from "./components/NavBar/Auth0-provider-with-history";
 
 //const domain: any = process.env.REACT_APP_AUTH0_DOMAIN;
 //const clientId: any = process.env.REACT_APP_AUTH0_CLIENT_ID;
@@ -16,17 +16,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <React.StrictMode>
-      <Auth0Provider
-        domain={"dev-4zbd8xzwtn8q8w80.us.auth0.com"}
-        clientId={"HIluW97JfnE32EjpXVog5jRmBB4rsWvj"}
-        authorizationParams={{
-          redirect_url: window.location.origin,
-          audience: `https://dev-4zbd8xzwtn8q8w80.us.auth0.com/api/v2/`,
-          scope: "read:current_user update:current_user_metadata"
-        }}
-      >
+      <Auth0ProviderWithHistory>
         <App />
-      </Auth0Provider>
+      </Auth0ProviderWithHistory>
     </React.StrictMode>
   </Provider>
 );

@@ -1,57 +1,63 @@
-const { user, isAuthenticated, isLoading } = useAuth0();
-import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-  
-  const Profile = () => {
-    const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
-    const [userMetadata, setUserMetadata] = useState(null);
+import { getUserResource, getUserResourceWithGoogle } from "../../redux/actions/Users/index";
+import { Link } from "react-router-dom";
+import { useCallback, useEffect, useState} from "react";
+import { useAppDispatch } from "../../redux/store/hooks";
+import { useHistory } from "react-router-dom";
+import { UserInterface } from "../../types/types";
 
-    useEffect(() => {
-        const getUserMetadata = async () => {
-          const domain = process.env.REACT_APP_AUTH0_DOMAIN;
-      
-          try {
-            const accessToken = await getAccessTokenSilently({
-              authorizationParams: {
-                audience: `https://dev-4zbd8xzwtn8q8w80.us.auth0.com/api/v2/`,
-                scope: "read:current_user",
-              },
-            });
-      
-            const userDetailsByIdUrl = `https://dev-4zbd8xzwtn8q8w80.us.auth0.com/api/v2/users/${user?.sub}`;
-      
-            const metadataResponse = await fetch(userDetailsByIdUrl, {
-              headers: {
-                Authorization: `Bearer ${accessToken}`,
-              },
-            });
-      
-            const { user_metadata } = await metadataResponse.json();
-      
-            setUserMetadata(user_metadata);
-          } catch (e:any) {
-            console.log(e.message);
-          }
-        };
-      
-        getUserMetadata();
-      }, [getAccessTokenSilently, user?.sub]);
-  
-    return (
-      isAuthenticated && (
-        <div>
-          <img src={user?.picture} alt={user?.name} />
-          <h2>{user?.name}</h2>
-          <p>{user?.email}</p>
-          <h3>User Metadata</h3>
-          {userMetadata ? (
-            <pre>{JSON.stringify(userMetadata, null, 2)}</pre>
-          ) : (
-            "No user metadata defined"
-          )}
+export default function Profile(): JSX.Element | null {
+  const dispatch = useAppDispatch();
+  const history = useHistory();
+  // const userAccounnt = useAppSelector((state) => state.user);
+  const {getAccessTokenSilently, user } = useAuth0();
+  const regularToken = window.localStorage.getItem('token');
+
+  const emailUser = user?.email ? user?.email : '';
+  const [userLog, setUserLog] = useState<UserInterface>({} as UserInterface);
+
+  const getToken = useCallback( async () => {
+    const accesToken = await getAccessTokenSilently();
+    dispatch(getUserResourceWithGoogle(accesToken, emailUser)).then(val => {
+      console.log('GOOGLE', val)
+      setUserLog(val)
+    });
+   
+  },[getAccessTokenSilently, emailUser, dispatch])
+
+  useEffect(() => {
+    getToken();
+    dispatch(getUserResource(regularToken ? regularToken : '')).then(val => {
+      console.log('us', val)
+      setUserLog(val)
+    })
+  }, [getToken, dispatch, regularToken]);
+  console.log(userLog)
+
+
+  if (!regularToken || !userLog) {
+    console.log('r', regularToken, 'u', userLog)
+    history.push('/login')
+  }
+
+
+  console.log('PROFILE', regularToken, userLog);
+  return (
+    <div>
+      {userLog?.rol === "Admin" && 
+        <div className="admin">
+          <Link to="/admin">Admin</Link>
         </div>
-      )
-    );
-  };
+      }
+     { userLog && <div className="row align-items-center profile-header">
+      <img src={userLog.image} alt={userLog.name} />
+      <h2>{userLog.name}</h2>
+      <h2>{userLog.email}</h2>
+    </div>}
+      
+   </div>
+  );
+}
   
-  export default Profile;
+
+  

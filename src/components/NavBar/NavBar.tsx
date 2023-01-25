@@ -2,7 +2,7 @@ import style from "../../style/NavBar/NavBar.module.css";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo/Mi proyecto.png";
 import SearchBar from "../SearchBar/SearchBar";
-import UserModal from "./UserModal";
+import DropDownUser from "./DropDown-User";
 import CarShop from "./CarShop";
 import SubNav from "../SubNav/SubNav";
 //import LoginButton from "../LoginButton/LoginButton";
@@ -22,7 +22,7 @@ export default function NavBar({setCurrentPage}:any): JSX.Element {
             <SearchBar setCurrentPage={setCurrentPage}></SearchBar>
           </div>
           <div className={style["user-cart"]}>
-            <UserModal></UserModal>
+            <DropDownUser></DropDownUser>
             <CarShop></CarShop>
              {/* <LoginButton></LoginButton>
             <LogoutButton></LogoutButton>  */}
