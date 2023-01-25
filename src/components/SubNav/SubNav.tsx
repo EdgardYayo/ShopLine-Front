@@ -58,7 +58,9 @@ export default function SubNav({ setOrder, setCurrentPage }: any): JSX.Element {
 
       <div className={style["sub-filter"]}>
         <ul>
+          <Link to={"/"}>
           <li><span>New Products</span></li>
+          </Link>
           <li><span>Popular</span></li>
           <li><span>Best sellers </span></li>
         </ul>

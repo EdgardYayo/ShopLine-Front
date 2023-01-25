@@ -23,7 +23,7 @@ export default function Header() {
           </Link>
 
           <TextoSlide colorFondo="navy">
-            <p>15% descuento en productos Apple</p>
+            <p className={style["descuento"]}>15% descuento en productos Apple</p>
           </TextoSlide>
         </Slide>
         <Slide>
@@ -31,7 +31,7 @@ export default function Header() {
             <img src={img2} alt="" />
           </Link>
           <TextoSlide>
-            <p>15% descuento en productos Apple</p>
+            <p className={style["descuento"]}>15% descuento en productos Apple</p>
           </TextoSlide>
         </Slide>
         <Slide>
@@ -39,7 +39,7 @@ export default function Header() {
             <img src={img3} alt="" />
           </Link>
           <TextoSlide>
-            <p>15% descuento en productos Apple</p>
+            <p className={style["descuento"]}>15% descuento en productos Apple</p>
           </TextoSlide>
         </Slide>
         <Slide>
@@ -47,7 +47,7 @@ export default function Header() {
             <img src={img4} alt="" />
           </Link>
           <TextoSlide>
-            <p>15% descuento en productos Apple</p>
+            <p className={style["descuento"]}>15% descuento en productos Apple</p>
           </TextoSlide>
         </Slide>
       </Slideshow>

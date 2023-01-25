@@ -1,0 +1,35 @@
+.container {
+    padding: 30px;
+    margin-top: 60px;
+}
+
+.sub-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.content, .rating {
+    border: 5px solid var(--purple);
+    padding: 10px;
+    background:#ddd;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight:900;
+    transition: all 500ms;
+}
+
+.content:hover, .rating:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px black;
+}
+
+
+.rating {
+    
+}
+
+.icon {
+    color: yellow;
+    filter: drop-shadow(0 0 1px black);
+}
