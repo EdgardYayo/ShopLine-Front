@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 250px;
+}
+
+.subcontainer {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 50px;
+}
+
+.input-pay {
+    width: 500px;
+    height: 20px;
+    background: #eee;
+    border: 5px double var(--blue);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--blue);
+    padding: 10px;
+}
+
+.button-pay {
+    margin-top: 10px;
+    width: 400px;
+    background: black;
+    color: white;
+    font-size: larger;
+    border-radius: 10px;
+}
+
+.button-pay:hover {
+    opacity: 0.9;
+}
+
+.button-pay:active {
+    opacity: 1;
+    transform: scale(0.95);
+    background-color: green;
+    color: black;
+    border: none;
+}
+
+.image {
+    width: 150px;
+    height: 150px;
+    box-shadow: 0 0 20px var(--orange);
+    border: 5px double var(--purple);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.price {
+    font-size: 40px;
+    margin-top: 70px;
+}
+
+.title {
+    font-weight: 100;
+    letter-spacing: 3px;
+    font-style: italic;
+    margin-top: 70px;
+}
+
+.icon {
+    color: green;
+}

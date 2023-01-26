@@ -6,6 +6,7 @@ import Paged from "../Paged/Paged";
 import NavBar from "../NavBar/NavBar";
 import Sorts from "../Sorts/Sorts";
 import { Link } from "react-router-dom";
+import Loading from "../../utils/Loading";
 
 export default function Home(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -35,7 +36,7 @@ export default function Home(): JSX.Element {
     <div>
       <NavBar setCurrentPage={setCurrentPage}></NavBar>
       <Sorts setCurrentPage={setCurrentPage} setOrder={setOrder}></Sorts>
-      {currentProducts &&
+      {currentProducts.length !== 0 ?
         currentProducts?.map((product: any) => {
           return (
             <Link to={"/detail/" + product.id}>
@@ -47,7 +48,7 @@ export default function Home(): JSX.Element {
               />
             </Link>
           );
-        })}
+        }) : <Loading></Loading> }
         <Paged
         paged={paged}
         allProducts={allProducts.length}

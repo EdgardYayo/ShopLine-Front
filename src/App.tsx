@@ -7,6 +7,11 @@ import Landing from "./components/Landing/Landing";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import Footer from "./components/Footer/Footer";
 //import Profile from "./components/Profile/Profile";
+import PayForm from "./components/PayForm/PayForm";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe("pk_test_51MUNEFDboVCgRDITHbfMWziUTBVcWxNqo8vqnQMoZ7LbiialaYzgCWzqEINkpsqStseqmS0xQLx7qpPayp4yZrAD00GRJnzYHZ")
 
 function App() {
   return (
@@ -18,6 +23,9 @@ function App() {
             <Route exact path="/" component={Landing} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/detail/:id" component={ProductDetail}/>
+            <Elements stripe={stripePromise}>
+            <Route exact path="/payment/:id" component={PayForm}/>
+            </Elements>
           </Switch>
           <Footer></Footer>
         </div>

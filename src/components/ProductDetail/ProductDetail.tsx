@@ -12,6 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Reviews from "../Reviews/Reviews";
 import ShowReviews from "../ShowReviews/ShowReviews";
+import { Link } from "react-router-dom";
 
 export default function ProductDetail(props: any): JSX.Element {
   const id = props.match.params.id;
@@ -53,13 +54,15 @@ export default function ProductDetail(props: any): JSX.Element {
               />{" "}
               Add to Cart
             </button>
+            <Link to={"/payment/" + detail.id}>
             <button className={style["btn-buy"]}>
               <FontAwesomeIcon
                 className={style["icon-dollar"]}
                 icon={faMoneyCheckDollar}
-              />{" "}
+                />
               Buy Now
             </button>
+                </Link>
           </div>
         </div>
       </div>
