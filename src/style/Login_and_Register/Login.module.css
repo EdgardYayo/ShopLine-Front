@@ -1,0 +1,79 @@
+.form-container {
+  display: flex;
+  /* flex-wrap: wrap-reverse; */
+  width: 100%;
+  min-height: calc(100vh - 54px);
+  text-align: left;
+  color: var(--main-color-font-dark);
+  box-sizing: border-box;
+}
+
+.form-container .form-login {
+  background-color: var(--main-color-content);
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+
+  padding: 2em;
+  gap: 1em;
+}
+.form-login .form__label {
+  color: var(--main-color-font-dark2);
+}
+.form-login a {
+  color: var(--main-color-font-dark);
+}
+
+.form-login .form__input,
+.form__input:focus {
+  padding: 1em;
+  font-size: 16px;
+  color: var(--main-color-font-dark2);
+  border: none;
+  outline: none;
+  background-color: aqua;
+}
+.form-login button {
+  border: none;
+  width: fit-content;
+  align-self: center;
+  padding: 1em;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 1.5em 0em;
+}
+.form-login .login-btn {
+  background-color: var(--secondary-color-content-2);
+  color: white;
+  opacity: 0.5;
+  transition: all ease-in-out 0.3s;
+}
+.form-login .login-btn:hover,
+.login-google-btn:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+.form-login .create-reference {
+  color: var(--main-color-font-dark2);
+  align-self: center;
+}
+.create-reference .link-create {
+  color: var(--main-color-font-dark);
+}
+
+.form-login .login-google-btn {
+  gap: 0.5em;
+  background-color: var(--main-bg-color-light);
+  color: var(--main-color-font-dark2);
+  display: flex;
+  align-items: center;
+}
+.login-google-btn svg {
+  height: 30px;
+}
+.form-container .aside-background {
+  width: 60%;
+ background-color: aqua;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

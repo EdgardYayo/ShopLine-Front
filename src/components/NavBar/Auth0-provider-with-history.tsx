@@ -24,7 +24,7 @@ export const Auth0ProviderWithHistory = (
     <Auth0Provider
       domain={"dev-0wcyb0rncjrw1ixe.us.auth0.com"}
       clientId={"r4KZrCUIMDkfPCFGFl6b3dMggKCyxQqm"}
-      audience={"https://hello-world.example.com"}
+      audience={"http://shopline/"}
       redirectUri={"http://localhost:3000/home"}
       onRedirectCallback={onRedirectCallback}
     >
