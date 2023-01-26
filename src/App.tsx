@@ -9,8 +9,6 @@ import Footer from "./components/Footer/Footer";
 import PayForm from "./components/PayForm/PayForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-
-const stripePromise = loadStripe("pk_test_51MUNEFDboVCgRDITHbfMWziUTBVcWxNqo8vqnQMoZ7LbiialaYzgCWzqEINkpsqStseqmS0xQLx7qpPayp4yZrAD00GRJnzYHZ")
 import Login from "./components/Login_and_Register/Login";
 import { useAppDispatch } from "./redux/store/hooks";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -21,6 +19,8 @@ import {
 import { getCategories } from "./redux/actions/Products";
 import Loading from "./utils/Loading";
 import Profile from "./components/Profile/Profile";
+
+const stripePromise = loadStripe("pk_test_51MUNEFDboVCgRDITHbfMWziUTBVcWxNqo8vqnQMoZ7LbiialaYzgCWzqEINkpsqStseqmS0xQLx7qpPayp4yZrAD00GRJnzYHZ")
 
 function App() {
   const dispatch = useAppDispatch();
