@@ -6,6 +6,7 @@ import {
   FILTER_BY_PRICE,
   GET_CATEGORIES,
   GET_DETAIL,
+  GET_PAY,
   GET_PRODUCTS,
   GET_REVIEWS,
   ORDER_BY_NAME,
@@ -152,6 +153,8 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
         products: action.payload === "all" ? state.products : orderedPrice,
       };
     case CREATE_REVIEW:
+      return { ...state };
+    case GET_PAY:
       return { ...state };
     case GET_USER_INFO:
       return {

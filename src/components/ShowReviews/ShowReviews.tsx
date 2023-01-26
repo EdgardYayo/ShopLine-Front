@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import style from "../../style/ShowReviews/ShowReviews.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import Loading from "../../utils/Loading";
 
 
 
@@ -19,7 +20,7 @@ export default function ShowReviews():JSX.Element {
 
     return (
         <div className={style["container"]}>
-            {allReviews.length && allReviews.map(rev => {
+            {allReviews && allReviews.map(rev => {
                 return (
                     <div className={style["sub-container"]} key={rev.id}>
                         <p className={style["content"]}>{rev.content}</p>

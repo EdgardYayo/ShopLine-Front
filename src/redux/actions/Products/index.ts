@@ -14,6 +14,7 @@ export const FILTER_BY_PRICE = "FILTER_BY_PRICE";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_BY_PRICE = "ORDER_BY_PRICE";
 export const CREATE_REVIEW = "CREATE_REVIEW";
+export const GET_PAY = "GET_PAY";
 
 export const getProducts = () => {
   return async function (dispatch: AppDispatch) {
@@ -108,6 +109,14 @@ export const orderByPrice = (payload: string) => {
 export const createReview = (payload:any) => {
   return async function () {
     const response = await axios.post(`${API_ENDPOINT}/reviews/create`, payload);
+    return response
+  };
+};
+
+
+export const getPay = (payload:any) => {
+  return async function () {
+    const response = await axios.post(`${API_ENDPOINT}/payments`, payload);
     return response
   };
 };

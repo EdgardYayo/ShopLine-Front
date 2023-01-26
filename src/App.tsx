@@ -6,6 +6,11 @@ import NavBar from "./components/NavBar/NavBar";
 import Landing from "./components/Landing/Landing";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import Footer from "./components/Footer/Footer";
+import PayForm from "./components/PayForm/PayForm";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe("pk_test_51MUNEFDboVCgRDITHbfMWziUTBVcWxNqo8vqnQMoZ7LbiialaYzgCWzqEINkpsqStseqmS0xQLx7qpPayp4yZrAD00GRJnzYHZ")
 import Login from "./components/Login_and_Register/Login";
 import { useAppDispatch } from "./redux/store/hooks";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -58,6 +63,10 @@ function App() {
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/home" component={Home} />
+            <Route exact path="/detail/:id" component={ProductDetail}/>
+            <Elements stripe={stripePromise}>
+            <Route exact path="/payment/:id" component={PayForm}/>
+            </Elements>
             <Route exact path="/login" component={Login} />
             <Route exact path="/detail/:id" component={ProductDetail} />
             {/* <Route exact path="/profile" component={Profile} /> */}
