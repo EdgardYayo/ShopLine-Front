@@ -1,6 +1,8 @@
 .container {
-    margin-top: 0px;
+    margin-top: 20px;
     padding: 30px;
+    background: linear-gradient(white, white, var(--purple));
+    border-radius: 20%;
 }
 
 .form {
@@ -15,51 +17,58 @@
 
 
 .title {
- font-weight: 100;
+ font-weight: 400;
  letter-spacing: 3px;
- font-style: italic;
 }
 
 
 .input {
-    width: 400px;
-    height: 200px;
-    border: 5px solid var(--blue);
+    width: 500px;
+    height: 80px;
+    border: none;
     background: #ddd;
     border-radius: 10px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
     outline: none;
     color: black;
     font-weight:700;
     font-size: 15px;
     opacity: 0.8;
+    text-shadow: 0 0 2px black;
 }
 
 .input:focus {
     box-shadow: 0 0 10px black;
     opacity: 1;
+    border-right: 8px solid var(--orange);
+    border-bottom: 5px solid var(--orange);
 }
 
 .input[name="rating"]{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 20px;
     padding: 10px;
+    text-shadow: 0 0 2px black;
+    list-style-type: circle;
 }
+
 
 .button {
     width: 100px;
     height: 50px;
     padding: 10px;
-    margin-left: 600px;
+    margin-left: 400px;
     border: none;
     color: black;
     font-size: large;
-    background: var(--purple);
+    background: var(--blue);
     border-radius: 5px;
 }
 
 .button:hover{
     opacity: 0.8;
-    box-shadow: 0 0 10px var(--purple);
+    box-shadow: 0 0 10px var(--blue);
 }
 
 .button:active {
@@ -70,11 +79,14 @@
 .error {
     color: red;
     font-style: italic;
+    filter: drop-shadow(0 0 2px red);
     font-weight: 700;
     text-decoration: underline;
 }
 
 .label {
-    font-weight: 700;
-    color: var(--blue);
+    font-weight: 100;
+    font-style: italic;
+    letter-spacing: 3px;
+    color: black;
 }
