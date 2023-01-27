@@ -48,7 +48,7 @@ export default function Reviews(): JSX.Element{
                     <Field type="textarea" name="content" value={input.content} className={style["input"]}/>
                     <ErrorMessage name="content" component="span" className={style["error"]}/>
                     <label htmlFor="rating" className={style["label"]}>Rating:</label>
-                    <Field type="number" name="rating" value={input.rating} className={style["input"]}/>
+                    <Field type="number" step="0.1" min="1" max="5" name="rating" value={input.rating} className={style["input"]}/>
                     <ErrorMessage name="rating" component="span" className={style["error"]}/>
                     <button type="submit" className={style["button"]}>Submit</button>
                 </Form>

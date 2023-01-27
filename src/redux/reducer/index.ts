@@ -16,6 +16,7 @@ import {
 import { GET_USER_INFO } from "../actions/Users/index";
 
 import { UserInterface } from "../../types/types";
+import { ADD_TO_CART, CREATE_CART, GET_CLIENT_CART } from "../actions/Cart";
 
 interface StateProducts {
   products: any[];
@@ -24,7 +25,10 @@ interface StateProducts {
   detail: any;
   reviews: any[];
   user: UserInterface;
+  cart: any[];
 }
+
+
 const initialState: StateProducts = {
   products: [],
   productsBackUp: [],
@@ -32,6 +36,7 @@ const initialState: StateProducts = {
   detail: [],
   reviews: [],
   user: {} as UserInterface,
+  cart: []
 };
 
 function rootReducer(state: StateProducts = initialState, action: AnyAction) {
@@ -161,7 +166,16 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
         ...state,
         user: action.payload,
       };
-
+    case CREATE_CART:
+      return { ...state };
+    case ADD_TO_CART:
+      return { ...state };
+    case GET_CLIENT_CART:
+      return {
+        ...state,
+        cart: action.payload
+      }
+      
     default:
       return state;
   }
