@@ -1,13 +1,16 @@
 /* Navbar */
 
 .nav {
-  background: #ecf0f1;
+  background: #F4F6FB;
   text-decoration: none;
   position: fixed;
   width: 100%;
   z-index: 100;
   top: 0;
   height: 120px;
+  box-shadow: 10px 10px 64px 0px rgba(180, 180, 207, 0.75);
+  -webkit-box-shadow: 10px 10px 64px 0px rgba(186, 186, 202, 0.75);
+  -moz-box-shadow: 10px 10px 64px 0px rgba(208, 208, 231, 0.75);
 }
 
 .elements {
@@ -15,7 +18,7 @@
   height: 80px;
   display: flex;
   align-items: center;
-  gap: 260px;
+  gap: 280px;
 }
 
 .elem img {

@@ -5,8 +5,9 @@ import style from "../../style/NavBar/CarShop.module.css";
 export default function CarShop(): JSX.Element {
   return (
     <div>
-      <button className={style["btn"]}>
-        <FontAwesomeIcon icon={faCartShopping} className={style["shop"]} />
+      <button className={style["car"]}>
+        <FontAwesomeIcon icon={faCartShopping} className={style["iconCar"]} />
+        Cart
       </button>
     </div>
   );

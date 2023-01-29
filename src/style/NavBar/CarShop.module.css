@@ -1,14 +1,28 @@
-.shop {
+.car {
+  color: white;
+  background-color: #F66F1C;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 5px;
+  height: 44px;
+  border: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: flex;
   align-items: center;
-  height: 25px;
-  background-color: white;
-  color: #FD680B;
-  padding: 0.7em 0.9em;
-  margin-bottom: 20px;
-  border-radius: 20px;
+  cursor: pointer;
+  width: 70px;
+}
+
+.type {
+  color: var(--main-color-font-dark);
 }
 
 
-.btn{
-  border: none;
+.iconCar {
+  font-size: 12px;
+  padding: 4px 4px;
+  color: var(--main-color-font-dark);
+  border-radius: 20px;
+  margin-right: 2px;
 }
