@@ -116,7 +116,11 @@ export const createReview = (payload:any) => {
 
 export const getPay = (payload:any) => {
   return async function () {
-    const response = await axios.post(`${API_ENDPOINT}/payments`, payload);
-    return response
+    try {
+      const response = await axios.post(`${API_ENDPOINT}/payments`, payload);
+      return response;   
+    } catch (error) {
+      console.log(error)
+    }
   };
 };

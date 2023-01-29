@@ -17,8 +17,8 @@ export default function PayForm(props) {
     dispatch(getDetail(id));
   }, [dispatch, id]);
 
-  const price = detail.price * 100;
-  const description = detail.description;
+  const amount = detail.price * 100;
+  const description = detail.title;
 
 
   const stripePromise = loadStripe(
@@ -38,8 +38,7 @@ export default function PayForm(props) {
 
     if (!error) {
       const { id } = paymentMethod;
-      
-      dispatch(getPay({id, price, description}));
+      dispatch(getPay({id, amount, description}));
       elements.getElement(CardElement).clear();
       swa("You payment was successfully processed", "Thank you for shopping in SHOPLINE", "success")
     }
