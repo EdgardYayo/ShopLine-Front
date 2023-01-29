@@ -30,5 +30,5 @@ export default yup.object().shape({
     .max(13, "The identification document cannot exceed 13 characters"),
   phone: yup.string().matches(phoneRegExp, "Phone number is not valid"),
   address: yup.string().required(isRequiredMessage),
-  nationality: yup.string().required("No country Selected"),
+  nationality: yup.string().required(isRequiredMessage),
 });

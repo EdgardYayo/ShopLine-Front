@@ -207,23 +207,13 @@ export default function Register(): JSX.Element {
             />
           </div>
           <div className={style["field"]}>
-            <label htmlFor="nationality">Choose your Nationality</label>
+            <label htmlFor="nationality">Nationality</label>
             <Field
-              as="select"
+              type="text"
               name="nationality"
-              value={user.nationality}
               className={style["input"]}
-              onChange={handleChange}
-            >
-              {nationalities &&
-                nationalities.map((country) => {
-                  return (
-                    <option value={user.nationality} key={country}>
-                      {country}
-                    </option>
-                  );
-                })}
-            </Field>
+              value={user.nationality}
+            />
             <ErrorMessage
               name="nationality"
               component="span"
