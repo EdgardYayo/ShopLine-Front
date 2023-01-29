@@ -1,6 +1,8 @@
 .container {
     padding: 30px;
     margin-top: 60px;
+    background: linear-gradient(white, white, var(--orange));
+    border-radius: 20%;
 }
 
 .sub-container {
@@ -10,26 +12,28 @@
 }
 
 .content, .rating {
-    border: 5px solid var(--purple);
+    border-top: 3px solid var(--blue);
+    border-left: 5px double var(--blue);
     padding: 10px;
-    background:#ddd;
+    background:#eee;
     border-radius: 10px;
     font-size: 18px;
     font-weight:900;
-    transition: all 500ms;
+    transition: all 750ms;
 }
 
 .content:hover, .rating:hover{
     transform: translateY(-3px);
     box-shadow: 0 0 10px black;
+    border-bottom: 3px solid var(--blue);
+    border-right: 5px double var(--blue);
+    border-top: none;
+    border-left: none;
 }
 
-
-.rating {
-    
-}
 
 .icon {
     color: yellow;
     filter: drop-shadow(0 0 1px black);
 }
+

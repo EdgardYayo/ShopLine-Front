@@ -4,6 +4,8 @@ import { useAppDispatch } from "../../redux/store/hooks";
 import validationReview from "./validations/validationReview";
 import { createReview } from "../../redux/actions/Products";
 import style from "../../style/Reviews/Reviews.module.css"
+import Rating from "@mui/material/Rating";
+import Stack from "@mui/material/Stack";
 
 
 interface FormValues {
@@ -48,7 +50,10 @@ export default function Reviews(): JSX.Element{
                     <Field type="textarea" name="content" value={input.content} className={style["input"]}/>
                     <ErrorMessage name="content" component="span" className={style["error"]}/>
                     <label htmlFor="rating" className={style["label"]}>Rating:</label>
-                    <Field type="number" name="rating" value={input.rating} className={style["input"]}/>
+                    {/* <Field type="number" step="0.1" min="1" max="5" name="rating" value={input.rating} className={style["input"]}/> */}
+                    <Stack spacing={1}>
+                    <Rating name="rating" defaultValue={1} value={input.rating} size="large" />
+                    </Stack>
                     <ErrorMessage name="rating" component="span" className={style["error"]}/>
                     <button type="submit" className={style["button"]}>Submit</button>
                 </Form>

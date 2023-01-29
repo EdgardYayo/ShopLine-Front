@@ -6,6 +6,9 @@ import NavBar from "./components/NavBar/NavBar";
 import Landing from "./components/Landing/Landing";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import Footer from "./components/Footer/Footer";
+import PayForm from "./components/PayForm/PayForm";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import Login from "./components/Login_and_Register/Login";
 import Register from "./components/Login_and_Register/Register";
 import { useAppDispatch } from "./redux/store/hooks";
@@ -17,6 +20,8 @@ import {
 import { getCategories } from "./redux/actions/Products";
 import Loading from "./utils/Loading";
 import Profile from "./components/Profile/Profile";
+
+const stripePromise = loadStripe("pk_test_51MUNEFDboVCgRDITHbfMWziUTBVcWxNqo8vqnQMoZ7LbiialaYzgCWzqEINkpsqStseqmS0xQLx7qpPayp4yZrAD00GRJnzYHZ")
 
 function App() {
   const dispatch = useAppDispatch();
@@ -59,6 +64,10 @@ function App() {
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/home" component={Home} />
+            <Route exact path="/detail/:id" component={ProductDetail}/>
+            <Elements stripe={stripePromise}>
+            <Route exact path="/payment/:id" component={PayForm}/>
+            </Elements>
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/detail/:id" component={ProductDetail} />
