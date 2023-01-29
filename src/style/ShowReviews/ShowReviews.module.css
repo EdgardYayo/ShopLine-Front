@@ -3,7 +3,6 @@
     margin-top: 60px;
     background: linear-gradient(white, white, var(--orange));
     border-radius: 20%;
-    border-collapse: collapse;
 }
 
 .sub-container {
@@ -33,11 +32,8 @@
 }
 
 
-.rating {
-    
-}
-
 .icon {
     color: yellow;
     filter: drop-shadow(0 0 1px black);
 }
+
