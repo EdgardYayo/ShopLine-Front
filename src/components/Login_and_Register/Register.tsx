@@ -104,7 +104,7 @@ export default function Register(): JSX.Element {
           onSubmit={handleSubmit}
         >
           <div className={style["card_header"]}>
-          <FontAwesomeIcon icon={faUserPlus} />
+            <FontAwesomeIcon icon={faUserPlus} />
             <h1 className={style["form_heading"]}>Sign up</h1>
           </div>
           <div className={style["field"]}>
@@ -213,6 +213,7 @@ export default function Register(): JSX.Element {
               name="nationality"
               value={user.nationality}
               className={style["input"]}
+              onChange={handleChange}
             >
               {nationalities &&
                 nationalities.map((country) => {

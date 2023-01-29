@@ -65,11 +65,11 @@ function App() {
             <Route exact path="/" component={Landing} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/detail/:id" component={ProductDetail}/>
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
             <Elements stripe={stripePromise}>
             <Route exact path="/payment/:id" component={PayForm}/>
             </Elements>
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
             <Route exact path="/detail/:id" component={ProductDetail} />
             {/* <Route exact path="/profile" component={Profile} /> */}
           </Switch>
