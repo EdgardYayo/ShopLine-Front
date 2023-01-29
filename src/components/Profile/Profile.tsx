@@ -1,4 +1,4 @@
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0} from "@auth0/auth0-react";
 import {
   getUserResource,
   getUserResourceWithGoogle,
@@ -13,7 +13,7 @@ export default function Profile(): JSX.Element | null {
   const dispatch = useAppDispatch();
   const history = useHistory();
   // const userAccounnt = useAppSelector((state) => state.user);
-  const { getAccessTokenSilently, user } = useAuth0<any>();
+  const { getAccessTokenSilently, user } = useAuth0();
   const regularToken = window.localStorage.getItem("token");
 
   const emailUser = user?.email ? user?.email : "";

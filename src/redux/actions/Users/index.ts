@@ -19,7 +19,6 @@ export const getUserResource = (accessToken: string) => {
       };
       const response = await axios(config);
 
-      console.log("user get", response);
       dispatch({ type: GET_USER_INFO, payload: response.data });
       return response.data;
     } catch (err: any) {
@@ -28,7 +27,10 @@ export const getUserResource = (accessToken: string) => {
   };
 };
 
-export const getUserResourceWithGoogle = (token: string, email: string) => {
+export const getUserResourceWithGoogle = (
+  token: string,
+  user: User | undefined
+) => {
   return async (dispatch: AppDispatch) => {
     try {
       const config = {
@@ -38,6 +40,7 @@ export const getUserResourceWithGoogle = (token: string, email: string) => {
           "content-type": "application/json",
           Authorization: `Bearer ${token}`,
         },
+        data: user,
       };
 
       const response = await axios(config);
@@ -98,5 +101,3 @@ export const registerUser = (user: User) => {
     }
   };
 };
-
-

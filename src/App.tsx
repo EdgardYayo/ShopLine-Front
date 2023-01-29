@@ -12,7 +12,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import Login from "./components/Login_and_Register/Login";
 import Register from "./components/Login_and_Register/Register";
 import { useAppDispatch } from "./redux/store/hooks";
-import { useAuth0} from "@auth0/auth0-react";
+import { useAuth0, User} from "@auth0/auth0-react";
 import {
   getUserResource,
   getUserResourceWithGoogle,
@@ -28,7 +28,7 @@ const stripePromise = loadStripe(
 function App() {
   const dispatch = useAppDispatch();
 
-  const { isLoading, getAccessTokenSilently, user} = useAuth0<any>();
+  const { isLoading, getAccessTokenSilently, user} = useAuth0<User>();
   // const regularToken = window.localStorage.getItem("token");
   // const emailUser = user?.email ? user?.email : "";
 
