@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import style from "../../style/Login_and_Register/Login.module.css";
 import { Link } from "react-router-dom";
@@ -69,49 +69,64 @@ export default function Login(): JSX.Element {
         validationSchema={validationSchema}
       >
         <Form
-          className={style["form-login"]}
+          className={style["card"]}
           onChange={handleChange}
           onSubmit={handleLogin}
         >
-          <h1>Sign in</h1>
-          <label htmlFor="email" className={style["form__label"]}>
-            Email
-          </label>
-          <Field
-            name="email"
-            type="text"
-            className={style["form__input"]}
-            value={user.email}
-          />
+          <div className={style["card_header"]}>
+            <svg
+              height="24"
+              width="24"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0 0h24v24H0z" fill="none"></path>
+              <path
+                d="M4 15h2v5h12V4H6v5H4V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6zm6-4V8l5 4-5 4v-3H2v-2h8z"
+                fill="currentColor"
+              ></path>
+            </svg>
+            <h1 className={style["form_heading"]}>Sign in</h1>
+          </div>
+          <div className={style["field"]}>
+            <label htmlFor="email">Email</label>
+            <Field
+              name="email"
+              placeholder="Email"
+              type="text"
+              className={style["input"]}
+              value={user.email}
+            />
 
-          <ErrorMessage
-            name="email"
-            component="span"
-            className={style["form__error"]}
-          />
+            <ErrorMessage
+              name="email"
+              component="span"
+              className={style["form__error"]}
+            />
+          </div>
 
-          <label htmlFor="password" className={style["form__label"]}>
-            Password
-          </label>
-          <Field
-            name="password"
-            type="password"
-            className={style["form__input"]}
-            value={user.password}
-          />
+          <div className={style["field"]}>
+            <label htmlFor="password">Password</label>
+            <Field
+              name="password"
+              placeholder="Password"
+              type="password"
+              className={style["input"]}
+              value={user.password}
+            />
 
-          <ErrorMessage
-            name="password"
-            component="span"
-            className={style["form__error"]}
-          />
-          <Link to={"restore"} className={style["restore"]}>
-            <span>Forgot pasword?</span>
-          </Link>
-          {/* {error.message && <p>{error.message}</p>} */}
-          <button type="submit" className={style["login-btn"]}>
-            Sign in
-          </button>
+            <ErrorMessage
+              name="password"
+              component="span"
+              className={style["form__error"]}
+            />
+          </div>
+
+          <div className={style["field"]}>
+            <button type="submit" className={style["button"]}>
+              Sign in
+            </button>
+          </div>
 
           <div className={style["create-reference"]}>
             <span>No account?</span>
@@ -119,17 +134,17 @@ export default function Login(): JSX.Element {
               <span className={style["link-create"]}> Create One</span>
             </Link>
           </div>
-          <button
-            type="button"
-            className={style["login-google-btn"]}
-            onClick={handleLoginWithGoogle}
-          >
-            <FontAwesomeIcon icon={faGoogle} />
-            Sign in with Google
-          </button>
+          <div className={style["field"]}>
+            <button
+              type="button"
+              className={style["login-google-btn"]}
+              onClick={handleLoginWithGoogle}
+            >
+              <FontAwesomeIcon icon={faGoogle} className={style["icon-go"]} />
+            </button>
+          </div>
         </Form>
       </Formik>
-      <div className={style["aside-background"]}></div>
     </div>
   );
 }

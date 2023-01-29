@@ -1,8 +1,9 @@
 .log {
-  color: var(--main-bg-color-light);
-  background-color: var(--secondary-color-items-1);
+  color: white;
+  background-color: #5E17EB;
+  border-radius: 10px;
   font-size: 16px;
-  padding: 6px;
+  padding: 5px;
   height: 44px;
   border: 0;
   margin-right: 10px;
@@ -10,28 +11,22 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  width: 70px;
 }
 
 .type {
   color: var(--main-color-font-dark);
 }
 
-.iconDown {
-  margin-right: 10px;
-  margin-left: 15px;
-}
 
 .iconUser {
   background-color: var(--main-bg-color-light);
   padding: 4px 4px;
   color: var(--main-color-font-dark);
   border-radius: 20px;
+  margin-right: 2px;
 }
 
-.medal {
-  margin-left: 10px;
-  color: var(--main-color-font-dark);
-}
 
 /* dropdown menu */
 
@@ -79,7 +74,7 @@
 }
 
 .nav-dropdown.isActive {
-  height: 100px;
+  height: 60px;
   opacity: 1;
   margin-top: 1em;
   background-color: var(--main-color-content);
@@ -88,12 +83,7 @@
 }
 
 .ul-dropdown {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: flex-start;
-  column-gap: 1em;
-  row-gap: 1em;
+  display: contents;
 }
 
 .li-dropdown {

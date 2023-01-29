@@ -7,7 +7,7 @@
 
 .card {
   width: 300px;
-  height: 370px;
+  height: 850px;
   background: #f4f6fb;
   border: 5px solid white;
   box-shadow: 10px 10px 64px 0px rgba(180, 180, 207, 0.75);
@@ -20,13 +20,13 @@
 }
 
 .card_header {
-  margin-left: 20px;
+    margin-left: 20px;
   display: flex;
   align-items: center;
 }
 
 .card svg {
-  color: #5E17EB;
+  color: #5e17eb;
   margin-bottom: 20px;
   margin-right: 5px;
 }
@@ -34,7 +34,7 @@
 .form_heading {
   padding-bottom: 20px;
   font-size: 21px;
-  color: #5E17EB;
+  color: #5e17eb;
 }
 
 .field {
@@ -70,7 +70,7 @@ label {
 }
 
 .button {
-  background-color: #5E17EB;
+  background-color: #5e17eb;
   margin-top: 10px;
   border: none;
   border-radius: 10px;
@@ -86,7 +86,7 @@ label {
 }
 .login-google-btn {
   margin-top: 10px;
-  background-color: #0685FC;
+  background-color: #0685fc;
   width: 50px;
   height: 40px;
   border-radius: 70px;
@@ -97,28 +97,9 @@ label {
   margin-top: 12px;
   color: white;
   margin-left: 5px;
-  
 }
 
-.form__error{
+.form__error {
   color: red;
   font-style: italic;
-
 }
-
-/* .form-login .login-google-btn {
-  gap: 0.5em;
-  background-color: var(--main-bg-color-light);
-  color: var(--main-color-font-dark2);
-  display: flex;
-  align-items: center;
-}
-.login-google-btn svg {
-  height: 30px;
-}
-.form-container .aside-background {
-  width: 60%;
- background-color: aqua;
-  background-size: cover;
-  background-repeat: no-repeat;
-} */

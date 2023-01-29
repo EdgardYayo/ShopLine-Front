@@ -51,10 +51,8 @@ const DropdownUser = () => {
   return (
     <div className={style["explore user"]}>
       <button onClick={toggleMenu} className={style["log"]}>
-        <p className={style["type"]}>User</p>
-        <FontAwesomeIcon icon={faMedal} className={style["medal"]} />
-        <FontAwesomeIcon icon={faCaretDown} className={style["iconDown"]} />
         <FontAwesomeIcon icon={faUser} className={style["iconUser"]} />
+        User
       </button>
       <nav
         className={

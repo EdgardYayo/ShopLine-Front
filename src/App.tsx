@@ -7,6 +7,7 @@ import Landing from "./components/Landing/Landing";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import Footer from "./components/Footer/Footer";
 import Login from "./components/Login_and_Register/Login";
+import Register from "./components/Login_and_Register/Register";
 import { useAppDispatch } from "./redux/store/hooks";
 import { useAuth0 } from "@auth0/auth0-react";
 import {
@@ -59,6 +60,7 @@ function App() {
             <Route exact path="/" component={Landing} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
             <Route exact path="/detail/:id" component={ProductDetail} />
             {/* <Route exact path="/profile" component={Profile} /> */}
           </Switch>

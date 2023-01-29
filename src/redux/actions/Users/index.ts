@@ -71,3 +71,32 @@ export const loginUser = (user: User) => {
     }
   };
 };
+
+export const registerUser = (user: User) => {
+  return async (dispatch: AppDispatch): Promise<void> => {
+    try {
+      const config = {
+        url: `${API_ENDPOINT}/user/register`,
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        data: user,
+      };
+      await axios(config).then(
+        function (value) {
+          // Success!
+          return value.data;
+        },
+        function (err) {
+          // Error!
+          throw new Error(err.response.data);
+        }
+      );
+    } catch (err: any) {
+      throw new Error(err.message);
+    }
+  };
+};
+
+
