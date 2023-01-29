@@ -6,7 +6,7 @@ export interface UserInterface {
   email: string;
   dni: string;
   registered: boolean;
-  phone: number;
+  phone: string;
   address: Text;
   nacionality: string;
   rol: string;

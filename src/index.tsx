@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { store } from "./redux/store/index";
 import { Provider } from "react-redux";
 import { Auth0ProviderWithHistory } from "./components/NavBar/Auth0-provider-with-history";
+import { BrowserRouter } from "react-router-dom";
 
 //const domain: any = process.env.REACT_APP_AUTH0_DOMAIN;
 //const clientId: any = process.env.REACT_APP_AUTH0_CLIENT_ID;
@@ -15,11 +16,13 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Provider store={store}>
-    <React.StrictMode>
+    {/* <React.StrictMode> */}
+    <BrowserRouter>
       <Auth0ProviderWithHistory>
         <App />
       </Auth0ProviderWithHistory>
-    </React.StrictMode>
+    </BrowserRouter>
+    {/* </React.StrictMode> */}
   </Provider>
 );
 
