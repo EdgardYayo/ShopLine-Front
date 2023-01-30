@@ -36,8 +36,6 @@ function App() {
     return window.localStorage.getItem("token");
   }, []);
 
-  console.log(window.localStorage.getItem("token"))
-
   const getToken = useCallback(async () => {
     const accesToken = await getAccessTokenSilently();
     await dispatch(getUserResourceWithGoogle(accesToken, user));
@@ -56,7 +54,9 @@ function App() {
   }, [getRegularToken, getUserInfo, getToken, dispatch]);
 
   if (isLoading) {
-    return <Loading />;
+    return (
+      <Loading />
+    )
   }
 
   return (

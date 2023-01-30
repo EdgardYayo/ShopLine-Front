@@ -7,7 +7,7 @@ export interface UserInterface {
   dni: string;
   registered: boolean;
   phone: string;
-  address: Text;
+  address: string;
   nacionality: string;
   rol: string;
   permissions: string;
