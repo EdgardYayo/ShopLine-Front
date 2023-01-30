@@ -8,6 +8,7 @@ export const GET_PRODUCTS = "GET_PRODUCTS";
 export const GET_CATEGORIES = "GET_CATEGORIES";
 export const GET_DETAIL = "GET_DETAIL";
 export const GET_REVIEWS = "GET_REVIEWS";
+export const GET_POPULAR = "GET_POPULAR";
 export const FILTER_BY_NAME = "FILTER_BY_NAME";
 export const FILTER_BY_CATEGORY = "FILTER_BY_CATEGORY";
 export const FILTER_BY_PRICE = "FILTER_BY_PRICE";
@@ -55,6 +56,18 @@ export const getReviews = () => {
     });
   };
 };
+
+export const getPopular = () => {
+  return async function (dispatch: AppDispatch) {
+    const response = await axios.get(`${API_ENDPOINT}/products/popular`);
+    dispatch({
+      type: GET_POPULAR,
+      payload: response.data,
+    });
+  };
+};
+
+
 
 export const filterByName = (name: string) => {
   return async function (dispatch: AppDispatch) {

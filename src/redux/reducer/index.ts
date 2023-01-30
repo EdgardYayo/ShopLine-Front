@@ -7,6 +7,7 @@ import {
   GET_CATEGORIES,
   GET_DETAIL,
   GET_PAY,
+  GET_POPULAR,
   GET_PRODUCTS,
   GET_REVIEWS,
   ORDER_BY_NAME,
@@ -26,6 +27,7 @@ interface StateProducts {
   reviews: any[];
   user: UserInterface;
   cart: any[];
+  popular: any[]
 }
 
 
@@ -36,7 +38,8 @@ const initialState: StateProducts = {
   detail: [],
   reviews: [],
   user: {} as UserInterface,
-  cart: []
+  cart: [],
+  popular: []
 };
 
 function rootReducer(state: StateProducts = initialState, action: AnyAction) {
@@ -62,6 +65,11 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
         ...state,
         reviews: action.payload,
       };
+    case GET_POPULAR:
+      return {
+        ...state,
+        popular: action.payload
+      }
     case FILTER_BY_NAME:
       // let filteredName;
       // if (action.payload) {
