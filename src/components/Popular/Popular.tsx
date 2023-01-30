@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-//import { getPopular } from "../../redux/actions/Products";
+import { getPopular } from "../../redux/actions/Products";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 
 
@@ -7,18 +7,18 @@ import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 
 export default function Popular():JSX.Element {
 
-    // const dispatch = useAppDispatch()
-    // const popular = useAppSelector(state => state.popular)
-    // console.log("aqui", popular);
+    const dispatch = useAppDispatch()
+    const popular = useAppSelector(state => state.popular)
+    console.log("pop", popular);
     
 
-    // useEffect(() => {
-    //     dispatch(getPopular())
-    // }, [dispatch])
+    useEffect(() => {
+        dispatch(getPopular())
+    }, [dispatch])
 
     return (
         <div>
-            {/* { popular.length && popular.map(p => {
+            { popular.length && popular.map(p => {
                 return (
                 <div key={p.id}>
                     <img src={p.image} alt={p.title}/>
@@ -27,7 +27,7 @@ export default function Popular():JSX.Element {
                     <p>{p.rating}</p>
                 </div>
                 )
-            })} */}
+            })} 
         </div>
     )
 }

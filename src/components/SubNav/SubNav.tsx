@@ -61,7 +61,9 @@ export default function SubNav({ setOrder, setCurrentPage }: any): JSX.Element {
           <Link to={"/"}>
           <li><span>New Products</span></li>
           </Link>
+          <Link to={"/popular"}>
           <li><span>Popular</span></li>
+          </Link>
           <li><span>Best sellers </span></li>
         </ul>
       </div>

@@ -21,6 +21,7 @@ import { getCategories } from "./redux/actions/Products";
 import Loading from "./utils/Loading";
 import Profile from "./components/Profile/Profile";
 import Cart from "./components/Cart/Cart";
+import Popular from "./components/Popular/Popular";
 
 const stripePromise = loadStripe(
   "pk_test_51MUNEFDboVCgRDITHbfMWziUTBVcWxNqo8vqnQMoZ7LbiialaYzgCWzqEINkpsqStseqmS0xQLx7qpPayp4yZrAD00GRJnzYHZ"
@@ -69,6 +70,7 @@ function App() {
           <Route exact path="/home" component={Home} />
           <Route exact path="/detail/:id" component={ProductDetail} />
           <Route exact path="/profile/cart" component={Cart} />
+          <Route exact path="/popular" component={Popular} /> 
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Elements stripe={stripePromise}>
