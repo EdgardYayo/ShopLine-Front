@@ -11,6 +11,7 @@ import Loading from "../../utils/Loading";
 export default function Home(): JSX.Element {
   const dispatch = useAppDispatch();
   const allProducts = useAppSelector((state) => state.products);
+  const userInfo = useAppSelector((state) => state.user);
   //console.log(allProducts);
 
   /*Paged Logic*/

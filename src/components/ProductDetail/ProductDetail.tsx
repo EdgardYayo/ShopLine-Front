@@ -13,17 +13,27 @@ import {
 import Reviews from "../Reviews/Reviews";
 import ShowReviews from "../ShowReviews/ShowReviews";
 import { Link } from "react-router-dom";
+import { addToCart } from "../../redux/actions/Cart";
 
 export default function ProductDetail(props: any): JSX.Element {
   const id = props.match.params.id;
-  console.log(id);
   const dispatch = useAppDispatch();
   const detail = useAppSelector((state) => state.detail);
-  console.log(detail);
+
+  const userInfo = useAppSelector((state) => state.user);
+
+  function handleClick(title: string) {
+    const id = userInfo.id;
+
+    dispatch(addToCart(id, title));
+    console.log(title, "titleee");
+  }
+
+  const title = detail.title;
 
   useEffect(() => {
-    dispatch(getDetail(id))
-    window.scrollTo(0,0)
+    dispatch(getDetail(id));
+    window.scrollTo(0, 0);
   }, [dispatch, id]);
 
   return (
@@ -47,7 +57,10 @@ export default function ProductDetail(props: any): JSX.Element {
             {detail?.price}
           </p>
           <div className={style["sub-sm-container"]}>
-            <button className={style["btn-cart"]}>
+            <button
+              className={style["btn-cart"]}
+              onClick={() => handleClick(title)}
+            >
               <FontAwesomeIcon
                 className={style["icon-cart"]}
                 icon={faCartPlus}
@@ -55,14 +68,14 @@ export default function ProductDetail(props: any): JSX.Element {
               Add to Cart
             </button>
             <Link to={"/payment/" + detail.id}>
-            <button className={style["btn-buy"]}>
-              <FontAwesomeIcon
-                className={style["icon-dollar"]}
-                icon={faMoneyCheckDollar}
+              <button className={style["btn-buy"]}>
+                <FontAwesomeIcon
+                  className={style["icon-dollar"]}
+                  icon={faMoneyCheckDollar}
                 />
-              Buy Now
-            </button>
-                </Link>
+                Buy Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>

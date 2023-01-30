@@ -2,7 +2,9 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
-import style from "../../style/ProductCard/ProductCard.module.css"
+import style from "../../style/ProductCard/ProductCard.module.css";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
+import { addToCart } from "../../redux/actions/Cart";
 
 interface product {
   title: string;
@@ -11,12 +13,27 @@ interface product {
 }
 
 export default function ProductCard(props: product): JSX.Element {
+  const dispatch = useAppDispatch();
+
+  const userInfo = useAppSelector((state) => state.user);
+
+  function handleClick(title: string) {
+    const id = userInfo.id;
+    console.log(title, "titleee")
+    dispatch(addToCart(id, title));
+  }
+
   return (
     <div className={style["container"]}>
       <img className={style["image"]} src={props.image} alt={"product"} />
       <h3 className={style["title"]}>{props.title}</h3>
-      <p className={style["price"]}><FontAwesomeIcon icon={faDollarSign} className={style["icon-dollar"]}/>{props.price}</p>
-      <FontAwesomeIcon icon={faBagShopping} className={style["icon-bag"]}/>
+      <p className={style["price"]}>
+        <FontAwesomeIcon icon={faDollarSign} className={style["icon-dollar"]} />
+        {props.price}
+      </p>
+      <button onClick={() => handleClick(props.title)}>
+        <FontAwesomeIcon icon={faBagShopping} className={style["icon-bag"]} />
+      </button>
     </div>
   );
 }

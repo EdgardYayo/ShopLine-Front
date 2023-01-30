@@ -9,17 +9,18 @@ export const GET_CLIENT_CART = "GET_CLIENT_CART";
 
 
 
-export const createCart = (payload:any) => {
-    return async function () {
-      const response = await axios.post(`${API_ENDPOINT}/cart/create`, payload);
-      return response
-    };
-};
+// export const createCart = (payload:any) => {
+//     return async function () {
+//       const response = await axios.post(`${API_ENDPOINT}/cart/create`, payload);
+//       return response
+//     };
+// };
 
 
-export const addToCart = (id:any, payload:any) => {
+export const addToCart = (id:any, title:string) => {
     return async function () {
-      const response = await axios.post(`${API_ENDPOINT}/cart/add/${id}`, payload);
+      const response = await axios.post(`${API_ENDPOINT}/cart/add/${id}`, title);
+      console.log(response.data, title)
       return response
     };
 };
