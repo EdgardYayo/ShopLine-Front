@@ -31,7 +31,7 @@
 
 .save-changes-btn {
   border: none;
-  background-color: var(--main-color-font-dark);
+  background-color: #0685FC;
   color: white;
   padding: 1em;
   cursor: pointer;

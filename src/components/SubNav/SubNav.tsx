@@ -23,7 +23,6 @@ export default function SubNav({ setOrder, setCurrentPage }: any): JSX.Element {
   function handleFilterByCategory(e: ChangeEvent<any>) {
     e.preventDefault();
     dispatch(filterByCategory(e.target.value));
-
     setCurrentPage(1);
     setOrder("");
   }

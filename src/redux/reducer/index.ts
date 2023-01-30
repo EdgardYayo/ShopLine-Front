@@ -26,7 +26,7 @@ interface StateProducts {
   detail: any;
   reviews: any[];
   user: UserInterface;
-  cart: any[];
+  cart: any;
   popular: any[]
 }
 

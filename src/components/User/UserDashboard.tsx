@@ -23,7 +23,7 @@ import User from "./Options/User";
 // import ListDetail from "./Options/ListDetail";
 
 export default function UserDashboard(): JSX.Element {
-  const options = useParams();
+  const {options} = useParams<any>();
 
   // const dispatch = useAppDispatch();
   const history = useHistory();

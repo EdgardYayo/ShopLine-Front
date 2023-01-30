@@ -1,4 +1,5 @@
 .user {
+  margin-top: 250px;
   display: flex;
   min-height: 100vh;
   box-sizing: border-box;

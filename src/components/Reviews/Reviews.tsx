@@ -35,6 +35,7 @@ export default function Reviews(): JSX.Element{
         e.preventDefault()
         dispatch(createReview(input))
         setInput(initialValues)
+        window.location.reload()
     }
 
 

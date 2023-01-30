@@ -10,25 +10,17 @@
   overflow-x: hidden;
 }
 
-.blur {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  height: 85%;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(2px);
-  margin: auto;
-}
+
 
 .target {
-  width: 50%;
+  width: 80%;
   display: flex;
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 55%;
+  margin-left: 80px;
 }
 
 .logo {
@@ -56,16 +48,9 @@
   justify-content: center;
 }
 
-.user-info h4 {
-  color: #4c0879;
-  margin-top: 0.5em;
-}
-.user-info h3 {
-  color: var(--main-color-font-dark);
-}
 
 .user-info h1 {
-  color: #f8b057;
+  color: #F27325;
 }
 
 .user-icon {
@@ -74,11 +59,15 @@
   column-gap: 1em;
   row-gap: 1.5em;
   margin-top: 2em;
+ 
 }
 
 .user-logo {
+  margin-right: 20px;
+  background-color: #611BEA;
   width: auto;
   font-size: 50px;
-  color: #1a0750;
-  padding: 10px;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
 }

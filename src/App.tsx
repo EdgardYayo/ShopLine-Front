@@ -50,7 +50,6 @@ function App() {
   }, [dispatch, getRegularToken]);
 
   useEffect(() => {
-    dispatch(getCategories());
     getToken();
     getUserInfo();
     getRegularToken();
