@@ -47,7 +47,7 @@ export default function Reviews(): JSX.Element{
             validationSchema={validationReview}>
                 <Form onSubmit={handleSubmit} onChange={handleChange} className={style["form"]}>
                     <label htmlFor="content" className={style["label"]}>Review:</label>
-                    <Field type="textarea" name="content" value={input.content} className={style["input"]}/>
+                    <Field as="textarea" type="textarea" name="content" value={input.content} className={style["input"]}/>
                     <ErrorMessage name="content" component="span" className={style["error"]}/>
                     <label htmlFor="rating" className={style["label"]}>Rating:</label>
                     {/* <Field type="number" step="0.1" min="1" max="5" name="rating" value={input.rating} className={style["input"]}/> */}
