@@ -31,9 +31,6 @@ export default function Register(): JSX.Element {
   const [user, setUser] = useState(initialValues);
   const { loginWithRedirect } = useAuth0();
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
 
   const handleChange = (e: any) => {
     const inputName = e.target.name;
