@@ -1,0 +1,47 @@
+/* Nav */
+
+.icon-bar {
+  width: 20%;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.options {
+  width: 100%;
+  height: 100vh;
+  background-color: #f4f0f8;
+}
+
+.icon-bar a {
+  display: block;
+  text-align: justify;
+  color: #4c0879;
+  padding: 18px;
+  font-size: 15px;
+  opacity: 40%;
+}
+
+.icon-bar span {
+  margin-right: 8px;
+}
+
+.icon-bar a:hover {
+  color: #4c0879;
+  opacity: 1;
+}
+
+.line {
+  border: 1px solid blueviolet;
+  font-size: 50px;
+  margin-left: 18px;
+  align-items: center;
+}
+
+.title {
+  padding-top: 30px;
+  color: #1a0750;
+  text-align: center;
+}

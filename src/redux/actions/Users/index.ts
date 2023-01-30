@@ -101,3 +101,23 @@ export const registerUser = (user: User) => {
     }
   };
 };
+
+export const changeUserSettings = (id: string, settings: {}) => {
+  return async (dispatch: AppDispatch) => {
+    try {
+      const config = {
+        url: `${API_ENDPOINT}/user/configure/${id}`,
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        data: settings,
+      };
+      const response = await axios(config);
+      // response.data
+      return dispatch({ type: GET_USER_INFO, payload: response.data });
+    } catch (err: any) {
+      throw new Error(err);
+    }
+  };
+};

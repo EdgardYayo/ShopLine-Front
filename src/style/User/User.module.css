@@ -1,0 +1,22 @@
+.user {
+  display: flex;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.user-content {
+  width: 80%;
+  box-sizing: border-box;
+}
+
+.welcome {
+  margin-top: 30px;
+  margin-left: 50px;
+  text-align: justify;
+  color: #1a0750;
+  margin-bottom: 20px;
+}
+
+.hola {
+  color: #1a0750;
+}

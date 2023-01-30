@@ -20,6 +20,7 @@ import {
 import { getCategories } from "./redux/actions/Products";
 import Loading from "./utils/Loading";
 import Profile from "./components/Profile/Profile";
+import UserDashboard from "./components/User/UserDashboard";
 
 const stripePromise = loadStripe(
   "pk_test_51MUNEFDboVCgRDITHbfMWziUTBVcWxNqo8vqnQMoZ7LbiialaYzgCWzqEINkpsqStseqmS0xQLx7qpPayp4yZrAD00GRJnzYHZ"
@@ -69,6 +70,7 @@ function App() {
           <Route exact path="/detail/:id" component={ProductDetail} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path={["/profile", "/profile/:options"]} component={UserDashboard} />
           <Elements stripe={stripePromise}>
             <Route exact path="/payment/:id" component={PayForm} />
           </Elements>
