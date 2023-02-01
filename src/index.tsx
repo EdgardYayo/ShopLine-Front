@@ -12,7 +12,7 @@ import { BrowserRouter } from "react-router-dom";
 //const clientId: any = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById("root") as Element
 );
 root.render(
   <Provider store={store}>
