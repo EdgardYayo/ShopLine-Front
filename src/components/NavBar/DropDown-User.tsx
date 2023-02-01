@@ -10,10 +10,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { useAppDispatch } from "../../redux/store/hooks";
+import { cleanUserInfo } from "../../redux/actions/Users";
 
 const DropdownUser = () => {
   const history = useHistory();
   const [menu, setMenu] = useState(false);
+  const dispatch = useAppDispatch()
   //login
   //Pasar User loging, logout a un nuevo componente
   const { logout, isAuthenticated } = useAuth0();
@@ -34,6 +37,7 @@ const DropdownUser = () => {
   }, [token]);
 
   const handleLogout = () => {
+    dispatch(cleanUserInfo())
     setMenu(!menu);
     if (isAuthenticated) {
       window.localStorage.removeItem("token");

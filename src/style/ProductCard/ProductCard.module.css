@@ -48,3 +48,13 @@
     font-size: 30px;
     color: #0685FC;
 }
+
+.btn-bag {
+    border: none;
+    background: white;
+    transition: all 750ms ease;
+}
+
+.btn-bag:hover {
+    transform: scale(1.3);
+}

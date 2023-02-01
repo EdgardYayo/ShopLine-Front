@@ -24,13 +24,7 @@ export default function Cart(): JSX.Element {
   }, [dispatch, id]);
 
 
-
-  // function handleAdding(){
-  //   if(cartDetail[0]?.products?.length + 1){
-  //     dispatch(getClientCart(id))
-  //   }
-      
-  // }
+  const total = cartDetail[0]?.products?.map((e:any) => e.price).reduce((acc:number, curr:number) => acc + curr)
 
   
  if(cartDetail === undefined)
@@ -57,11 +51,12 @@ export default function Cart(): JSX.Element {
           );
         })}
         <hr></hr>
-      {cartDetail[0]?.products
+      {/* {cartDetail[0]?.products
         ?.map((e: any) => e.price)
         .reduce((acc: number, curr: number) => {
           return <h2 className={style["total"]}>Total: ${acc + curr}</h2>;
-        }, 0)}
+        }, 0)} */}
+        <h2 className={style["total"]}>Total: ${total}</h2>
     </div>
   );
 

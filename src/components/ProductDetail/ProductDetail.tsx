@@ -14,6 +14,7 @@ import Reviews from "../Reviews/Reviews";
 import ShowReviews from "../ShowReviews/ShowReviews";
 import { Link } from "react-router-dom";
 import { addToCart } from "../../redux/actions/Cart";
+import swa from "sweetalert";
 
 export default function ProductDetail(props: any): JSX.Element {
   const id = props.match.params.id;
@@ -23,8 +24,10 @@ export default function ProductDetail(props: any): JSX.Element {
   const userInfo = useAppSelector((state) => state.user);
 
   function handleClick(productId: number) {
+    if(!userInfo){
+      return swa("You need to log in if you want to add this product to the cart", "", "warning")
+    }
     const id = userInfo.id;
-
     dispatch(addToCart(id, productId));
     console.log(productId, "idddddd");
   }

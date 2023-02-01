@@ -5,6 +5,7 @@ import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import style from "../../style/ProductCard/ProductCard.module.css";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { addToCart } from "../../redux/actions/Cart";
+import swa from "sweetalert";
 
 interface product {
   id: number;
@@ -14,15 +15,24 @@ interface product {
 }
 
 export default function ProductCard(props: product): JSX.Element {
+
   const dispatch = useAppDispatch();
 
   const userInfo = useAppSelector((state) => state.user);
 
+  const id = userInfo.id;
   function handleClick(productId: number) {
-    const id = userInfo.id;
-    console.log(productId, "productIdee")
+   
     dispatch(addToCart(id, productId));
   }
+
+  // function handleDisabled(){
+  //   if(!userInfo.hasOwnProperty(id)){
+  //     return true
+  //   } else {
+  //     return false
+  //   }
+  // }
 
   return (
     <div className={style["container"]}>
@@ -32,7 +42,7 @@ export default function ProductCard(props: product): JSX.Element {
         <FontAwesomeIcon icon={faDollarSign} className={style["icon-dollar"]} />
         {props.price}
       </p>
-      <button onClick={() => handleClick(props.id)}>
+      <button className={style["btn-bag"]} onClick={() => handleClick(props.id)}>
         <FontAwesomeIcon icon={faBagShopping} className={style["icon-bag"]} />
       </button>
     </div>
