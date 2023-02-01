@@ -14,10 +14,10 @@ import {
   ORDER_BY_PRICE,
 } from "../actions/Products";
 
-import { GET_USER_INFO } from "../actions/Users/index";
+import { CLEAN_USER_INFO, GET_USER_INFO } from "../actions/Users/index";
 
 import { UserInterface } from "../../types/types";
-import { ADD_TO_CART, CREATE_CART, GET_CLIENT_CART } from "../actions/Cart";
+import { ADD_TO_CART, CLEAR_CART, CREATE_CART, GET_CLIENT_CART } from "../actions/Cart";
 
 interface StateProducts {
   products: any[];
@@ -174,6 +174,11 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
         ...state,
         user: action.payload,
       };
+    case CLEAN_USER_INFO:
+      return {
+        ...state,
+        user: action.payload
+      }
     case CREATE_CART:
       return { ...state };
     case ADD_TO_CART:
@@ -183,7 +188,11 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
         ...state,
         cart: action.payload
       }
-      
+    case CLEAR_CART:
+      return {
+        ...state,
+        cart: action.payload
+      }
     default:
       return state;
   }

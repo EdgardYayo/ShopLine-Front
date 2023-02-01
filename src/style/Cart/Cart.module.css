@@ -7,14 +7,36 @@
     justify-content: space-around;
     align-items: center;
     margin-bottom: 20px;
+    transition: all 500ms ease;
 }
 
-.title{
+.cart-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px var(--orange);
+    border: 2px var(--orange) solid;
+    border-radius: 20px;
+}
+
+.title {
     font-size: 40px;
     letter-spacing: 3px;
-    filter: drop-shadow(0 0 3px var(--purple));
+    font-weight: 400;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    filter: drop-shadow(0 0 2px var(--purple));
+    transition: all 750ms ease;
 }
 
+.title::after {
+    content: '🛒';
+}
+
+.title:hover {
+    transform: translateX(-200px);
+}
+
+.title:hover::after {
+    content: '🛒🏃‍♂️...........';
+}
 
 .image {
     width: 150px;
@@ -32,6 +54,7 @@
 
 .product-title {
     font-size: 20px;
+    filter: drop-shadow(0 0 2px var(--blue));
 }
 
 .product-title, .price {
@@ -40,4 +63,9 @@
 
 .price {
     font-size: 30px;
+    filter: drop-shadow(0 0 2px var(--purple));
+}
+
+.price::first-letter{
+    color: green;
 }
