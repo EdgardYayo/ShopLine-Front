@@ -1,0 +1,43 @@
+.container {
+    margin-top: 230px;
+}
+
+.cart-card {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title{
+    font-size: 40px;
+    letter-spacing: 3px;
+    filter: drop-shadow(0 0 3px var(--purple));
+}
+
+
+.image {
+    width: 150px;
+    height: 150px;
+}
+
+.total {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 35px;
+    font-style: italic;
+    font-weight: 400;
+    margin-right: 25px;
+}
+
+.product-title {
+    font-size: 20px;
+}
+
+.product-title, .price {
+    font-weight: 100;
+}
+
+.price {
+    font-size: 30px;
+}

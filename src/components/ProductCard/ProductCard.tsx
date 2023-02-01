@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { addToCart } from "../../redux/actions/Cart";
 
 interface product {
+  id: number;
   title: string;
   image: string;
   price: number;
@@ -17,10 +18,10 @@ export default function ProductCard(props: product): JSX.Element {
 
   const userInfo = useAppSelector((state) => state.user);
 
-  function handleClick(title: string) {
+  function handleClick(productId: number) {
     const id = userInfo.id;
-    console.log(title, "titleee")
-    dispatch(addToCart(id, title));
+    console.log(productId, "productIdee")
+    dispatch(addToCart(id, productId));
   }
 
   return (
@@ -31,7 +32,7 @@ export default function ProductCard(props: product): JSX.Element {
         <FontAwesomeIcon icon={faDollarSign} className={style["icon-dollar"]} />
         {props.price}
       </p>
-      <button onClick={() => handleClick(props.title)}>
+      <button onClick={() => handleClick(props.id)}>
         <FontAwesomeIcon icon={faBagShopping} className={style["icon-bag"]} />
       </button>
     </div>
