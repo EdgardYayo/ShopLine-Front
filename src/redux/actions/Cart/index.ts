@@ -17,10 +17,10 @@ export const GET_CLIENT_CART = "GET_CLIENT_CART";
 // };
 
 
-export const addToCart = (id:any, title:string) => {
+export const addToCart = (id:any, productId:number) => {
     return async function () {
-      const response = await axios.post(`${API_ENDPOINT}/cart/add/${id}`, title);
-      console.log(response.data, title)
+      const response = await axios.post(`${API_ENDPOINT}/cart/add/${id}`, productId);
+      console.log(response.data, productId)
       return response
     };
 };

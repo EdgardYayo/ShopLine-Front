@@ -22,14 +22,14 @@ export default function ProductDetail(props: any): JSX.Element {
 
   const userInfo = useAppSelector((state) => state.user);
 
-  function handleClick(title: string) {
+  function handleClick(productId: number) {
     const id = userInfo.id;
 
-    dispatch(addToCart(id, title));
-    console.log(title, "titleee");
+    dispatch(addToCart(id, productId));
+    console.log(productId, "idddddd");
   }
 
-  const title = detail.title;
+  const productId = detail.id;
 
   useEffect(() => {
     dispatch(getDetail(id));
@@ -59,7 +59,7 @@ export default function ProductDetail(props: any): JSX.Element {
           <div className={style["sub-sm-container"]}>
             <button
               className={style["btn-cart"]}
-              onClick={() => handleClick(title)}
+              onClick={() => handleClick(productId)}
             >
               <FontAwesomeIcon
                 className={style["icon-cart"]}

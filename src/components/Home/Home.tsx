@@ -42,6 +42,7 @@ export default function Home(): JSX.Element {
           return (
             <Link to={"/detail/" + product.id}>
             <ProductCard
+              id={product.id}
               key={product.id}
               image={product.image}
               title={product.title}

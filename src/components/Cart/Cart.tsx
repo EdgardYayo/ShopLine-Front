@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { getClientCart } from "../../redux/actions/Cart";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
+import style from "../../style/Cart/Cart.module.css";
 
 export default function Cart(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -16,21 +17,23 @@ export default function Cart(): JSX.Element {
   }, [dispatch, id]);
 
   return (
-    <div style={{ marginTop: "200px" }}>
-      {cartDetail.products &&
-        cartDetail.products?.map((e: any) => {
+    <div className={style["container"]}>
+      <h1 className={style["title"]}>Cart</h1>
+      {cartDetail[0] &&
+        cartDetail[0]?.products?.map((e: any) => {
           return (
-            <div>
-              <h2>{e.title}</h2>
-              <img src={e.image} alt={e.title} />
-              <h3>{e.price}</h3>
+            <div className={style["cart-card"]}>
+              <img className={style["image"]} src={e.image} alt={e.title} />
+              <h2 className={style["product-title"]}>{e.title}</h2>
+              <h3 className={style["price"]}>${e.price}</h3>
             </div>
           );
         })}
-      {cartDetail.products
+        <hr></hr>
+      {cartDetail[0]?.products
         ?.map((e: any) => e.price)
         .reduce((acc: number, curr: number) => {
-          return <h2>Total: {acc + curr}</h2>;
+          return <h2 className={style["total"]}>Total: ${acc + curr}</h2>;
         })}
     </div>
   );

@@ -23,6 +23,7 @@ import Profile from "./components/Profile/Profile";
 import Cart from "./components/Cart/Cart";
 import Popular from "./components/Popular/Popular";
 import UserDashboard from "./components/User/UserDashboard";
+import { access } from "fs";
 
 const stripePromise = loadStripe(
   "pk_test_51MUNEFDboVCgRDITHbfMWziUTBVcWxNqo8vqnQMoZ7LbiialaYzgCWzqEINkpsqStseqmS0xQLx7qpPayp4yZrAD00GRJnzYHZ"
@@ -41,6 +42,7 @@ function App() {
 
   const getToken = useCallback(async () => {
     const accesToken = await getAccessTokenSilently();
+    console.log(accesToken, "token")
     await dispatch(getUserResourceWithGoogle(accesToken, user));
   }, [getAccessTokenSilently, user, dispatch]);
 
