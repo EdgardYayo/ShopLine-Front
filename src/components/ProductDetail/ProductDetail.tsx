@@ -64,7 +64,7 @@ export default function ProductDetail(props: any): JSX.Element {
               <FontAwesomeIcon
                 className={style["icon-cart"]}
                 icon={faCartPlus}
-              />{" "}
+              />
               Add to Cart
             </button>
             <Link to={"/payment/" + detail.id}>
