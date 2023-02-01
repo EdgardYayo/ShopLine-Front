@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
-import { getClientCart } from "../../redux/actions/Cart";
+import { clearCart, getClientCart } from "../../redux/actions/Cart";
+import { getProducts } from "../../redux/actions/Products";
+import { cleanUserInfo } from "../../redux/actions/Users";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import style from "../../style/Cart/Cart.module.css";
 
@@ -12,13 +14,38 @@ export default function Cart(): JSX.Element {
 
   const id = userInfo.id;
 
-  useEffect(() => {
-    dispatch(getClientCart(id));
+  useEffect(():any => {
+    dispatch(getClientCart(id))
+
+    return () => {
+      dispatch(clearCart())
+    }
+  
   }, [dispatch, id]);
 
+
+
+  // function handleAdding(){
+  //   if(cartDetail[0]?.products?.length + 1){
+  //     dispatch(getClientCart(id))
+  //   }
+      
+  // }
+
+  
+ if(cartDetail === undefined)
+  {
+  return (
+      <div className={style["container"]}>
+        <h1 className={style["title"]}>Your Cart is Empty</h1>
+        <p>You don't have products in your cart...🛒 </p>
+      </div>
+    )
+  } else {
   return (
     <div className={style["container"]}>
       <h1 className={style["title"]}>Cart</h1>
+      <span className={style["line"]}></span>
       {cartDetail[0] &&
         cartDetail[0]?.products?.map((e: any) => {
           return (
@@ -34,7 +61,9 @@ export default function Cart(): JSX.Element {
         ?.map((e: any) => e.price)
         .reduce((acc: number, curr: number) => {
           return <h2 className={style["total"]}>Total: ${acc + curr}</h2>;
-        })}
+        }, 0)}
     </div>
   );
+
+      }
 }

@@ -6,6 +6,7 @@ const API_ENDPOINT = "http://localhost:3001";
 export const CREATE_CART = "CREATE_CART";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const GET_CLIENT_CART = "GET_CLIENT_CART";
+export const CLEAR_CART = "CLEAR_CART";
 
 
 
@@ -20,7 +21,7 @@ export const GET_CLIENT_CART = "GET_CLIENT_CART";
 export const addToCart = (id:any, productId:number) => {
     return async function () {
       const response = await axios.post(`${API_ENDPOINT}/cart/add/${id}`, productId);
-      console.log(response.data, productId)
+      console.log(response, productId)
       return response
     };
 };
@@ -35,4 +36,11 @@ export const getClientCart = (id:any) => {
     };
   };
 
+
+export const clearCart = () => {
+  return {
+    type: CLEAR_CART,
+    payload: []
+  }
+}
 

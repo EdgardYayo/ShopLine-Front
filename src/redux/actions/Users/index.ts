@@ -5,6 +5,7 @@ import { User } from "@auth0/auth0-react";
 const API_ENDPOINT = "http://localhost:3001";
 
 export const GET_USER_INFO = "GET_USER_INFO";
+export const CLEAN_USER_INFO = "CLEAN_USER_INFO";
 
 export const getUserResource = (accessToken: string) => {
   return async (dispatch: AppDispatch) => {
@@ -121,3 +122,11 @@ export const changeUserSettings = (id: string, settings: {}) => {
     }
   };
 };
+
+
+export const cleanUserInfo = () => {
+  return {
+    type:CLEAN_USER_INFO,
+    payload: []
+  }
+}
