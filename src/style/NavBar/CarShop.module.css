@@ -1,6 +1,6 @@
 .car {
   color: white;
-  background-color: #F66F1C;
+  background-color: var(--blue);
   border-radius: 10px;
   font-size: 16px;
   padding: 5px;
@@ -25,4 +25,15 @@
   color: var(--main-color-font-dark);
   border-radius: 20px;
   margin-right: 2px;
+}
+
+.cart-elements{
+  background: red;
+  color: white;
+  border-radius:50%;
+  font-size: 12px;
+  padding: 5px;
+  position: relative;
+  bottom: 25px;
+  left: 25px;
 }

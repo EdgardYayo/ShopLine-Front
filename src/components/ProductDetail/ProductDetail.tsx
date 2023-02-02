@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { getDetail } from "../../redux/actions/Products/index";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import style from "../../style/ProductDetail/ProductDetail.module.css";
@@ -22,9 +22,14 @@ export default function ProductDetail(props: any): JSX.Element {
   const detail = useAppSelector((state) => state.detail);
 
   const userInfo = useAppSelector((state) => state.user);
-
+  const token = window.localStorage.getItem("token");
+  const isLogin = useMemo(() => {
+    if (token?.length) return true;
+    else return false;
+  }, [token]);
+  
   function handleClick(productId: number) {
-    if(!userInfo){
+    if(!isLogin){
       return swa("You need to log in if you want to add this product to the cart", "", "warning")
     }
     const id = userInfo.id;
@@ -32,6 +37,11 @@ export default function ProductDetail(props: any): JSX.Element {
     console.log(productId, "idddddd");
   }
 
+  function handlePayment(){
+    if(!isLogin){
+      return swa("You need to log in if you want to buy this product", "", "warning")
+    }
+  }
   const productId = detail.id;
 
   useEffect(() => {
@@ -71,7 +81,7 @@ export default function ProductDetail(props: any): JSX.Element {
               Add to Cart
             </button>
             <Link to={"/payment/" + detail.id}>
-              <button className={style["btn-buy"]}>
+              <button onClick={() => handlePayment()} disabled={ !isLogin ? true : false }  className={style["btn-buy"]}>
                 <FontAwesomeIcon
                   className={style["icon-dollar"]}
                   icon={faMoneyCheckDollar}
