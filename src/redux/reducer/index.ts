@@ -17,7 +17,7 @@ import {
 import { CLEAN_USER_INFO, GET_USER_INFO } from "../actions/Users/index";
 
 import { UserInterface } from "../../types/types";
-import { ADD_TO_CART, CLEAR_CART, CREATE_CART, GET_CLIENT_CART } from "../actions/Cart";
+import { ADD_TO_CART, CLEAR_CART, CREATE_CART, GET_CLIENT_CART, DELETE_FROM_CART } from "../actions/Cart";
 
 interface StateProducts {
   products: any[];
@@ -193,6 +193,8 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
         ...state,
         cart: action.payload
       }
+    case DELETE_FROM_CART:
+      return { ...state }
     default:
       return state;
   }

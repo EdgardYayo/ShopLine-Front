@@ -58,3 +58,8 @@
 .btn-bag:hover {
     transform: scale(1.3);
 }
+
+.btn-bag:active .icon-bag {
+    color: green;
+    transform: scale(0.95);
+}

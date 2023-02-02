@@ -6,6 +6,7 @@ import style from "../../style/ProductCard/ProductCard.module.css";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { addToCart } from "../../redux/actions/Cart";
 import swa from "sweetalert";
+import { Link } from "react-router-dom";
 
 interface product {
   id: number;
@@ -36,7 +37,9 @@ export default function ProductCard(props: product): JSX.Element {
 
   return (
     <div className={style["container"]}>
+      <Link to={"/detail/" + props.id}>
       <img className={style["image"]} src={props.image} alt={"product"} />
+      </Link>
       <h3 className={style["title"]}>{props.title}</h3>
       <p className={style["price"]}>
         <FontAwesomeIcon icon={faDollarSign} className={style["icon-dollar"]} />

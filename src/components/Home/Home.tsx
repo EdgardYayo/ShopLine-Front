@@ -40,7 +40,7 @@ export default function Home(): JSX.Element {
       {currentProducts.length !== 0 ?
         currentProducts?.map((product: any) => {
           return (
-            <Link to={"/detail/" + product.id}>
+            // <Link to={"/detail/" + product.id}>
             <ProductCard
               id={product.id}
               key={product.id}
@@ -48,7 +48,7 @@ export default function Home(): JSX.Element {
               title={product.title}
               price={product.price}
               />
-            </Link>
+           // </Link>
           );
         }) : <Loading></Loading> }
         <Paged
