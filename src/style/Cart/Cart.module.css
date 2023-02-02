@@ -8,6 +8,7 @@
     align-items: center;
     margin-bottom: 20px;
     transition: all 500ms ease;
+    padding: 10px;
 }
 
 .cart-card:hover {
@@ -68,4 +69,17 @@
 
 .price::first-letter{
     color: green;
+}
+
+
+.btn-delete {
+    border: none;
+    background: white;
+    color: red;
+    font-size: 35px;
+    transition: all 750ms ease;
+}
+
+.btn-delete:hover {
+    transform: scale(1.3);
 }

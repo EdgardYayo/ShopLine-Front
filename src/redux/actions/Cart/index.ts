@@ -7,6 +7,7 @@ export const CREATE_CART = "CREATE_CART";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const GET_CLIENT_CART = "GET_CLIENT_CART";
 export const CLEAR_CART = "CLEAR_CART";
+export const DELETE_FROM_CART = "DELETE_FROM_CART";
 
 
 
@@ -43,4 +44,13 @@ export const clearCart = () => {
     payload: []
   }
 }
+
+export const deleteFromCart = (id:any, productId:number | any) => {
+  return async function () {
+    const response = await axios.delete(`${API_ENDPOINT}/cart/delete/${id}?productId=${productId}`);
+    console.log(id, productId)
+    return response.config
+  };
+};
+
 
