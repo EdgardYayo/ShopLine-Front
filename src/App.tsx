@@ -24,6 +24,7 @@ import Cart from "./components/Cart/Cart";
 import Popular from "./components/Popular/Popular";
 import UserDashboard from "./components/User/UserDashboard";
 import { access } from "fs";
+import Receipts from "./components/Receipts/Receipts";
 
 const stripePromise = loadStripe(
   "pk_test_51MUNEFDboVCgRDITHbfMWziUTBVcWxNqo8vqnQMoZ7LbiialaYzgCWzqEINkpsqStseqmS0xQLx7qpPayp4yZrAD00GRJnzYHZ"
@@ -71,6 +72,7 @@ function App() {
           <Route exact path="/" component={Landing} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/detail/:id" component={ProductDetail} />
+          <Route exact path="/receipt" component={Receipts}/>
           <Route exact path="/popular" component={Popular} /> 
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />

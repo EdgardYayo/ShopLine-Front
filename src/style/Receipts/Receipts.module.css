@@ -1,0 +1,30 @@
+.container{
+    margin-top: 250px;
+}
+
+.name, .address {
+    filter:drop-shadow(2px 2px var(--blue));
+}
+
+.sub-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.receipt-card {
+    background: linear-gradient(var(--blue), var(--orange), var(--purple));
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 0 10px black;
+    text-shadow: 0 0 2px white;
+    color: white;
+    border-top-right-radius:200px;
+    border-bottom-left-radius:100px;
+}
+
+.stripe { 
+    font-size: 40px;
+    color: var(--orange);
+    filter: drop-shadow(0 0 5px var(--purple));
+}
