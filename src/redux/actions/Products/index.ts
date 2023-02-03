@@ -16,6 +16,7 @@ export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_BY_PRICE = "ORDER_BY_PRICE";
 export const CREATE_REVIEW = "CREATE_REVIEW";
 export const GET_PAY = "GET_PAY";
+export const GET_RECEIPT = "GET_RECEIPT";
 
 export const getProducts = () => {
   return async function (dispatch: AppDispatch) {
@@ -138,3 +139,20 @@ export const getPay = (payload:any) => {
     }
   };
 };
+
+
+export const getReceipt = (userId:any) => {
+  return async function(dispatch: AppDispatch){
+    try {
+       const response = await axios.get(`${API_ENDPOINT}/payments/receipt/${userId}`)
+       dispatch({
+        type: GET_RECEIPT,
+        payload: response.data
+       })
+    } catch (error) {
+      console.log(error)
+
+    }
+
+  }
+}

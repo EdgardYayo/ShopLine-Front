@@ -9,6 +9,7 @@ import {
   GET_PAY,
   GET_POPULAR,
   GET_PRODUCTS,
+  GET_RECEIPT,
   GET_REVIEWS,
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
@@ -27,7 +28,8 @@ interface StateProducts {
   reviews: any[];
   user: UserInterface;
   cart: any;
-  popular: any[]
+  popular: any[];
+  receipts: any;
 }
 
 
@@ -39,7 +41,8 @@ const initialState: StateProducts = {
   reviews: [],
   user: {} as UserInterface,
   cart: [],
-  popular: []
+  popular: [],
+  receipts: []
 };
 
 function rootReducer(state: StateProducts = initialState, action: AnyAction) {
@@ -197,6 +200,11 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
       return { ...state }
     case DELETE_CART_AFTER_PAYMENT:
       return { ...state }
+    case GET_RECEIPT:
+      return {
+        ...state,
+        receipts: action.payload
+      }
     default:
       return state;
   }
