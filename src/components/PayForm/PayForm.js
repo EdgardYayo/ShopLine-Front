@@ -12,6 +12,8 @@ export default function PayForm(props) {
   const id = props.match.params.id;
   const dispatch = useDispatch();
   const detail = useSelector((state) => state.detail);
+  const userInfo = useSelector((state) => state.user);
+
 
   useEffect(() => {
     dispatch(getDetail(id));
@@ -28,8 +30,10 @@ export default function PayForm(props) {
 
   const stripe = useStripe();
   const elements = useElements();
+  const userId = userInfo.id
   const handleSubmit = async (e) => {
     e.preventDefault();
+
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
@@ -38,7 +42,7 @@ export default function PayForm(props) {
 
     if (!error) {
       const { id } = paymentMethod;
-      dispatch(getPay({id, amount, description}));
+      dispatch(getPay({id, amount, description }));
       elements.getElement(CardElement).clear();
       swa("You payment was successfully processed", "Thank you for shopping in SHOPLINE", "success")
     }

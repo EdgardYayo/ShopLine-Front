@@ -83,3 +83,51 @@
 .btn-delete:hover {
     transform: scale(1.3);
 }
+
+.paymentForm-container {
+    /* display: grid;
+    grid-template-columns: 3fr 1fr; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.input-pay {
+    border: 3px var(--purple) solid;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px var(--purple);
+    width: 500px;
+}
+
+.button-pay {
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 20px;
+    background-color: var(--blue);
+    color: white;
+    border: 3px solid black;
+}
+
+.button-pay:hover {
+    opacity: 0.9;
+    box-shadow: 0 0 10px black;
+}
+
+.button-pay:active {
+    transform: scale(0.90);
+    background: var(--orange);
+    text-align: left;
+    padding: 10px;
+    width: 170px;
+    color: black;
+}
+
+.button-pay:active::after {
+    content: '💳';
+    position: absolute;
+    bottom: 5px;
+    margin-left: 5px;
+}

@@ -8,6 +8,7 @@ export const ADD_TO_CART = "ADD_TO_CART";
 export const GET_CLIENT_CART = "GET_CLIENT_CART";
 export const CLEAR_CART = "CLEAR_CART";
 export const DELETE_FROM_CART = "DELETE_FROM_CART";
+export const DELETE_CART_AFTER_PAYMENT = "DELETE_CART_AFTER_PAYMENT";
 
 
 
@@ -48,9 +49,15 @@ export const clearCart = () => {
 export const deleteFromCart = (id:any, productId:number | any) => {
   return async function () {
     const response = await axios.delete(`${API_ENDPOINT}/cart/delete/${id}?productId=${productId}`);
-    console.log(id, productId)
     return response.config
   };
 };
 
+
+export const deleteCartAfterPayment = (userId: any) => {
+  return async function () {
+    const response = await axios.delete(`${API_ENDPOINT}/cart/delete?userId=${userId}`)
+    return response
+  }
+}
 
