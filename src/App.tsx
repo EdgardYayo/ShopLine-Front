@@ -71,14 +71,14 @@ function App() {
           <Route exact path="/" component={Landing} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/detail/:id" component={ProductDetail} />
-          <Route exact path="/profile/cart" component={Cart} />
           <Route exact path="/popular" component={Popular} /> 
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path={["/profile", "/profile/:options"]} component={UserDashboard} />
           <Elements stripe={stripePromise}>
+            <Route exact path="/profile/cart" component={Cart} />
             <Route exact path="/payment/:id" component={PayForm} />
           </Elements>
+          <Route exact path={["/profile", "/profile/:options"]} component={UserDashboard} />
           <Route exact path="/detail/:id" component={ProductDetail} />
           {/* <Route exact path="/profile" component={Profile} /> */}
         </Switch>

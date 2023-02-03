@@ -12,3 +12,4 @@ export interface UserInterface {
   rol: string;
   permissions: string;
 }
+

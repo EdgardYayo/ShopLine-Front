@@ -131,6 +131,7 @@ export const getPay = (payload:any) => {
   return async function () {
     try {
       const response = await axios.post(`${API_ENDPOINT}/payments`, payload);
+      console.log(response)
       return response;   
     } catch (error) {
       console.log(error)
