@@ -27,6 +27,7 @@
     font-weight: 500;
     letter-spacing: 3px;
     color: black;
+    filter: drop-shadow(0 0 2px black);
 }
 
 .price {
@@ -34,6 +35,7 @@
     font-weight: 100;
     transition: all 500ms ease;
     color: black;
+    filter: drop-shadow(0 0 2px black);
 }
 
 .price:hover {
@@ -41,7 +43,7 @@
 }
 
 .icon-dollar {
-    color: green
+    color: green;
 }
 
 .icon-bag {
