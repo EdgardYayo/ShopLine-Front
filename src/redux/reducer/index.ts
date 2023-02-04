@@ -127,7 +127,7 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
       }
       return {
         ...state,
-        products: filteredPrice,
+        products: filteredPrice
       };
     case ORDER_BY_NAME:
       const products = state.products;

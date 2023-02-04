@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { loadStripe } from "@stripe/stripe-js";
+import React, { useEffect, useMemo } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { getDetail, getPay } from "../../redux/actions/Products";
 import style from "../../style/PayForm/PayForm.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
+import { faDollarSign, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import swa from "sweetalert";
 
 export default function PayForm(props) {
@@ -13,7 +13,7 @@ export default function PayForm(props) {
   const dispatch = useDispatch();
   const detail = useSelector((state) => state.detail);
   const userInfo = useSelector((state) => state.user);
-
+  const history = useHistory()
 
   useEffect(() => {
     dispatch(getDetail(id));
@@ -21,11 +21,6 @@ export default function PayForm(props) {
 
   const amount = detail.price * 100;
   const description = detail.title;
-
-
-  const stripePromise = loadStripe(
-    "pk_test_51MUNEFDboVCgRDITHbfMWziUTBVcWxNqo8vqnQMoZ7LbiialaYzgCWzqEINkpsqStseqmS0xQLx7qpPayp4yZrAD00GRJnzYHZ"
-  );
 
 
   const stripe = useStripe();
@@ -42,9 +37,11 @@ export default function PayForm(props) {
 
     if (!error) {
       const { id } = paymentMethod;
-      dispatch(getPay({id, amount, description, userId }));
+      await dispatch(getPay({id, amount, description, userId }));
       elements.getElement(CardElement).clear();
       swa("You payment was successfully processed", "Thank you for shopping in SHOPLINE", "success")
+      history.push("/receipt")
+      window.location.reload()
     }
 
     if(error){
@@ -52,6 +49,19 @@ export default function PayForm(props) {
     }
   };
 
+  const token = window.localStorage.getItem("token");
+  const isLogin = useMemo(() => {
+    if (token?.length) return true;
+    else return false;
+  }, [token]);
+
+  if(!isLogin){
+    return (
+      <div className={style["container"]}>
+        <h1 className={style["title"]}>You need to login if you want to buy <FontAwesomeIcon icon={faTriangleExclamation}/></h1>
+      </div>
+    )
+  } 
   return (
     <div className={style["container"]}>
       <div className={style["subcontainer"]}>

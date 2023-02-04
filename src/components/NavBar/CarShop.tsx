@@ -3,7 +3,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import style from "../../style/NavBar/CarShop.module.css";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { getClientCart } from "../../redux/actions/Cart";
 
 export default function CarShop(): JSX.Element {
@@ -17,6 +17,12 @@ export default function CarShop(): JSX.Element {
      dispatch(getClientCart(id))
   }, [id])
 
+  const token = window.localStorage.getItem("token");
+  const isLogin = useMemo(() => {
+    if (token?.length) return true;
+    else return false;
+  }, [token]);
+
   return (
     <div>
       <Link to={"/profile/cart"}>
@@ -24,7 +30,7 @@ export default function CarShop(): JSX.Element {
         <FontAwesomeIcon icon={faCartShopping} className={style["iconCar"]} />
         Cart
       </button>
-      <span className={style["cart-elements"]}>{ cart[0] ? cart[0]?.products?.length : 0 }</span>
+      <span className={isLogin ? style["cart-elements"] : style["hidden"]}>{ cart[0] ? cart[0]?.products?.length : 0 }</span>
       </Link>
     </div>
   );
