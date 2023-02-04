@@ -6,6 +6,11 @@
     filter:drop-shadow(2px 2px var(--blue));
 }
 
+.icon-address {
+    color: rgb(249, 0, 0);
+}
+
+
 .sub-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -21,6 +26,12 @@
     color: white;
     border-top-right-radius:200px;
     border-bottom-left-radius:100px;
+    transition: all 750ms ease;
+}
+
+.receipt-card:hover {
+    color: black;
+    transform: translateY(-5px);
 }
 
 .stripe { 

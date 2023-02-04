@@ -131,3 +131,10 @@
     bottom: 5px;
     margin-left: 5px;
 }
+
+.message {
+    font-size: 35px;
+    filter: drop-shadow(0 0 3px var(--orange));
+    text-decoration: underline overline;
+    text-decoration-color: var(--purple);
+}

@@ -20,6 +20,7 @@ export default function ProductDetail(props: any): JSX.Element {
   const id = props.match.params.id;
   const dispatch = useAppDispatch();
   const detail = useAppSelector((state) => state.detail);
+  
 
   const userInfo = useAppSelector((state) => state.user);
   const token = window.localStorage.getItem("token");
@@ -39,7 +40,7 @@ export default function ProductDetail(props: any): JSX.Element {
 
   function handlePayment(){
     if(!isLogin){
-      return swa("You need to log in if you want to buy this product", "", "warning")
+       swa("You need to log in if you want to buy this product", "", "warning")
     }
   }
   const productId = detail.id;
@@ -81,7 +82,7 @@ export default function ProductDetail(props: any): JSX.Element {
               Add to Cart
             </button>
             <Link to={"/payment/" + detail.id}>
-              <button onClick={() => handlePayment()} disabled={ !isLogin ? true : false }  className={style["btn-buy"]}>
+              <button onClick={() => handlePayment()}  className={style["btn-buy"]}>
                 <FontAwesomeIcon
                   className={style["icon-dollar"]}
                   icon={faMoneyCheckDollar}

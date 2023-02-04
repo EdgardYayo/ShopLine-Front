@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
@@ -20,20 +20,22 @@ export default function ProductCard(props: product): JSX.Element {
   const dispatch = useAppDispatch();
 
   const userInfo = useAppSelector((state) => state.user);
-
+  
+  const token = window.localStorage.getItem("token");
+  const isLogin = useMemo(() => {
+    if (token?.length) return true;
+    else return false;
+  }, [token]);
+  
   const id = userInfo.id;
   function handleClick(productId: number) {
+    if(!isLogin){
+      return swa("You need to log in if you want to add this product to the cart", "", "warning")
+    }
    
     dispatch(addToCart(id, productId));
   }
 
-  // function handleDisabled(){
-  //   if(!userInfo.hasOwnProperty(id)){
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  // }
 
   return (
     <div className={style["container"]}>

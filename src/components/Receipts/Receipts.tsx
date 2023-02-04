@@ -21,7 +21,7 @@ export default function Receipts(): JSX.Element {
   return (
     <div className={style["container"]}>
       <h1 className={style["name"]}><FontAwesomeIcon icon={faUserCheck}/> {userInfo?.name}</h1>
-      <h2 className={style["address"]}><FontAwesomeIcon icon={faLocationDot}/> {userInfo?.address}</h2>
+      <h2 className={style["address"]}><FontAwesomeIcon className={style["icon-address"]} icon={faLocationDot}/> {userInfo?.address}</h2>
       <div className={style["sub-container"]}>
       {receipts[0] &&
         receipts[0]?.payments?.map((pay: any) => {

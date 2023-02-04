@@ -54,6 +54,8 @@ export default function Sorts({ setOrder, setCurrentPage }: any): JSX.Element {
     setCurrentPage(1);
   }
   
+  
+
   return (
     <div className={style["container"]}>
       <FormControl className={style["inside-container"]}>
