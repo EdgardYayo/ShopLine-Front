@@ -9,6 +9,8 @@ export const GET_CLIENT_CART = "GET_CLIENT_CART";
 export const CLEAR_CART = "CLEAR_CART";
 export const DELETE_FROM_CART = "DELETE_FROM_CART";
 export const DELETE_CART_AFTER_PAYMENT = "DELETE_CART_AFTER_PAYMENT";
+export const PLUS_PRODUCT = "PLUS_PRODUCT";
+export const MINUS_PRODUCT = "MINUS_PRODUCT";
 
 
 
@@ -61,3 +63,16 @@ export const deleteCartAfterPayment = (userId: any) => {
   }
 }
 
+export const plusProduct = (productId:number) => {
+  return async function () {
+    const response = await axios.post(`${API_ENDPOINT}/cart/plus/${productId}`);
+    return response
+  };
+};
+
+export const minusProduct = (productId:number) => {
+  return async function () {
+    const response = await axios.post(`${API_ENDPOINT}/cart/minus/${productId}`);
+    return response
+  };
+};

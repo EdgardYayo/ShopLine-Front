@@ -18,7 +18,7 @@ import {
 import { CLEAN_USER_INFO, GET_USER_INFO } from "../actions/Users/index";
 
 import { UserInterface } from "../../types/types";
-import { ADD_TO_CART, CLEAR_CART, CREATE_CART, GET_CLIENT_CART, DELETE_FROM_CART, DELETE_CART_AFTER_PAYMENT } from "../actions/Cart";
+import { ADD_TO_CART, CLEAR_CART, CREATE_CART, GET_CLIENT_CART, DELETE_FROM_CART, DELETE_CART_AFTER_PAYMENT, PLUS_PRODUCT, MINUS_PRODUCT } from "../actions/Cart";
 
 interface StateProducts {
   products: any[];
@@ -205,6 +205,10 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
         ...state,
         receipts: action.payload
       }
+    case PLUS_PRODUCT:
+      return { ...state }
+    case MINUS_PRODUCT: 
+      return { ...state }
     default:
       return state;
   }
