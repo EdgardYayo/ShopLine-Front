@@ -1,0 +1,131 @@
+.admin-content {
+  margin: auto;
+  display: flex;
+  max-width: 60%;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.nav-admin {
+  padding: 1em;
+  box-sizing: content-box;
+  color: white;
+  background-color: var(--main-color-font-dark);
+}
+
+.text-user {
+  padding: 5px;
+  text-align: center;
+}
+.user-box {
+  padding: 20px;
+  height: 150px;
+}
+.card {
+  border-radius: 3px;
+  background-color: var(--main-bg-color-light);
+  height: 90%;
+  width: 35%;
+  display: flex;
+  justify-content: flex-start;
+}
+.image {
+  margin-top: 0px;
+  padding: 0px;
+  object-fit: cover;
+  max-height: 100%;
+  max-width: 140px;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  padding: 0.8rem;
+}
+.text {
+  color: var(--secondary-color-content-3);
+}
+.box-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  justify-content: space-between;
+  width: 50%;
+}
+.box {
+  background-color: var(--main-color-content);
+  width: 100%;
+  margin: 5px;
+  padding: 30px 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--secondary-color-content-3);
+  font-weight: bold;
+}
+.box-text {
+  font-weight: 400;
+}
+.h2 {
+  color: var(--main-color-font-dark);
+}
+
+.h2 {
+  padding: 1em;
+}
+
+.user-data-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--main-color-content);
+  padding: 1em;
+}
+
+.container-image-data-container {
+  max-width: 70px;
+  max-height: 50px;
+  overflow: hidden;
+}
+.container-image-data-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.image-data-container {
+  width: 100%;
+}
+.content-data-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sub-container-data-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.title-data-container {
+  color: var(--main-color-font-dark2);
+  text-align: left;
+}
+
+.text-data-container {
+  color: var(--secondary-color-content-2);
+}
+
+.icon-data-container {
+  width: 30px;
+  cursor: pointer;
+}
+
+.settings-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}

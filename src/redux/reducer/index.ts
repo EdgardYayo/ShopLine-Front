@@ -17,8 +17,17 @@ import {
 
 import { CLEAN_USER_INFO, GET_USER_INFO } from "../actions/Users/index";
 
+import { GET_USERS_BY_SEARCH } from "../actions/Admin/index";
+
 import { UserInterface } from "../../types/types";
-import { ADD_TO_CART, CLEAR_CART, CREATE_CART, GET_CLIENT_CART, DELETE_FROM_CART, DELETE_CART_AFTER_PAYMENT } from "../actions/Cart";
+import {
+  ADD_TO_CART,
+  CLEAR_CART,
+  CREATE_CART,
+  GET_CLIENT_CART,
+  DELETE_FROM_CART,
+  DELETE_CART_AFTER_PAYMENT,
+} from "../actions/Cart";
 
 interface StateProducts {
   products: any[];
@@ -32,7 +41,6 @@ interface StateProducts {
   receipts: any;
 }
 
-
 const initialState: StateProducts = {
   products: [],
   productsBackUp: [],
@@ -42,7 +50,7 @@ const initialState: StateProducts = {
   user: {} as UserInterface,
   cart: [],
   popular: [],
-  receipts: []
+  receipts: [],
 };
 
 function rootReducer(state: StateProducts = initialState, action: AnyAction) {
@@ -71,8 +79,8 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
     case GET_POPULAR:
       return {
         ...state,
-        popular: action.payload
-      }
+        popular: action.payload,
+      };
     case FILTER_BY_NAME:
       // let filteredName;
       // if (action.payload) {
@@ -127,7 +135,7 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
       }
       return {
         ...state,
-        products: filteredPrice
+        products: filteredPrice,
       };
     case ORDER_BY_NAME:
       const products = state.products;
@@ -180,8 +188,8 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
     case CLEAN_USER_INFO:
       return {
         ...state,
-        user: action.payload
-      }
+        user: action.payload,
+      };
     case CREATE_CART:
       return { ...state };
     case ADD_TO_CART:
@@ -189,22 +197,27 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
     case GET_CLIENT_CART:
       return {
         ...state,
-        cart: action.payload
-      }
+        cart: action.payload,
+      };
     case CLEAR_CART:
       return {
         ...state,
-        cart: action.payload
-      }
+        cart: action.payload,
+      };
     case DELETE_FROM_CART:
-      return { ...state }
+      return { ...state };
     case DELETE_CART_AFTER_PAYMENT:
-      return { ...state }
+      return { ...state };
     case GET_RECEIPT:
       return {
         ...state,
-        receipts: action.payload
-      }
+        receipts: action.payload,
+      };
+    case GET_USERS_BY_SEARCH:
+      return {
+        ...state,
+        users: action.payload,
+      };
     default:
       return state;
   }

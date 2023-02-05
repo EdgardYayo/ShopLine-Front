@@ -17,14 +17,13 @@ import {
   getUserResource,
   getUserResourceWithGoogle,
 } from "./redux/actions/Users";
-import { getCategories } from "./redux/actions/Products";
 import Loading from "./utils/Loading";
-import Profile from "./components/Profile/Profile";
+import UserComponent from "./components/User/Options/User"
 import Cart from "./components/Cart/Cart";
 import Popular from "./components/Popular/Popular";
 import UserDashboard from "./components/User/UserDashboard";
-import { access } from "fs";
 import Receipts from "./components/Receipts/Receipts";
+import Admin from "./components/Admin/Admin";
 
 const stripePromise = loadStripe(
   "pk_test_51MUNEFDboVCgRDITHbfMWziUTBVcWxNqo8vqnQMoZ7LbiialaYzgCWzqEINkpsqStseqmS0xQLx7qpPayp4yZrAD00GRJnzYHZ"
@@ -73,7 +72,8 @@ function App() {
           <Route exact path="/home" component={Home} />
           <Route exact path="/detail/:id" component={ProductDetail} />
           <Route exact path="/receipt" component={Receipts}/>
-          <Route exact path="/popular" component={Popular} /> 
+          <Route exact path="/popular" component={Popular} />
+          <Route path="/admin" component={Admin} /> 
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Elements stripe={stripePromise}>
@@ -81,6 +81,7 @@ function App() {
             <Route exact path="/payment/:id" component={PayForm} />
           </Elements>
           <Route exact path={["/profile", "/profile/:options"]} component={UserDashboard} />
+          <Route exact path="/profile/user" component={UserComponent} />
           <Route exact path="/detail/:id" component={ProductDetail} />
           {/* <Route exact path="/profile" component={Profile} /> */}
         </Switch>
