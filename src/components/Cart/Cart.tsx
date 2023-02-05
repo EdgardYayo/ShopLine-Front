@@ -1,4 +1,4 @@
-import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
+import { faCircleRight, faDeleteLeft, faSquareMinus, faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import React, { useEffect, useMemo } from "react";
@@ -7,12 +7,15 @@ import {
   deleteCartAfterPayment,
   deleteFromCart,
   getClientCart,
+  minusProduct,
+  plusProduct,
 } from "../../redux/actions/Cart";
 import { getPay } from "../../redux/actions/Products";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import style from "../../style/Cart/Cart.module.css";
 import swa from "sweetalert";
 import { useHistory } from "react-router-dom";
+import { faStripe } from "@fortawesome/free-brands-svg-icons";
 
 export default function Cart(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -25,9 +28,9 @@ export default function Cart(): JSX.Element {
   useEffect((): any => {
     dispatch(getClientCart(id));
 
-    return () => {
-      dispatch(clearCart());
-    };
+    // return () => {
+    //   dispatch(clearCart());
+    // };
   }, [dispatch, id]);
 
   const total =
@@ -84,6 +87,15 @@ export default function Cart(): JSX.Element {
     window.location.reload();
   }
 
+  //handlers of the stock
+  function handlePlus(productId:number){
+    dispatch(plusProduct(productId))
+  }
+  
+  function handleMinus(productId:number){
+    dispatch(minusProduct(productId))
+  }
+  
   const token = window.localStorage.getItem("token");
   const isLogin = useMemo(() => {
     if (token?.length) return true;
@@ -106,7 +118,11 @@ export default function Cart(): JSX.Element {
           cartDetail[0]?.products?.map((e: any) => {
             return (
               <div className={style["cart-card"]}>
-                <p>{10 - e.stock}</p>
+                <div className={style["stock-container"]}>
+                <button className={style["stock-handlers"]} onClick={() => handlePlus(e.id)}><FontAwesomeIcon icon={faSquareMinus}/></button>
+                <p className={style["stock"]}>{10 - e.stock}</p>
+                <button className={style["stock-handlers"]} onClick={() => handleMinus(e.id)}><FontAwesomeIcon icon={faSquarePlus}/></button>
+                </div>
                 <img className={style["image"]} src={e.image} alt={e.title} />
                 <h2 className={style["product-title"]}>{e.title}</h2>
                 <h3 className={style["price"]}>${e.price}</h3>
@@ -131,6 +147,9 @@ export default function Cart(): JSX.Element {
             className={style["paymentForm-container"]}
             onSubmit={handleSubmit}
           >
+            <p className={style["msg-pay"]}>Insert your card here</p>
+            <FontAwesomeIcon className={style["right-arrow"]} icon={faCircleRight}/>
+            <FontAwesomeIcon className={style["stripe-brand"]} icon={faStripe}/>
             <CardElement className={style["input-pay"]} />
             <button type="submit" className={style["button-pay"]}>
               Pay Now

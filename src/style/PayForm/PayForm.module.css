@@ -23,6 +23,7 @@
     padding: 10px;
 }
 
+
 .button-pay {
     margin-top: 10px;
     width: 400px;
@@ -67,4 +68,15 @@
 
 .icon {
     color: green;
+}
+
+.icon-warn {
+    color: red;
+}
+
+.s {
+    color: var(--blue);
+    font-size: 30px;
+    filter: drop-shadow(0 0 2px var(--blue));
+    margin-bottom: 15px;
 }

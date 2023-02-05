@@ -27,6 +27,8 @@ import {
   GET_CLIENT_CART,
   DELETE_FROM_CART,
   DELETE_CART_AFTER_PAYMENT,
+  PLUS_PRODUCT,
+  MINUS_PRODUCT,
 } from "../actions/Cart";
 
 interface StateProducts {
@@ -218,6 +220,11 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
         ...state,
         users: action.payload,
       };
+
+    case PLUS_PRODUCT:
+      return { ...state };
+    case MINUS_PRODUCT:
+      return { ...state };
     default:
       return state;
   }

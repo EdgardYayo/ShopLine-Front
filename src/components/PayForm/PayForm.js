@@ -7,6 +7,7 @@ import style from "../../style/PayForm/PayForm.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDollarSign, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import swa from "sweetalert";
+import { faStripeS } from "@fortawesome/free-brands-svg-icons";
 
 export default function PayForm(props) {
   const id = props.match.params.id;
@@ -58,7 +59,7 @@ export default function PayForm(props) {
   if(!isLogin){
     return (
       <div className={style["container"]}>
-        <h1 className={style["title"]}>You need to login if you want to buy <FontAwesomeIcon icon={faTriangleExclamation}/></h1>
+        <h1 className={style["title"]}>You need to login if you want to buy <FontAwesomeIcon className={style["icon-warn"]} icon={faTriangleExclamation}/></h1>
       </div>
     )
   } 
@@ -70,6 +71,7 @@ export default function PayForm(props) {
         <p className={style["price"]}><FontAwesomeIcon icon={faDollarSign} className={style["icon"]}/> {detail.price}</p>
       </div>
       <form onSubmit={handleSubmit}>
+        <FontAwesomeIcon className={style["s"]} icon={faStripeS}/>
         <CardElement className={style["input-pay"]} />
         <button type="submit" className={style["button-pay"]}>
           Pay Now
