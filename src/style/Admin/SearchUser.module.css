@@ -17,11 +17,12 @@
   font-family: inherit;
   height: auto;
   border: none;
-  background-color: transparent;
+  background-color: white;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
-  border-radius: 6px;
+  border-radius: 15px;
+  padding: 1.5em;
   width: 90%;
   text-align: left;
 }
@@ -30,13 +31,14 @@
   color: var(--main-color-font-dark2);
 }
 
-/* .search-input:focus {
-    border: 2px solid #47037c;
-  } */
+.search-input:focus {
+    border: 3px solid black;
+  }
 .search-btn {
   cursor: pointer;
   background-color: transparent;
   border: none;
+  margin-top: 15px;
 }
 .search-btn .search-icon {
   color: var(--main-color-font-dark);

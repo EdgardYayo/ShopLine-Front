@@ -10,7 +10,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { faClose, faUserPlus } from "@fortawesome/free-solid-svg-icons";
-import imgNotFound from "../../img/slide/3.jpg";
+import imgNotFound from "../../img/notFound/page-404-icon.png";
 import { nationalities } from "../../utils/Nationalities";
 
 export default function Register(): JSX.Element {

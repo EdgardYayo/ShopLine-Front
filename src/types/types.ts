@@ -8,8 +8,7 @@ export interface UserInterface {
   registered: boolean;
   phone: string;
   address: string;
-  nacionality: string;
+  nationality: string;
   rol: string;
   permissions: string;
 }
-

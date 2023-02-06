@@ -20,7 +20,7 @@
 }
 
 .card_header {
-    margin-left: 20px;
+  margin-left: 20px;
   display: flex;
   align-items: center;
 }
@@ -102,4 +102,76 @@ label {
 .form__error {
   color: red;
   font-style: italic;
+}
+
+.aside-background {
+  width: 35%;
+  background-color: var(--main-color-font-dark);
+}
+
+.aside-background .anime-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal,
+.overlay {
+  margin-top: 100px;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.171);
+}
+.modal-content {
+  z-index: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 1em;
+  width: 500px;
+  height: auto;
+}
+
+.title-modal {
+  color: var(--main-color-font-dark);
+  text-align: center;
+}
+
+.button-create-list-modal {
+  border: 2px solid var(--secondary-color-content-3);
+  color: white;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.356);
+  background-color: red;
+  border-radius: 8px;
+  padding: 0.5em;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  column-gap: 0.5em;
+  transition: all ease 0.3s;
+  margin-top: -20px;
+}
+
+.img-notFound {
+  width: 150px;
+  height: 150px;
 }

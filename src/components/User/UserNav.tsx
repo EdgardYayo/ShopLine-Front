@@ -1,6 +1,13 @@
 import style from "../../style/User/UserNav.module.css";
 import { Link } from "react-router-dom";
 import { UserInterface } from "../../types/types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUserTie,
+  faReceipt,
+  faCartArrowDown,
+  faUserGear,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function UserNav(userLog?: UserInterface) {
   return (
@@ -9,20 +16,27 @@ export default function UserNav(userLog?: UserInterface) {
     <div className={style["icon-bar"]}>
       <div className={style["options"]}>
         <h2 className={style["title"]}>Options</h2>
-        <Link to="/profile/cart">
-          <span className={style["line"]}></span>My Cart
+        <Link to="/profile/cart" className={style["link"]}>
+          <FontAwesomeIcon icon={faCartArrowDown} className={style["icon-options"]} />
+          My Cart
         </Link>
 
-        <Link to="/profile/user">
-          <span className={style["line"]}></span>User
+        <Link to="/profile/user" className={style["link"]}>
+          <FontAwesomeIcon icon={faUserGear} className={style["icon-options"]} />
+          User
         </Link>
 
-        {userLog?.rol === "Admin" && 
-        <Link to="/admin">
- 
-        <span className={style["line"]}></span>Admin Dashboard
-      </Link>
-      }
+        <Link to="/profile/receipt" className={style["link"]}>
+          <FontAwesomeIcon icon={faReceipt} className={style["icon-options"]}/>
+          Receipts
+        </Link>
+
+        {userLog?.rol === "Admin" && (
+          <Link to="/admin" className={style["link"]}>
+            <FontAwesomeIcon icon={faUserTie} className={style["icon-options"]} />
+            Admin Dashboard
+          </Link>
+        )}
       </div>
     </div>
   );

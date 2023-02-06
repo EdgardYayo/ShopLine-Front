@@ -1,7 +1,3 @@
-.container{
-    margin-top: 250px;
-}
-
 .name, .address {
     filter:drop-shadow(2px 2px var(--blue));
 }

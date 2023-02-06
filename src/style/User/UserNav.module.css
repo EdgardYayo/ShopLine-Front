@@ -1,7 +1,7 @@
 /* Nav */
 
 .icon-bar {
-  width: 20%;
+  width: 15%;
   height: 100vh;
   background-color: white;
   display: flex;
@@ -12,7 +12,7 @@
 .options {
   width: 100%;
   height: 100vh;
-  background-color: #f4f0f8;
+  background-color: #edeff5;
 }
 
 .icon-bar a {
@@ -24,20 +24,21 @@
   opacity: 40%;
 }
 
-.icon-bar span {
-  margin-right: 8px;
-}
-
 .icon-bar a:hover {
   color: #4c0879;
   opacity: 1;
 }
 
-.line {
-  border: 1px solid #0685FC;
-  font-size: 50px;
-  margin-left: 18px;
-  align-items: center;
+.icon-bar a:focus {
+  color: #4c0879;
+  opacity: 1;
+  filter: drop-shadow(0 0 0.5px black);
+
+}
+
+.icon-options {
+  margin-right: 5px;
+  color: var(--blue);
 }
 
 .title {

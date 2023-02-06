@@ -74,16 +74,18 @@
 }
 
 .nav-dropdown.isActive {
-  height: 60px;
+  display: list-item;
+  height: 80px;
   opacity: 1;
-  margin-top: 1em;
-  background-color: var(--main-color-content);
+  color:  white;
+  background-color: #621EEA;
+  border-radius: 15px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.329);
   z-index: 2;
 }
 
 .ul-dropdown {
-  display: contents;
+  display: initial;
 }
 
 .li-dropdown {

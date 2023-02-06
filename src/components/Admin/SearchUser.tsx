@@ -1,4 +1,4 @@
-import style from "../../style/AdminPage/SearchUser.module.css";
+import style from "../../style/Admin/SearchUser.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useAppDispatch } from "../../redux/store/hooks";
@@ -46,7 +46,7 @@ export const SearchUser = ({ setUserTarget }: any) => {
         <input
           className={style["search-input"]}
           type="text"
-          placeholder="Search anime..."
+          placeholder="Search user..."
           value={name.name}
           onChange={(e) => handleInputChange(e)}
         />

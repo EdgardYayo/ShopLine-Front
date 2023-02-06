@@ -1,3 +1,8 @@
+.admin-container{
+  margin-top: 250px;
+
+}
+
 .admin-content {
   margin: auto;
   display: flex;
@@ -10,7 +15,7 @@
   padding: 1em;
   box-sizing: content-box;
   color: white;
-  background-color: var(--main-color-font-dark);
+  background-color: var(--purple);
 }
 
 .text-user {
@@ -23,7 +28,7 @@
 }
 .card {
   border-radius: 3px;
-  background-color: var(--main-bg-color-light);
+  background-color: blue;
   height: 90%;
   width: 35%;
   display: flex;
@@ -54,14 +59,15 @@
   width: 50%;
 }
 .box {
-  background-color: var(--main-color-content);
+  background-color: var(--blue);
   width: 100%;
   margin: 5px;
   padding: 30px 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  color: var(--secondary-color-content-3);
+  color: white;
+  border-radius: 15px;
   font-weight: bold;
 }
 .box-text {
@@ -80,7 +86,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--main-color-content);
+  background-color: var(--purple);
+  border-radius: 15px;
+  color: white;
   padding: 1em;
 }
 

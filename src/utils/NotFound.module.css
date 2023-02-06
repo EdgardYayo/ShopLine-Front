@@ -1,4 +1,5 @@
 .not-found {
+  margin-top: 150px;
   box-sizing: border-box;
   min-height: calc(100vh - 65px);
   width: 100%;
@@ -11,12 +12,14 @@
 .not-found-content {
   max-width: 40%;
   width: fit-content;
+  font-style: italic;
 }
 .not-found-content .callback-btn {
   border: none;
   padding: 1em;
-  background-color: var(--main-color-font-dark2);
-  color: var(--main-bg-color-light);
+  background-color: var(--blue);
+  border-radius: 15px;
+  color: white;
   margin-top: 2em;
   cursor: pointer;
 }
@@ -24,7 +27,7 @@
   color: var(--main-bg-color-light);
 }
 .not-found-content .callback-btn:hover {
-  background-color: var(--main-color-font-dark);
+  background-color: var(--blue);
   transform: scale(1.05);
 }
 .not-found-image {

@@ -16,14 +16,15 @@ import { useAppSelector } from "../../redux/store/hooks";
 // import { useAppDispatch } from "../../redux/hooks";
 // import { useAuth0 } from "@auth0/auth0-react";
 import { useParams } from "react-router-dom";
-import MyCart from "./Options/MyCart";
+import Cart from "../Cart/Cart";
 import User from "./Options/User";
+import Receipts from "../Receipts/Receipts";
 
 // import Admin from "../AdminPage/Admin";
 // import ListDetail from "./Options/ListDetail";
 
 export default function UserDashboard(): JSX.Element {
-  const {options} = useParams<any>();
+  const { options } = useParams<any>();
 
   // const dispatch = useAppDispatch();
   const history = useHistory();
@@ -49,7 +50,13 @@ export default function UserDashboard(): JSX.Element {
             What are you going to buy today?
           </span>
         </div>
-        {options === "cart" ? <MyCart /> : options === "user" ? <User /> : null}
+        {options === "cart" ? (
+          <Cart />
+        ) : options === "user" ? (
+          <User />
+        ) : options === "receipt" ? (
+          <Receipts />
+        ) : null}
       </div>
     </div>
   );

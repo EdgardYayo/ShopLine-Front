@@ -68,7 +68,7 @@ export default function Cart(): JSX.Element {
         "success"
       );
       await dispatch(deleteCartAfterPayment(userId));
-      history.push("/receipt");
+      history.push("/profile/receipt");
       window.location.reload();
     }
 

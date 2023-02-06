@@ -2,7 +2,7 @@ import { PropsWithRef } from "react";
 import { Link } from "react-router-dom";
 import style from "../../style/Landing/CardInformative.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDollar } from "@fortawesome/free-solid-svg-icons";
+import { faDollar, faStore } from "@fortawesome/free-solid-svg-icons";
 
 export default function CardInformative({ title, image, id, price }) {
   return (
@@ -25,6 +25,7 @@ export default function CardInformative({ title, image, id, price }) {
         <h4>Price:</h4>
         <div className={style["description"]}>
           <p className={style["price"]}>{price} <FontAwesomeIcon icon={faDollar} className={style["dollar"]} /></p> 
+          <FontAwesomeIcon icon={faStore} className={style["store"]}/>
           <Link to={`/detail/${id}`} className={style["read-more"]}>
             view more
           </Link>
