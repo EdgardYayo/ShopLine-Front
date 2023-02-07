@@ -23,6 +23,7 @@ export default function Cart(): JSX.Element {
   const cartDetail = useAppSelector((state) => state.cart);
   const history = useHistory();
 
+
   const id = userInfo.id;
 
   useEffect((): any => {
@@ -36,7 +37,7 @@ export default function Cart(): JSX.Element {
   const total =
     cartDetail[0]?.products.length !== 0
       ? cartDetail[0]?.products
-          ?.map((e: any) => e.price)
+          ?.map((e: any) => e.price * (10 - e.stock))
           .reduce((acc: number, curr: number) => acc + curr)
       : null;
   const description = cartDetail[0]?.products
@@ -88,12 +89,12 @@ export default function Cart(): JSX.Element {
   }
 
   //handlers of the stock
-  function handlePlus(productId:number){
-    dispatch(plusProduct(productId))
+  async function handlePlus(productId:number){
+    await dispatch(plusProduct(productId))
   }
   
-  function handleMinus(productId:number){
-    dispatch(minusProduct(productId))
+  async function handleMinus(productId:number){
+    await dispatch(minusProduct(productId))
   }
   
   const token = window.localStorage.getItem("token");
@@ -125,7 +126,7 @@ export default function Cart(): JSX.Element {
                 </div>
                 <img className={style["image"]} src={e.image} alt={e.title} />
                 <h2 className={style["product-title"]}>{e.title}</h2>
-                <h3 className={style["price"]}>${e.price}</h3>
+                <h3 className={style["price"]}>${e.price * (10 - e.stock)}</h3>
                 <button
                   className={style["btn-delete"]}
                   onClick={() => handleDelete(e.id)}

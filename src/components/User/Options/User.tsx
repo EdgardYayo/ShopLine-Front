@@ -36,7 +36,7 @@ export default function User() {
   };
   return (
     <>
-      <h1 className={style["user-settings-title"]}>User settings</h1>
+      <h1 className={style["user-settings-title"]}>User settings 🧑</h1>
       <Formik
         initialValues={UserSettings}
         onSubmit={handleSubmit}

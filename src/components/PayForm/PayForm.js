@@ -41,8 +41,7 @@ export default function PayForm(props) {
       await dispatch(getPay({id, amount, description, userId }));
       elements.getElement(CardElement).clear();
       swa("You payment was successfully processed", "Thank you for shopping in SHOPLINE", "success")
-      history.push("/receipt")
-      window.location.reload()
+      history.push("/profile/receipt")
     }
 
     if(error){

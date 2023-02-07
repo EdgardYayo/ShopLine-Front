@@ -22,7 +22,7 @@ export default function CardInformative({ title, image, id, price }) {
         </div>
       </div>
       <div className={style["cardInformative-second"]}>
-        <h4>Price:</h4>
+        <h4>Price</h4>
         <div className={style["description"]}>
           <p className={style["price"]}>{price} <FontAwesomeIcon icon={faDollar} className={style["dollar"]} /></p> 
           <FontAwesomeIcon icon={faStore} className={style["store"]}/>

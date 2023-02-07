@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Formik, Field, ErrorMessage } from "formik";
-import { useAppDispatch } from "../../redux/store/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import validationReview from "./validations/validationReview";
 import { createReview } from "../../redux/actions/Products";
 import style from "../../style/Reviews/Reviews.module.css"
@@ -11,18 +11,30 @@ import Stack from "@mui/material/Stack";
 interface FormValues {
     content:string
     rating:number
+    username:any
+    productId:any
 }
 
 export default function Reviews(): JSX.Element{
 
     const dispatch = useAppDispatch()
+    const product:any = useAppSelector((state:any) => state.detail)
+    const userInfo:any = useAppSelector((state:any) => state.user)
+  
+  
+    var username: any = userInfo.name
+    var productId: any = product.id
 
-    const initialValues : FormValues = {
+    let initialValues : FormValues = {
         content: "",
-        rating: 0
+        rating: 0,
+        username: username,
+        productId: productId
     }
-    const [input, setInput] = useState(initialValues)
 
+    const [input, setInput] = useState(initialValues)
+    
+    console.log(input, "aqui")
 
     const handleChange = (event: React.ChangeEvent<any>) => {
         const inputName = event.target.name;
@@ -31,11 +43,11 @@ export default function Reviews(): JSX.Element{
     setInput({...input, [inputName]: inputValue })
     }
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault()
-        dispatch(createReview(input))
+        await dispatch(createReview(input))
         setInput(initialValues)
-        window.location.reload()
+        setTimeout(() => { window.location.reload() }, 4500)
     }
 
 

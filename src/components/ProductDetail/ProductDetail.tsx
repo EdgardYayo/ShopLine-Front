@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from "react";
-import { getDetail } from "../../redux/actions/Products/index";
+import { clearDetail, getDetail } from "../../redux/actions/Products/index";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import style from "../../style/ProductDetail/ProductDetail.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,10 +19,10 @@ import swa from "sweetalert";
 export default function ProductDetail(props: any): JSX.Element {
   const id = props.match.params.id;
   const dispatch = useAppDispatch();
-  const detail = useAppSelector((state) => state.detail);
+  const detail = useAppSelector((state:any) => state.detail);
   
 
-  const userInfo = useAppSelector((state) => state.user);
+  const userInfo = useAppSelector((state:any) => state.user);
   const token = window.localStorage.getItem("token");
   const isLogin = useMemo(() => {
     if (token?.length) return true;
@@ -43,11 +43,13 @@ export default function ProductDetail(props: any): JSX.Element {
        swa("You need to log in if you want to buy this product", "", "warning")
     }
   }
-  const productId = detail.id;
+  const productId= detail.id;
 
   useEffect(() => {
     dispatch(getDetail(id));
     window.scrollTo(0, 0);
+    return  () => { dispatch(clearDetail())} 
+
   }, [dispatch, id]);
 
   return (

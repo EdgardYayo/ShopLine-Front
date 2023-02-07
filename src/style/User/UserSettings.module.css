@@ -1,6 +1,19 @@
 .user-settings-title {
-  color: var(--main-color-font-dark);
+  filter: drop-shadow(0 0 2px);
+  transition: all 750ms ease;
+  font-weight: 400;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+.user-settings-title:hover{
+  transform: translateX(-200px);
+}
+
+.user-settings-title:hover::after{
+  content: '⚙️...........';
+
+}
+
 .form-user-settings {
   box-sizing: border-box;
   display: flex;

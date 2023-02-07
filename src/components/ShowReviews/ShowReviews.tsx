@@ -7,18 +7,17 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function ShowReviews(): JSX.Element {
   const dispatch = useAppDispatch();
-  const allReviews = useAppSelector((state) => state.reviews);
-
-  useEffect(() => {
-    dispatch(getReviews());
-  }, [dispatch]);
-
+  // const allReviews = useAppSelector((state) => state.reviews);
+  const allReviews = useAppSelector((state) => state.detail);
+ 
+  
   return (
     <div className={style["container"]}>
       {allReviews &&
-        allReviews.map((rev) => {
+        allReviews.reviews?.map((rev:any) => {
           return (
-            <div className={style["sub-container"]} key={rev.id}>
+            <div className={style["sub-container"]} key={rev}>
+              <p>{rev.username}</p>
               <p className={style["content"]}>{rev.content}</p>
               <p className={style["rating"]}>
                 <FontAwesomeIcon className={style["icon"]} icon={faStar} />

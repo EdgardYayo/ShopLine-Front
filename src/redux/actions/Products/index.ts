@@ -17,6 +17,7 @@ export const ORDER_BY_PRICE = "ORDER_BY_PRICE";
 export const CREATE_REVIEW = "CREATE_REVIEW";
 export const GET_PAY = "GET_PAY";
 export const GET_RECEIPT = "GET_RECEIPT";
+export const CLEAR_DETAIL = "CLEAR_DETAIL";
 
 export const getProducts = () => {
   return async function (dispatch: AppDispatch) {
@@ -48,9 +49,10 @@ export const getDetail = (id:number) => {
   };
 };
 
-export const getReviews = () => {
+export const getReviews = (id: number) => {
   return async function (dispatch: AppDispatch) {
-    const response = await axios.get(`${API_ENDPOINT}/reviews`);
+    const response = await axios.get(`${API_ENDPOINT}/reviews/${id}`);
+    console.log(response)
     dispatch({
       type: GET_REVIEWS,
       payload: response.data,
@@ -123,6 +125,7 @@ export const orderByPrice = (payload: string) => {
 export const createReview = (payload:any) => {
   return async function () {
     const response = await axios.post(`${API_ENDPOINT}/reviews/create`, payload);
+    console.log(response, "review")
     return response
   };
 };
@@ -154,5 +157,13 @@ export const getReceipt = (userId:any) => {
 
     }
 
+  }
+}
+
+
+export const clearDetail = () => {
+  return {
+    type:CLEAR_DETAIL,
+    payload:[]
   }
 }

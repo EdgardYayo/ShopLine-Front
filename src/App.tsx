@@ -85,6 +85,7 @@ function App() {
           </Elements>
 
  
+          <Route exact path="*" component={NotFound} />
 
           <Route exact path="/profile/user" component={UserComponent} />
           <Route exact path="/profile/receipt" component={Receipts} />
@@ -95,7 +96,6 @@ function App() {
           </Elements>
 
           <Route exact path="/detail/:id" component={ProductDetail} />
-          {/* <Route path="*" component={NotFound} /> */}
 
           {/* <Route exact path="/profile" component={Profile} /> */}
         </Switch>
