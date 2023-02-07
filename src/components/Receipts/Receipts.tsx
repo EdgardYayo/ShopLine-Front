@@ -10,6 +10,7 @@ export default function Receipts(): JSX.Element {
   const dispatch = useAppDispatch();
   const userInfo = useAppSelector((state) => state.user);
   const receipts = useAppSelector((state) => state.receipts);
+  console.log(receipts);
 
 
   const userId = userInfo.id;
@@ -20,7 +21,8 @@ export default function Receipts(): JSX.Element {
 
   return (
     <div className={style["container"]}>
-      <h1 className={style["name"]}><FontAwesomeIcon icon={faUserCheck}/> {userInfo?.name}</h1>
+      <h1 className={style["title"]}>Receipts 🧾</h1>
+      <h2 className={style["name"]}><FontAwesomeIcon icon={faUserCheck}/> {userInfo?.name}</h2>
       <h2 className={style["address"]}><FontAwesomeIcon className={style["icon-address"]} icon={faLocationDot}/> {userInfo?.address}</h2>
       <div className={style["sub-container"]}>
       {receipts[0] &&
@@ -36,6 +38,7 @@ export default function Receipts(): JSX.Element {
                 Payment Method: {pay.payment_method_types.map((e: any) => e)}
               </h3>
               <h3>Status: {pay.status}</h3>
+              <h3>Date of Payment: {pay.user_payment.createdAt.slice(0,19)}</h3>
             </div>
           );
         })}

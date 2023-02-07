@@ -13,6 +13,7 @@ import {
   GET_REVIEWS,
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
+  CLEAR_DETAIL
 } from "../actions/Products";
 
 import { CLEAN_USER_INFO, GET_USER_INFO } from "../actions/Users/index";
@@ -36,7 +37,7 @@ interface StateProducts {
   productsBackUp: any[];
   categories: any[];
   detail: any;
-  reviews: any[];
+  reviews: any;
   user: UserInterface;
   cart: any;
   popular: any[];
@@ -225,6 +226,11 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
       return { ...state };
     case MINUS_PRODUCT:
       return { ...state };
+    case CLEAR_DETAIL:
+      return {
+        ...state,
+        detail:action.payload
+      }
     default:
       return state;
   }

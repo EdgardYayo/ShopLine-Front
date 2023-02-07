@@ -65,14 +65,14 @@ export const deleteCartAfterPayment = (userId: any) => {
 
 export const plusProduct = (productId:number) => {
   return async function () {
-    const response = await axios.post(`${API_ENDPOINT}/cart/plus/${productId}`);
+    const response = await axios.patch(`${API_ENDPOINT}/cart/plus/${productId}`);
     return response
   };
 };
 
 export const minusProduct = (productId:number) => {
   return async function () {
-    const response = await axios.post(`${API_ENDPOINT}/cart/minus/${productId}`);
+    const response = await axios.patch(`${API_ENDPOINT}/cart/minus/${productId}`);
     return response
   };
 };
