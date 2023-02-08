@@ -7,6 +7,7 @@ import {
   faReceipt,
   faCartArrowDown,
   faUserGear,
+  faHeart
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function UserNav(userLog?: UserInterface) {
@@ -19,6 +20,11 @@ export default function UserNav(userLog?: UserInterface) {
         <Link to="/profile/cart" className={style["link"]}>
           <FontAwesomeIcon icon={faCartArrowDown} className={style["icon-options"]} />
           My Cart
+        </Link>
+
+        <Link to="/profile/list" className={style["link"]}>
+          <FontAwesomeIcon icon={faHeart} className={style["icon-options"]} />
+          My Favorites
         </Link>
 
         <Link to="/profile/user" className={style["link"]}>

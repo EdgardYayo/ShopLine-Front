@@ -13,14 +13,14 @@ import {
   GET_REVIEWS,
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
-  CLEAR_DETAIL
+  CLEAR_DETAIL,
 } from "../actions/Products";
 
 import { CLEAN_USER_INFO, GET_USER_INFO } from "../actions/Users/index";
 
 import { GET_USERS_BY_SEARCH } from "../actions/Admin/index";
 
-import { UserInterface } from "../../types/types";
+import { UserInterface, UserLists, ListDetail } from "../../types/types";
 import {
   ADD_TO_CART,
   CLEAR_CART,
@@ -32,6 +32,14 @@ import {
   MINUS_PRODUCT,
 } from "../actions/Cart";
 
+import {
+  GET_ALL_LISTS_USER,
+  GET_LIST,
+  GET_LIST_FAVORITES,
+  CLEAR_ALL_LISTS,
+  CLEAR_LIST_DETAIL,
+} from "../actions/List/index";
+
 interface StateProducts {
   products: any[];
   productsBackUp: any[];
@@ -42,6 +50,8 @@ interface StateProducts {
   cart: any;
   popular: any[];
   receipts: any;
+  userLists: Array<UserLists>;
+  listDetail: ListDetail;
 }
 
 const initialState: StateProducts = {
@@ -54,6 +64,8 @@ const initialState: StateProducts = {
   cart: [],
   popular: [],
   receipts: [],
+  userLists: [],
+  listDetail: {} as ListDetail,
 };
 
 function rootReducer(state: StateProducts = initialState, action: AnyAction) {
@@ -229,8 +241,33 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
     case CLEAR_DETAIL:
       return {
         ...state,
-        detail:action.payload
-      }
+        detail: action.payload,
+      };
+    case GET_ALL_LISTS_USER:
+      return {
+        ...state,
+        userLists: action.payload,
+      };
+    case GET_LIST:
+      return {
+        ...state,
+        listDetail: action.payload,
+      };
+    case CLEAR_ALL_LISTS:
+      return {
+        ...state,
+        userLists: [],
+      };
+    case GET_LIST_FAVORITES:
+      return {
+        ...state,
+        listDetail: action.payload,
+      };
+    case CLEAR_LIST_DETAIL:
+      return {
+        ...state,
+        listDetail: {},
+      };
     default:
       return state;
   }

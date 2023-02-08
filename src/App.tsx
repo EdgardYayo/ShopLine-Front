@@ -25,6 +25,8 @@ import UserDashboard from "./components/User/UserDashboard";
 import Receipts from "./components/Receipts/Receipts";
 import Admin from "./components/Admin/Admin";
 import NotFound from "./utils/NotFound";
+import MyList from "./components/User/Options/MyList";
+import ListDetail from "./components/User/Options/ListDetail";
 
 const stripePromise = loadStripe(
   "pk_test_51MUNEFDboVCgRDITHbfMWziUTBVcWxNqo8vqnQMoZ7LbiialaYzgCWzqEINkpsqStseqmS0xQLx7qpPayp4yZrAD00GRJnzYHZ"
@@ -74,7 +76,7 @@ function App() {
           <Route path="/admin" component={Admin} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-        
+          <Route exact path="/profile/list/:id" component={ListDetail} />
 
           <Elements stripe={stripePromise}>
             <Route
@@ -84,9 +86,9 @@ function App() {
             />
           </Elements>
 
- 
           <Route exact path="*" component={NotFound} />
 
+          <Route exact path="/profile/list" component={MyList} />
           <Route exact path="/profile/user" component={UserComponent} />
           <Route exact path="/profile/receipt" component={Receipts} />
 

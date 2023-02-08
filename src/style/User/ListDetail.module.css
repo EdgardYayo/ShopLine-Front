@@ -1,0 +1,339 @@
+.div-principal-detail {
+  margin-top: 250px;
+  min-height: 100vh;
+}
+
+.titulo-list-detail {
+  padding: 2em 0 1em 0;
+  color: var(--main-color-font-dark);
+}
+
+.div-principal-anime {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 6em;
+  row-gap: 4em;
+}
+
+.div-link-back {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  column-gap: 6em;
+  padding: 1em 0 6em 0;
+  position: relative;
+}
+
+.div-link-buttons {
+  width: 100%;
+  padding-bottom: 2em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.div-anime {
+  width: 250px;
+  background-color: var(--main-color-content);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 0.5em;
+  row-gap: 0.5em;
+  transition: all ease-in-out 0.3s;
+}
+
+.div-anime:hover {
+  transform: scale(1.05);
+}
+
+.anime-detail_img {
+  width: 100%;
+  height: 250px;
+}
+
+.anime-detail_name {
+  font-size: 18px;
+  font-weight: 600;
+  align-self: center;
+  color: var(--main-color-font-dark);
+}
+
+.anime-detail_span {
+  width: 2em;
+  font-size: 16px;
+  font-weight: 800;
+  margin-left: 1em;
+  background-color: var(--secondary-color-content-2);
+  color: var(--main-bg-color-light);
+  border-radius: 0em;
+  padding: 0.25em;
+}
+
+.anime-detail_texts {
+  width: 100%;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1em;
+}
+
+.anime-detail_link {
+  width: 100%;
+}
+
+.div-options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.button-back {
+  width: 100%;
+  display: flex;
+  column-gap: 0.5em;
+  align-items: center;
+  border: 2px solid var(--secondary-color-content-3);
+  color: var(--secondary-color-content-3);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.356);
+  background-color: transparent;
+  padding: 0.5em;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.button-back:hover {
+  color: #48037cbe;
+  border: 2px solid #48037cbe;
+  transform: scale(1.05);
+}
+
+/* modal */
+
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.89);
+}
+.modal-content {
+  z-index: 4;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 1em;
+  width: 500px;
+  height: 250px;
+}
+
+.form-input,
+.detail-input-search {
+  width: 400px;
+  border: none;
+  border-bottom: 3px solid #9b9b9b;
+  outline: none;
+  background-color: transparent;
+  color: var(--main-bg-color-dark);
+  padding: 0.1em;
+  margin: 0.5em;
+  font-size: 16px;
+  transition: all ease 0.3s;
+  transform-origin: left;
+}
+.detail-input-search {
+  width: 300px;
+}
+.detail-input-search-svg {
+  color: #818181;
+}
+
+.form-input:focus,
+.detail-input-search:focus {
+  border-bottom: 3px solid var(--secondary-color-content-3);
+}
+
+.div-buttons {
+  margin-top: 1em;
+}
+
+.form-button-submit {
+  width: 6em;
+  border: 2px solid transparent;
+  color: var(--main-bg-color-light);
+  background-color: var(--secondary-color-content-3);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.356);
+  padding: 0.5em;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+.form-button-submit:hover {
+  background-color: #48037cbe;
+  transform: scale(1.05);
+}
+
+.button-create-list-modal {
+  width: 6em;
+  border: 2px solid var(--secondary-color-content-3);
+  color: var(--secondary-color-content-3);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.356);
+  background-color: transparent;
+  padding: 0.5em;
+  margin-left: 3em;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.button-create-list-modal:hover {
+  color: #48037cbe;
+  border: 2px solid #48037cbe;
+  transform: scale(1.05);
+}
+
+.list-span,
+.list-span-delete {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5em;
+  user-select: none;
+  cursor: pointer;
+  padding: 0.4em;
+  color: var(--main-bg-color-light);
+  background-color: var(--secondary-color-content-3);
+  transition: all ease 0.3s;
+}
+
+.list-span:hover {
+  background-color: #48037cb0;
+}
+
+.list-span-delete:hover {
+  background-color: crimson;
+}
+
+.div-spans-anime {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-delete-anime {
+  margin-right: 1em;
+  color: var(--main-color-font-dark);
+  border: none;
+  width: 2em;
+  height: 100%;
+}
+
+.button-delete-anime-svg {
+  width: 100%;
+  height: 1.5em;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.button-delete-anime-svg:hover {
+  color: crimson;
+}
+
+.div_lists_span {
+  position: absolute;
+  height: 0px;
+  opacity: 0;
+  overflow: hidden;
+  transition: all ease 0.5s;
+}
+
+.div_lists_span.isActive {
+  z-index: 9;
+  height: 61.5px;
+  opacity: 1;
+  margin: 3em 0 0 0;
+  background-color: var(--main-color-content);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.329);
+}
+
+.div-render-principal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 0.5em;
+  flex-direction: column;
+  width: 400px;
+  max-height: 300px;
+  overflow-y: scroll;
+  position: absolute;
+  top: 100px;
+  z-index: 10;
+  background-color: var(--main-color-content);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.575);
+}
+
+.div-render-anime {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  background-color: var(--main-color-content);
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+
+.div-render-anime:hover {
+  background-color: #ede3f7;
+}
+
+.div-render-anime_div_img {
+  width: 6em;
+  height: 8em;
+}
+.div-render-anime_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.div-render-anime_name {
+  text-align: end;
+  color: var(--main-color-font-dark);
+  font-size: 18px;
+  font-weight: 800;
+  width: 70%;
+  padding-right: 1em;
+}

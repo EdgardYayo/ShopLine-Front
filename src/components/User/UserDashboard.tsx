@@ -19,6 +19,7 @@ import { useParams } from "react-router-dom";
 import Cart from "../Cart/Cart";
 import User from "./Options/User";
 import Receipts from "../Receipts/Receipts";
+import MyList from "./Options/MyList";
 
 // import Admin from "../AdminPage/Admin";
 // import ListDetail from "./Options/ListDetail";
@@ -52,6 +53,8 @@ export default function UserDashboard(): JSX.Element {
         </div>
         {options === "cart" ? (
           <Cart />
+        ) : options === "list" ? (
+          <MyList />
         ) : options === "user" ? (
           <User />
         ) : options === "receipt" ? (
