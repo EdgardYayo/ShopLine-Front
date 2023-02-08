@@ -4,7 +4,7 @@ import style from "../../style/Landing/CardInformative.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDollar, faStore } from "@fortawesome/free-solid-svg-icons";
 
-export default function CardInformative({ title, image, id, price }) {
+export default function CardInformative({ title, image, id, price, description }) {
   return (
     <div className={style["cardInformative"]} key={title + id}>
       <div className={style["cardInformative-first"]}>
@@ -22,10 +22,11 @@ export default function CardInformative({ title, image, id, price }) {
         </div>
       </div>
       <div className={style["cardInformative-second"]}>
-        <h4>Price</h4>
+        <h4>Price:</h4>
         <div className={style["description"]}>
-          <p className={style["price"]}>{price} <FontAwesomeIcon icon={faDollar} className={style["dollar"]} /></p> 
-          <FontAwesomeIcon icon={faStore} className={style["store"]}/>
+          <p className={style["price"]}>{price} <FontAwesomeIcon icon={faDollar} className={style["dollar"]} /></p>
+          <h3 className={style["h3"]}>Description:</h3> 
+         <p className={style["descript"]}>{description}</p>
           <Link to={`/detail/${id}`} className={style["read-more"]}>
             view more
           </Link>

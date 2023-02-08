@@ -23,6 +23,7 @@ export default function SectionUno() {
                   image={elem.image}
                   id={elem.id}
                   price={elem.price}
+                  description={elem.description}
                 />
               );
             })}
