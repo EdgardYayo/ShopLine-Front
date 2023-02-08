@@ -4,7 +4,7 @@ import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import style from "../../style/ProductCard/ProductCard.module.css";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
-import { addToCart } from "../../redux/actions/Cart";
+import { addToCart, getClientCart } from "../../redux/actions/Cart";
 import swa from "sweetalert";
 import { Link } from "react-router-dom";
 
@@ -13,6 +13,7 @@ interface product {
   title: string;
   image: string;
   price: number;
+  stock: number;
 }
 
 export default function ProductCard(props: product): JSX.Element {
@@ -28,12 +29,15 @@ export default function ProductCard(props: product): JSX.Element {
   }, [token]);
   
   const id = userInfo.id;
-  function handleClick(productId: number) {
+  async function handleClick(productId: number, stock: number) {
     if(!isLogin){
       return swa("You need to log in if you want to add this product to the cart", "", "warning")
+    } else if(stock === 1){
+      return swa("you can not add this product to the cart because is out of stock", "sorry")
     }
    
-    dispatch(addToCart(id, productId));
+    await dispatch(addToCart(id, productId));
+    dispatch(getClientCart(id))
   }
 
 
@@ -47,7 +51,7 @@ export default function ProductCard(props: product): JSX.Element {
         <FontAwesomeIcon icon={faDollarSign} className={style["icon-dollar"]} />
         {props.price}
       </p>
-      <button className={style["btn-bag"]} onClick={() => handleClick(props.id)}>
+      <button className={style["btn-bag"]} onClick={() => handleClick(props.id, props.stock)}>
         <FontAwesomeIcon icon={faBagShopping} className={style["icon-bag"]} />
       </button>
     </div>

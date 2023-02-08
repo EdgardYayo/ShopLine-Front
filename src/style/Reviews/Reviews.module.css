@@ -90,3 +90,23 @@
     letter-spacing: 3px;
     color: black;
 }
+
+.sub-container {
+    display: flex;
+    flex-direction: column;
+    transform: translateX(220px);
+}
+
+.userName-productId{
+    width: 80px;
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+    font-style: italic;
+    background: none;
+    border: none;
+    color: var(--purple);
+    outline: none;
+    text-decoration: underline;
+
+}

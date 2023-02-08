@@ -29,9 +29,11 @@ export default function ProductDetail(props: any): JSX.Element {
     else return false;
   }, [token]);
   
-  function handleClick(productId: number) {
+  function handleClick(productId: number, stock:number) {
     if(!isLogin){
       return swa("You need to log in if you want to add this product to the cart", "", "warning")
+    } else if(stock === 1){
+      return swa("you can not add this product to the cart because is out of stock", "sorry")    
     }
     const id = userInfo.id;
     dispatch(addToCart(id, productId));
@@ -75,7 +77,7 @@ export default function ProductDetail(props: any): JSX.Element {
           <div className={style["sub-sm-container"]}>
             <button
               className={style["btn-cart"]}
-              onClick={() => handleClick(productId)}
+              onClick={() => handleClick(productId, detail.stock)}
             >
               <FontAwesomeIcon
                 className={style["icon-cart"]}
@@ -95,10 +97,11 @@ export default function ProductDetail(props: any): JSX.Element {
           </div>
         </div>
       </div>
+      { !isLogin ? <div className={style["not-login"]}>You need to log in if you want to review and see the reviews ⚠️</div> : 
       <div className={style["reviews-container"]}>
         <Reviews></Reviews>
         <ShowReviews></ShowReviews>
-      </div>
+      </div> }
     </div>
   );
 }
