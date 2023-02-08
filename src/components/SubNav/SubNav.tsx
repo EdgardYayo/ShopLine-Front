@@ -1,7 +1,7 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import style from "../../style/SubNav/SubNav.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBagShopping, faBars, faCopyright, faRegistered, faStore, faTrademark } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { getCategories, filterByCategory } from "../../redux/actions/Products";
@@ -58,12 +58,17 @@ export default function SubNav({ setOrder, setCurrentPage }: any): JSX.Element {
       <div className={style["sub-filter"]}>
         <ul>
           <Link to={"/"}>
-          <li><span>New Products</span></li>
+          <li><span>
+          <FontAwesomeIcon className={style["store"]} icon={faStore}/>
+            </span></li>
           </Link>
-          <Link to={"/popular"}>
-          <li><span>Popular</span></li>
+          <Link to={"/home"}>
+          <li><span className={style["shopline"]}>ShopLine <FontAwesomeIcon className={style["icon-bag"]} icon={faBagShopping}/></span></li>
           </Link>
-          <li><span>Best sellers </span></li>
+          <li><span className={style["brand"]}>
+            <FontAwesomeIcon icon={faTrademark} style={{marginRight:"5px"}}/> 
+            <FontAwesomeIcon icon={faCopyright}/> 
+          </span></li>
         </ul>
       </div>
     </div>
