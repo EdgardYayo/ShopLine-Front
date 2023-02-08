@@ -8,32 +8,44 @@
 .sub-container {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    /* gap: 10px; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.content, .rating {
+.content, .rating, .username {
     border-top: 3px solid var(--blue);
     border-left: 5px double var(--blue);
     padding: 10px;
     background:#eee;
     border-radius: 10px;
     font-size: 18px;
-    font-weight:900;
-    transition: all 750ms;
+    font-weight:300;
+    transition: all 750ms ease;
 }
 
-.content:hover, .rating:hover{
+.content:hover, .rating:hover, .username:hover{
     transform: translateY(-3px);
     box-shadow: 0 0 10px black;
-    border-bottom: 3px solid var(--blue);
-    border-right: 5px double var(--blue);
-    border-top: none;
-    border-left: none;
+    
 }
 
+.username {
+    font-weight: 500;
+}
 
 .icon {
     color: yellow;
     filter: drop-shadow(0 0 1px black);
+    margin-right: 5px;
+}
+
+.icon-user {
+    margin-right: 5px;
+    color: var(--purple);
+}
+
+.icon-txt {
+    margin-right: 5px;
+    color: var(--blue);
 }
 

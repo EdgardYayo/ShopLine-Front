@@ -100,7 +100,7 @@
 }
 
 .button-pay {
-    width: 150px;
+    width: 180px;
     height: 50px;
     font-size: 25px;
     border-radius: 20px;
@@ -117,18 +117,10 @@
 .button-pay:active {
     transform: scale(0.90);
     background: var(--orange);
-    text-align: left;
     padding: 10px;
-    width: 170px;
     color: black;
 }
 
-.button-pay:active::after {
-    content: '💳';
-    position: absolute;
-    bottom: 5px;
-    margin-left: 5px;
-}
 
 .message {
     font-size: 35px;

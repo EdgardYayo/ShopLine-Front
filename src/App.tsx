@@ -63,7 +63,7 @@ function App() {
   if (isLoading) {
     return <Loading />;
   }
-
+  
   return (
     <BrowserRouter>
       <div className="App">
@@ -78,15 +78,19 @@ function App() {
           <Route exact path="/register" component={Register} />
           <Route exact path="/profile/list/:id" component={ListDetail} />
 
+
+ 
           <Elements stripe={stripePromise}>
+          <Elements stripe={stripePromise}>
+            <Route exact path="/payment/:id" component={PayForm} />
+          </Elements>
             <Route
               exact
               path={["/profile", "/profile/:options"]}
               component={UserDashboard}
             />
           </Elements>
-
-          <Route exact path="*" component={NotFound} />
+          
 
           <Route exact path="/profile/list" component={MyList} />
           <Route exact path="/profile/user" component={UserComponent} />
@@ -94,11 +98,11 @@ function App() {
 
           <Elements stripe={stripePromise}>
             <Route exact path="/profile/cart" component={Cart} />
-            <Route exact path="/payment/:id" component={PayForm} />
           </Elements>
 
           <Route exact path="/detail/:id" component={ProductDetail} />
 
+          <Route exact path="*" component={NotFound} />
           {/* <Route exact path="/profile" component={Profile} /> */}
         </Switch>
         <Footer></Footer>

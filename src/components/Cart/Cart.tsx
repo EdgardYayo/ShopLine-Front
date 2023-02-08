@@ -1,7 +1,7 @@
 import { faCircleRight, faDeleteLeft, faSquareMinus, faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   clearCart,
   deleteCartAfterPayment,
@@ -21,6 +21,7 @@ export default function Cart(): JSX.Element {
   const dispatch = useAppDispatch();
   const userInfo = useAppSelector((state) => state.user);
   const cartDetail = useAppSelector((state) => state.cart);
+  const [listener, setListener] = useState(false)
   const history = useHistory();
 
 
@@ -34,16 +35,21 @@ export default function Cart(): JSX.Element {
     // };
   }, [dispatch, id]);
 
-  const total =
+  const total = listener === false ?
     cartDetail[0]?.products.length !== 0
+      ? cartDetail[0]?.products
+          ?.map((e: any) => e.price)
+          .reduce((acc: number, curr: number) => acc + curr)
+      : null : cartDetail[0]?.products.length !== 0
       ? cartDetail[0]?.products
           ?.map((e: any) => e.price * (10 - e.stock))
           .reduce((acc: number, curr: number) => acc + curr)
-      : null;
+      : null
+
   const description = cartDetail[0]?.products
-    ?.map((e: any) => e.title)
+    ?.map((e: any) => e.title + ` (${10 - e.stock})`)
     .join(", ");
-  console.log(description);
+
   const amount = total * 100;
 
   const stripe: any | null = useStripe();
@@ -70,7 +76,7 @@ export default function Cart(): JSX.Element {
       );
       await dispatch(deleteCartAfterPayment(userId));
       history.push("/profile/receipt");
-      window.location.reload();
+      //window.location.reload();
     }
 
     if (error) {
@@ -83,19 +89,31 @@ export default function Cart(): JSX.Element {
   };
 
   //Function that handle the delete of products from the cart
-  function handleDelete(productId: any) {
-    dispatch(deleteFromCart(id, productId));
-    window.location.reload();
+ async function handleDelete(productId: any) {
+   await dispatch(deleteFromCart(id, productId));
+   dispatch(getClientCart(id))
   }
-
+  
   //handlers of the stock
   async function handlePlus(productId:number){
     await dispatch(plusProduct(productId))
+    dispatch(getClientCart(id))
+    setListener(true)
   }
   
   async function handleMinus(productId:number){
     await dispatch(minusProduct(productId))
+    dispatch(getClientCart(id))
+    setListener(true)
   }
+
+  //  const handlerStock = (stock:number) => {
+  //    {
+  //     return 10 - stock 
+  //   } else {
+  //     return 1
+  //   }
+  // }
   
   const token = window.localStorage.getItem("token");
   const isLogin = useMemo(() => {
@@ -120,13 +138,13 @@ export default function Cart(): JSX.Element {
             return (
               <div className={style["cart-card"]}>
                 <div className={style["stock-container"]}>
-                <button className={style["stock-handlers"]} onClick={() => handlePlus(e.id)}><FontAwesomeIcon icon={faSquareMinus}/></button>
-                <p className={style["stock"]}>{10 - e.stock}</p>
+                <button id="btn" className={style["stock-handlers"]} onClick={() => handlePlus(e.id)}><FontAwesomeIcon icon={faSquareMinus}/></button>
+                <p className={style["stock"]}>{ listener === false ? 1 : 10 - e.stock}</p>
                 <button className={style["stock-handlers"]} onClick={() => handleMinus(e.id)}><FontAwesomeIcon icon={faSquarePlus}/></button>
                 </div>
                 <img className={style["image"]} src={e.image} alt={e.title} />
                 <h2 className={style["product-title"]}>{e.title}</h2>
-                <h3 className={style["price"]}>${e.price * (10 - e.stock)}</h3>
+                <h3 className={style["price"]}>${ listener === false ? e.price : e.price * (10 - e.stock)}</h3>
                 <button
                   className={style["btn-delete"]}
                   onClick={() => handleDelete(e.id)}

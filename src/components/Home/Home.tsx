@@ -12,7 +12,7 @@ export default function Home(): JSX.Element {
   const dispatch = useAppDispatch();
   const allProducts = useAppSelector((state) => state.products);
   const userInfo = useAppSelector((state) => state.user);
-  //console.log(allProducts);
+  console.log(allProducts);
 
   /*Paged Logic*/
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,6 +42,7 @@ export default function Home(): JSX.Element {
           return (
             // <Link to={"/detail/" + product.id}>
             <ProductCard
+              stock={product.stock}
               id={product.id}
               key={product.id}
               image={product.image}
