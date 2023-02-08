@@ -6,6 +6,8 @@ import { adminActions } from "../../redux/actions/Admin/index";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { useState } from "react";
 import NotFound from "../../utils/NotFound";
+import BarChart from "./BarChart";
+import DonutChart from "./DonutChart";
 
 // interface AdminOptions {
 //   admin: string,
@@ -157,6 +159,10 @@ export default function Admin(): JSX.Element {
           </div>
         </div>
       </div>
+      <section className={style["charts-container"]}>
+        <BarChart/>
+        <DonutChart/>
+      </section>
     </div>
   );
 }

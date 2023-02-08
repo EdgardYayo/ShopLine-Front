@@ -22,14 +22,16 @@ export const getAllListsUser = (userId: string) => {
   };
 };
 
-export const getListFavorite = (userId: string) => {
+export const getListFavorite = (userId: any) => {
   return async (dispatch: AppDispatch) => {
     try {
       const response = await axios.get(
         `${API_ENDPOINT}/list/favorites/${userId}`
       );
+      console.log(response, "get list")
       dispatch({ type: GET_LIST_FAVORITES, payload: response.data });
     } catch (err: any) {
+      console.log(err, "error")
       throw new Error(err.message);
     }
   };
@@ -96,6 +98,7 @@ export const addListProduct = (addProduct: object) => {
           throw new Error(err.response.data);
         }
       );
+      console.log(response)
       return response;
     } catch (err: any) {
       throw new Error(err.message);
