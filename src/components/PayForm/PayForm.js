@@ -61,6 +61,12 @@ export default function PayForm(props) {
         <h1 className={style["title"]}>You need to login if you want to buy <FontAwesomeIcon className={style["icon-warn"]} icon={faTriangleExclamation}/></h1>
       </div>
     )
+  } else if(detail.stock === 1){
+    return (
+      <div className={style["container"]}>
+        <h1 className={style["title"]}>Sorry this product is out of stock <FontAwesomeIcon className={style["icon-warn"]} icon={faTriangleExclamation}/></h1>
+      </div>
+    )
   } 
   return (
     <div className={style["container"]}>

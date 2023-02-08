@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import validationReview from "./validations/validationReview";
-import { createReview } from "../../redux/actions/Products";
+import { createReview, getDetail } from "../../redux/actions/Products";
 import style from "../../style/Reviews/Reviews.module.css"
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
@@ -21,33 +21,39 @@ export default function Reviews(): JSX.Element{
     const product:any = useAppSelector((state:any) => state.detail)
     const userInfo:any = useAppSelector((state:any) => state.user)
   
-  
+
+    
+    
+    
     var username: any = userInfo.name
     var productId: any = product.id
-
+    
     let initialValues : FormValues = {
         content: "",
         rating: 0,
-        username: username,
-        productId: productId
-    }
+        username: "",
+        productId: 0
 
+    }
+    
     const [input, setInput] = useState(initialValues)
     
     console.log(input, "aqui")
-
-    const handleChange = (event: React.ChangeEvent<any>) => {
+    
+    const handleChange = async (event: React.ChangeEvent<any>) => {
         const inputName = event.target.name;
         const inputValue = event.target.value;
-    
-    setInput({...input, [inputName]: inputValue })
+        await dispatch(getDetail(productId))
+        setInput({...input, [inputName]: inputValue })
     }
 
     const handleSubmit = async (e: any) => {
         e.preventDefault()
+        await dispatch(getDetail(productId))
         await dispatch(createReview(input))
         setInput(initialValues)
-        setTimeout(() => { window.location.reload() }, 4500)
+        await dispatch(getDetail(productId))
+        // setTimeout(() => { window.location.reload() }, 4500)
     }
 
 
@@ -68,6 +74,10 @@ export default function Reviews(): JSX.Element{
                     <Rating name="rating" defaultValue={1} value={input.rating} size="large" />
                     </Stack>
                     <ErrorMessage name="rating" component="span" className={style["error"]}/>
+                    <div className={style["sub-container"]}>
+                    <Field type="text" name="username"  className={style["userName-productId"]} value={input.username = username}/>
+                    <Field type="number" name="productId" className={style["userName-productId"]} value={input.productId = productId}/>
+                    </div>
                     <button type="submit" className={style["button"]}>Submit</button>
                 </Form>
             </Formik>
