@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { faBookmark, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import style from "../../../style/User/MyList.module.css";
 import {

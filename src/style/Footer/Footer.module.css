@@ -15,3 +15,11 @@
   margin: 10px;
   font-size: 40px;
 }
+
+.shop-word {
+  color: var(--blue);
+}
+
+.line-word {
+  color: var(--orange);
+}

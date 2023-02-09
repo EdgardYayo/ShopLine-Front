@@ -5,7 +5,6 @@ import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import Paged from "../Paged/Paged";
 import NavBar from "../NavBar/NavBar";
 import Sorts from "../Sorts/Sorts";
-import { Link } from "react-router-dom";
 import Loading from "../../utils/Loading";
 
 export default function Home(): JSX.Element {

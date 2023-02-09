@@ -1,9 +1,8 @@
 import { faCircleRight, faDeleteLeft, faSquareMinus, faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
-  clearCart,
   deleteCartAfterPayment,
   deleteFromCart,
   getClientCart,

@@ -1,9 +1,8 @@
-import React from "react";
 import { useState } from "react";
 import Chart from "react-apexcharts";
 
 export default function BarChart() {
-  const [data, setData] = useState({
+  const [data] = useState({
     options: {
       labels: ["electronics", "jewelery", "men's clothing", "women's clothing"],
       colors: ["#4318FF", "#6AD2FF", "#97FF6A", "#5e17eb"],

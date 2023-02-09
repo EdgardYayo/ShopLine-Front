@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faUserCheck } from "@fortawesome/free-solid-svg-icons";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { getReceipt } from "../../redux/actions/Products";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import style from "../../style/Receipts/Receipts.module.css";

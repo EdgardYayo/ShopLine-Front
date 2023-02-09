@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { clearDetail, getDetail } from "../../redux/actions/Products/index";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import style from "../../style/ProductDetail/ProductDetail.module.css";
@@ -9,13 +9,10 @@ import {
   faGifts,
   faCartPlus,
   faMoneyCheckDollar,
-  faBookmark,
-  faCheck,
-  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import Reviews from "../Reviews/Reviews";
 import ShowReviews from "../ShowReviews/ShowReviews";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useHistory} from "react-router-dom";
 import { addToCart } from "../../redux/actions/Cart";
 import swa from "sweetalert";
 // import ListComponent from "../User/Options/ListComponent";

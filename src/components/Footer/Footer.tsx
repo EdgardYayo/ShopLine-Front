@@ -14,7 +14,7 @@ export default function Footer(): JSX.Element {
   return (
     <div className={style["footer"]}>
       <p className={style["copy"]}>
-        Copyright &copy; 2023 <b>ShopLine</b> -
+        Copyright &copy; 2023 <span className={style["shopline"]}><strong className={style["shop-word"]}>Shop</strong><strong className={style["line-word"]}>Line</strong></span>-
         Todos los derechos reservados.
       </p>
       <div className={style["pays"]}>

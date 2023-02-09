@@ -3,7 +3,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import style from "../../style/NavBar/DropDown-User.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCaretDown,
   faUser,
   faSignOutAlt,
   faSignInAlt,

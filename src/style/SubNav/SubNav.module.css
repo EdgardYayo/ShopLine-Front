@@ -127,7 +127,6 @@
 
 .shopline{
   color: black;
-  filter: drop-shadow(0 0 1px);
   letter-spacing: 3px;
   font-size: 35px;
   font-style: italic;

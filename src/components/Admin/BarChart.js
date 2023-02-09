@@ -1,4 +1,3 @@
-import React from "react";
 import Chart from "react-apexcharts";
 import { useState } from "react";
 
@@ -7,7 +6,7 @@ import { useState } from "react";
 
 export default function BarChart(){
 
- const [data, setData] = useState({
+ const [data] = useState({
     options:{
         chart:{
             id:"basic-bar"

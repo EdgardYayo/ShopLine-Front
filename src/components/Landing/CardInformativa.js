@@ -2,7 +2,7 @@ import { PropsWithRef } from "react";
 import { Link } from "react-router-dom";
 import style from "../../style/Landing/CardInformative.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDollar, faStore } from "@fortawesome/free-solid-svg-icons";
+import { faDollar} from "@fortawesome/free-solid-svg-icons";
 
 export default function CardInformative({ title, image, id, price, description }) {
   return (
