@@ -14,6 +14,7 @@ import {
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
   CLEAR_DETAIL,
+  ORDER_BY_RATING,
 } from "../actions/Products";
 
 import { CLEAN_USER_INFO, GET_USER_INFO } from "../actions/Users/index";
@@ -190,6 +191,25 @@ function rootReducer(state: StateProducts = initialState, action: AnyAction) {
       return {
         ...state,
         products: action.payload === "all" ? state.products : orderedPrice,
+      };
+    case ORDER_BY_RATING:
+      let orderedRating;
+      if (action.payload === "asc") {
+        orderedRating = state.products.sort((a, b) => {
+          if (a.rating > b.rating) return -1;
+          else if (b.rating > a.rating) return 1;
+          else return 0;
+        });
+      } else if (action.payload === "desc") {
+        orderedRating = state.products.sort((a, b) => {
+          if (a.rating > b.rating) return 1;
+          else if (b.rating > a.rating) return -1;
+          else return 0;
+        });
+      }
+      return {
+        ...state,
+        products: action.payload === "all" ? state.products : orderedRating,
       };
     case CREATE_REVIEW:
       return { ...state };

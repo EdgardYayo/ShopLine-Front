@@ -4,6 +4,7 @@ import {
   filterByPrice,
   orderByName,
   orderByPrice,
+  orderByRating,
 } from "../../redux/actions/Products";
 import {
   FormControl,
@@ -23,6 +24,7 @@ import {
   faMoneyBillTrendUp,
   faMoneyBillWave,
   faPlus,
+  faStar,
   faUpLong,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -48,12 +50,19 @@ export default function Sorts({ setOrder, setCurrentPage }: any): JSX.Element {
   }
 
   /*Filter by Price*/
-  function handleFilterPrice(e: SelectChangeEvent<any>) {
-    e.preventDefault();
-    dispatch(filterByPrice(e.target.value));
-    setCurrentPage(1);
-  }
+  // function handleFilterPrice(e: SelectChangeEvent<any>) {
+  //   e.preventDefault();
+  //   dispatch(filterByPrice(e.target.value));
+  //   setCurrentPage(1);
+  // }
   
+  /*Sort By Rating */
+  function handleSortRating(e: SelectChangeEvent<any>) {
+    e.preventDefault();
+    dispatch(orderByRating(e.target.value));
+    setCurrentPage(1);
+    setOrder(e.target.value);
+  }
   
 
   return (
@@ -99,6 +108,27 @@ export default function Sorts({ setOrder, setCurrentPage }: any): JSX.Element {
         </Select>
       </FormControl>
       <FormControl className={style["inside-container"]}>
+        <InputLabel id="demo-simple-select-label">Sort by Rating</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          label="Sort by Rating"
+          onChange={(e) => handleSortRating(e)}
+          >
+          <MenuItem value={"all"}>
+            <FontAwesomeIcon icon={faStar} />
+          </MenuItem>
+          <MenuItem value={"asc"}>
+            <FontAwesomeIcon className={style["icon"]} icon={faStar} />
+            <FontAwesomeIcon icon={faUpLong} />
+          </MenuItem>
+          <MenuItem value={"desc"}>
+            <FontAwesomeIcon className={style["icon"]} icon={faStar} />
+            <FontAwesomeIcon icon={faDownLong} />
+          </MenuItem>
+        </Select>
+      </FormControl>
+      {/* <FormControl className={style["inside-container"]}>
         <InputLabel id="demo-simple-select-label"> $ </InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -135,7 +165,7 @@ export default function Sorts({ setOrder, setCurrentPage }: any): JSX.Element {
             <FontAwesomeIcon icon={faDollarSign} /> 900
           </MenuItem>
         </Select>
-      </FormControl>
+      </FormControl> */}
       <ResetButton></ResetButton>
     </div>
   );

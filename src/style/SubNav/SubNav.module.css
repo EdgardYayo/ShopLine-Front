@@ -15,15 +15,18 @@
 }
 
 .explore select {
-  margin-top: 25px;
-  border-radius: 5px;
+  margin-top: 5px;
+  border-radius: 15px;
   padding: 2px;
-  background: #eee;
-  border: 1px solid #fff;
-  box-shadow: 0 0 12px #0685FC;
+  background: var(--blue);
+  color: white;
+  font-weight: 700;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px var(--blue);
   margin-left: 4px;
   letter-spacing: 2px;
   outline: none;
+  text-align: center;
 }
 
 .explore select:active{
@@ -32,9 +35,13 @@
 
 .explore option {
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   font-style: italic;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: capitalize;
 }
+
 
 .h4-dropdown {
   background-color: transparent;
@@ -127,13 +134,12 @@
 }
 
 .icon-bag{
-  color: var(--blue);
+  color: var(--purple);
   margin-left: 5px;
   transition: all ease 500ms;
 }
 
 .icon-bag:hover {
-  color: var(--purple);
   transform: scale(1.3);
   filter: drop-shadow(0 0 0.5px var(--purple));
 }
@@ -144,17 +150,29 @@
 }
 
 .store{
+  display: inline;
   font-size: 30px;
-  filter: drop-shadow(0 0 1px);
   transition: all ease 500ms;
+  border: none;
+  background: #F4F6FB;
 }
 
 .store:hover{
   transform: scale(1.3);
-  filter: drop-shadow(0 0 2px var(--blue));
+  text-shadow: 0 0 10px;
 }
 
 .store:active{
   opacity: 0.8;
+  transform: scale(1.3) rotate(30deg);
   color: var(--orange);
 }
+
+.shop-word{
+  color: var(--blue);
+}
+
+.line-word{
+  color: var(--orange);
+}
+
