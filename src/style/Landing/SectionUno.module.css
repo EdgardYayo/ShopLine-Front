@@ -4,12 +4,23 @@
   color: white;
   /* background-color: #5A2095; */
   /* background-color: #1a0750; */
-  background-color: #0685FC;
-  padding: 40px;
-  font-size: 20px;
-  text-align: left;
+  background: linear-gradient(to right, var(--blue), var(--purple));
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 100;
+  font-style: italic;
 }
 
+.icon-basket{
+  color: var(--orange);
+  margin-left: 8px;
+}
+
+.icon-basket:hover{
+  filter: drop-shadow(0 0 2px var(--orange));
+}
 
 * {
   text-decoration: none;

@@ -18,15 +18,15 @@ import ShowReviews from "../ShowReviews/ShowReviews";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { addToCart } from "../../redux/actions/Cart";
 import swa from "sweetalert";
-import ListComponent from "../User/Options/ListComponent";
-import {
-  getListFavorite,
-  getAllListsUser,
-  clearDetailList,
-  addListProduct,
-  deleteProductInList,
-} from "../../redux/actions/List";
-import imageNotFound from "../../img/notFound/no-product.png"
+// import ListComponent from "../User/Options/ListComponent";
+// import {
+//   getListFavorite,
+//   getAllListsUser,
+//   clearDetailList,
+//   addListProduct,
+//   deleteProductInList,
+// } from "../../redux/actions/List";
+// import imageNotFound from "../../img/notFound/no-product.png"
 
 
 export default function ProductDetail(props: any): JSX.Element {
@@ -36,13 +36,13 @@ export default function ProductDetail(props: any): JSX.Element {
 
 
   const history = useHistory();
-  const detailList = useAppSelector((state) => state.listDetail);
-  const allListsFromUser = useAppSelector((state) => state["userLists"]);
+  // const detailList = useAppSelector((state) => state.listDetail);
+  // const allListsFromUser = useAppSelector((state) => state["userLists"]);
   const userInfo = useAppSelector((state: any) => state.user);
 
-  const [modal, setModal] = useState(false);
+  // const [modal, setModal] = useState(false);
 
-  const [ready, setReady] = useState(false);
+  // const [ready, setReady] = useState(false);
 
   const token = window.localStorage.getItem("token");
   const isLogin = useMemo(() => {
@@ -68,59 +68,59 @@ export default function ProductDetail(props: any): JSX.Element {
   const productId = detail.id;
 
   useEffect(() => {
-    dispatch(getListFavorite(userInfo.id)).then(() => setReady(true));
-    dispatch(getAllListsUser(userInfo.id));
+    // dispatch(getListFavorite(userInfo.id)).then(() => setReady(true));
+    // dispatch(getAllListsUser(userInfo.id));
     dispatch(getDetail(id));
     window.scrollTo(0, 0);
     return () => {
-      dispatch(clearDetailList());
-      document.body.classList.remove(style["active-modal"]);
+      // dispatch(clearDetailList());
+      // document.body.classList.remove(style["active-modal"]);
       dispatch(clearDetail());
     };
   }, [dispatch, id, userInfo.id]);
 
-  const toggleAddAnimeList = async (listId: number) => {
-    const productToAdd = { product: id, list: listId };
-    try {
-      await dispatch(addListProduct(productToAdd));
-      history.push(`/profile/list/${listId}`);
-    } catch (error: any) {
-      history.push(`/profile/list/${listId}`);
-    }
-  };
+  // const toggleAddAnimeList = async (listId: number) => {
+  //   const productToAdd = { product: id, list: listId };
+  //   try {
+  //     await dispatch(addListProduct(productToAdd));
+  //     history.push(`/profile/list/${listId}`);
+  //   } catch (error: any) {
+  //     history.push(`/profile/list/${listId}`);
+  //   }
+  // };
 
-  const toggleModal = () => {
-    setModal(!modal);
-  };
+  // const toggleModal = () => {
+  //   setModal(!modal);
+  // };
 
-  const toggleFavorite = async () => {
-    try {
-      if (detailList.id === null) return;
-      const checkProductAdded = detailList.products?.find(
-        (product) => product.id === Number(id)
-      );
-      if (!checkProductAdded) {
-        const productToFavorite = { product: Number(id), list: detailList.id };
-        console.log(productToFavorite, "favoritesss")
-        await dispatch(addListProduct(productToFavorite));
-        await dispatch(getListFavorite(userInfo.id));
-        alert("product Added to Favorites!");
-      } else {
-        const productToDel = { product: Number(id), list: detailList.id };
-        await dispatch(deleteProductInList(productToDel));
-        await dispatch(getListFavorite(userInfo.id));
-        alert("Product Deleted of Favorites!");
-      }
-    } catch (error: any) {
-      console.log(error);
-    }
-  };
+  // const toggleFavorite = async () => {
+  //   try {
+  //     if (detailList.id === null) return;
+  //     const checkProductAdded = detailList.products?.find(
+  //       (product) => product.id === Number(id)
+  //     );
+  //     if (!checkProductAdded) {
+  //       const productToFavorite = { product: Number(id), list: detailList.id };
+  //       console.log(productToFavorite, "favoritesss")
+  //       await dispatch(addListProduct(productToFavorite));
+  //       await dispatch(getListFavorite(userInfo.id));
+  //       alert("product Added to Favorites!");
+  //     } else {
+  //       const productToDel = { product: Number(id), list: detailList.id };
+  //       await dispatch(deleteProductInList(productToDel));
+  //       await dispatch(getListFavorite(userInfo.id));
+  //       alert("Product Deleted of Favorites!");
+  //     }
+  //   } catch (error: any) {
+  //     console.log(error);
+  //   }
+  // };
 
-  if (modal) {
-    document.body.classList.add(style["active-modal"]);
-  } else {
-    document.body.classList.remove(style["active-modal"]);
-  }
+  // if (modal) {
+  //   document.body.classList.add(style["active-modal"]);
+  // } else {
+  //   document.body.classList.remove(style["active-modal"]);
+  // }
 
   return (
     <div className={style["container"]}>
@@ -142,7 +142,7 @@ export default function ProductDetail(props: any): JSX.Element {
             <FontAwesomeIcon className={style["icon-tag"]} icon={faTag} /> $
             {detail?.price}
           </p>
-
+{/* 
           <div className={style["lists"]}>
             <div onClick={toggleFavorite} className={style["lists-span"]}>
               {ready &&
@@ -224,7 +224,7 @@ export default function ProductDetail(props: any): JSX.Element {
                 </div>
               )}
             </div>
-          </div>
+          </div> */}
 
           <div className={style["sub-sm-container"]}>
             <button

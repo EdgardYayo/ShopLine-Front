@@ -3,7 +3,7 @@ import style from "../../style/Landing/SectionUno.module.css";
 import CardInformative from "./CardInformativa";
 import newProducts from "../../utils/NewProducts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faBasketShopping, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function SectionUno() {
   return (
@@ -11,6 +11,7 @@ export default function SectionUno() {
       <div>
         <h2 className={style["section1_container"]}>
           New Arrival
+          <FontAwesomeIcon  className={style["icon-basket"]} icon={faBasketShopping}/>
         </h2>
       </div>
       <section className={style["section_container"]}>
