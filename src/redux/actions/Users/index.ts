@@ -2,7 +2,7 @@ import axios from "axios";
 import { AppDispatch } from "../../store/index";
 import { User } from "@auth0/auth0-react";
 
-const API_ENDPOINT = "http://localhost:3001";
+// const API_ENDPOINT = "http://localhost:3001";
 
 export const GET_USER_INFO = "GET_USER_INFO";
 export const CLEAN_USER_INFO = "CLEAN_USER_INFO";
@@ -11,7 +11,7 @@ export const getUserResource = (accessToken: string) => {
   return async (dispatch: AppDispatch) => {
     try {
       const config = {
-        url: `${API_ENDPOINT}/user`,
+        url: `/user`,
         method: "GET",
         headers: {
           "content-type": "application/json",
@@ -35,7 +35,7 @@ export const getUserResourceWithGoogle = (
   return async (dispatch: AppDispatch) => {
     try {
       const config = {
-        url: `${API_ENDPOINT}/user/google`,
+        url: `/user/google`,
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -58,7 +58,7 @@ export const loginUser = (user: User) => {
   return async (dispatch: AppDispatch) => {
     try {
       const config = {
-        url: `${API_ENDPOINT}/user/login`,
+        url: `/user/login`,
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -80,7 +80,7 @@ export const registerUser = (user: User) => {
   return async (dispatch: AppDispatch): Promise<void> => {
     try {
       const config = {
-        url: `${API_ENDPOINT}/user/register`,
+        url: `/user/register`,
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -107,7 +107,7 @@ export const changeUserSettings = (id: string, settings: {}) => {
   return async (dispatch: AppDispatch) => {
     try {
       const config = {
-        url: `${API_ENDPOINT}/user/configure/${id}`,
+        url: `/user/configure/${id}`,
         method: "PATCH",
         headers: {
           "content-type": "application/json",

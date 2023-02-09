@@ -2,7 +2,7 @@ import axios from "axios";
 import swa from "sweetalert";
 import { AppDispatch } from "../../store/index";
 
-const API_ENDPOINT = "http://localhost:3001";
+// const API_ENDPOINT = "http://localhost:3001";
 
 export const GET_PRODUCTS = "GET_PRODUCTS";
 export const GET_CATEGORIES = "GET_CATEGORIES";
@@ -22,7 +22,7 @@ export const CLEAR_DETAIL = "CLEAR_DETAIL";
 
 export const getProducts = () => {
   return async function (dispatch: AppDispatch) {
-    const response = await axios.get(`${API_ENDPOINT}/products`);
+    const response = await axios.get(`/products`);
     dispatch({
       type: GET_PRODUCTS,
       payload: response.data,
@@ -32,7 +32,7 @@ export const getProducts = () => {
 
 export const getCategories = () => {
   return async function (dispatch: AppDispatch) {
-    const response = await axios.get(`${API_ENDPOINT}/categories`);
+    const response = await axios.get(`/categories`);
     dispatch({
       type: GET_CATEGORIES,
       payload: response.data,
@@ -42,7 +42,7 @@ export const getCategories = () => {
 
 export const getDetail = (id:number) => {
   return async function (dispatch: AppDispatch) {
-    const response = await axios.get(`${API_ENDPOINT}/products/${id}`);
+    const response = await axios.get(`/products/${id}`);
     dispatch({
       type: GET_DETAIL,
       payload: response.data,
@@ -52,7 +52,7 @@ export const getDetail = (id:number) => {
 
 export const getReviews = (id: number) => {
   return async function (dispatch: AppDispatch) {
-    const response = await axios.get(`${API_ENDPOINT}/reviews/${id}`);
+    const response = await axios.get(`/reviews/${id}`);
     console.log(response)
     dispatch({
       type: GET_REVIEWS,
@@ -63,7 +63,7 @@ export const getReviews = (id: number) => {
 
 export const getPopular = () => {
   return async function (dispatch: AppDispatch) {
-    const response = await axios.get(`${API_ENDPOINT}/products/popular`);
+    const response = await axios.get(`/products/popular`);
     dispatch({
       type: GET_POPULAR,
       payload: response.data,
@@ -76,7 +76,7 @@ export const getPopular = () => {
 export const filterByName = (name: string) => {
   return async function (dispatch: AppDispatch) {
     try {
-      const response = await axios.get(`${API_ENDPOINT}/products?name=${name}`);
+      const response = await axios.get(`/products?name=${name}`);
       dispatch({
         type: FILTER_BY_NAME,
         payload: response.data,
@@ -132,7 +132,7 @@ export const orderByRating = (payload: string) => {
 
 export const createReview = (payload:any) => {
   return async function () {
-    const response = await axios.post(`${API_ENDPOINT}/reviews/create`, payload);
+    const response = await axios.post(`/reviews/create`, payload);
     console.log(response, "review")
     return response
   };
@@ -142,7 +142,7 @@ export const createReview = (payload:any) => {
 export const getPay = (payload:any) => {
   return async function () {
     try {
-      const response = await axios.post(`${API_ENDPOINT}/payments`, payload);
+      const response = await axios.post(`/payments`, payload);
       console.log(response)
       return response;   
     } catch (error) {
@@ -155,7 +155,7 @@ export const getPay = (payload:any) => {
 export const getReceipt = (userId:any) => {
   return async function(dispatch: AppDispatch){
     try {
-       const response = await axios.get(`${API_ENDPOINT}/payments/receipt/${userId}`)
+       const response = await axios.get(`/payments/receipt/${userId}`)
        dispatch({
         type: GET_RECEIPT,
         payload: response.data

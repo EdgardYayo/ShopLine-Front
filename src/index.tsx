@@ -7,6 +7,11 @@ import { store } from "./redux/store/index";
 import { Provider } from "react-redux";
 import { Auth0ProviderWithHistory } from "./components/NavBar/Auth0-provider-with-history";
 import { BrowserRouter } from "react-router-dom";
+import axios from "axios"
+
+// axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "https://shopline-back-production.up.railway.app/";
+
 
 //const domain: any = process.env.REACT_APP_AUTH0_DOMAIN;
 //const clientId: any = process.env.REACT_APP_AUTH0_CLIENT_ID;
