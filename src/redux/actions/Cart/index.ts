@@ -1,6 +1,6 @@
 import axios from "axios";
 import { AppDispatch } from "../../store/index";
-const API_ENDPOINT = "http://localhost:3001";
+// const API_ENDPOINT = "http://localhost:3001";
 
 
 export const CREATE_CART = "CREATE_CART";
@@ -24,7 +24,7 @@ export const MINUS_PRODUCT = "MINUS_PRODUCT";
 
 export const addToCart = (id:any, productId:number) => {
     return async function () {
-      const response = await axios.post(`${API_ENDPOINT}/cart/add/${id}`, productId);
+      const response = await axios.post(`/cart/add/${id}`, productId);
       console.log(response, productId)
       return response
     };
@@ -32,7 +32,7 @@ export const addToCart = (id:any, productId:number) => {
 
 export const getClientCart = (id:any) => {
     return async function (dispatch: AppDispatch) {
-      const response = await axios.get(`${API_ENDPOINT}/cart/${id}`);
+      const response = await axios.get(`/cart/${id}`);
       dispatch({
         type: GET_CLIENT_CART,
         payload: response.data,
@@ -50,7 +50,7 @@ export const clearCart = () => {
 
 export const deleteFromCart = (id:any, productId:number | any) => {
   return async function () {
-    const response = await axios.delete(`${API_ENDPOINT}/cart/delete/${id}?productId=${productId}`);
+    const response = await axios.delete(`/cart/delete/${id}?productId=${productId}`);
     return response.config
   };
 };
@@ -58,21 +58,21 @@ export const deleteFromCart = (id:any, productId:number | any) => {
 
 export const deleteCartAfterPayment = (userId: any) => {
   return async function () {
-    const response = await axios.delete(`${API_ENDPOINT}/cart/delete?userId=${userId}`)
+    const response = await axios.delete(`/cart/delete?userId=${userId}`)
     return response
   }
 }
 
 export const plusProduct = (productId:number) => {
   return async function () {
-    const response = await axios.patch(`${API_ENDPOINT}/cart/plus/${productId}`);
+    const response = await axios.patch(`/cart/plus/${productId}`);
     return response
   };
 };
 
 export const minusProduct = (productId:number) => {
   return async function () {
-    const response = await axios.patch(`${API_ENDPOINT}/cart/minus/${productId}`);
+    const response = await axios.patch(`/cart/minus/${productId}`);
     return response
   };
 };

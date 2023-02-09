@@ -1,7 +1,7 @@
 import axios from "axios";
 import { AppDispatch } from "../../store/index";
 
-const API_ENDPOINT = "http://localhost:3001";
+// const API_ENDPOINT= "http://localhost:3001";
 export const GET_USERS_BY_SEARCH = "GET_USERS_BY_SEARCH";
 
 export const adminActions = (options: {
@@ -12,7 +12,7 @@ export const adminActions = (options: {
   return async (dispatch: AppDispatch) => {
     try {
       const config = {
-        url: `${API_ENDPOINT}/admin`,
+        url: `/admin`,
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -32,7 +32,7 @@ export const searchUsers = (name: string) => {
   return async (dispatch: AppDispatch) => {
     try {
       const response = await axios.get(
-        `${API_ENDPOINT}/user/search?name=${name}`
+        `/user/search?name=${name}`
       );
       dispatch({ type: GET_USERS_BY_SEARCH, payload: response.data });
       return response;

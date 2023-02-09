@@ -1,7 +1,7 @@
 import axios from "axios";
 import { AppDispatch } from "../../store/index";
 
-const API_ENDPOINT = "http://localhost:3001";
+// const API_ENDPOINT = "http://localhost:3001";
 
 export const GET_ALL_LISTS_USER = "GET_ALL_LISTS_USER";
 export const GET_LIST = "GET_LIST";
@@ -13,7 +13,7 @@ export const getAllListsUser = (userId: string) => {
   return async (dispatch: AppDispatch) => {
     try {
       const response = await axios.get(
-        `${API_ENDPOINT}/list/all?userId=${userId}`
+        `/list/all?userId=${userId}`
       );
       dispatch({ type: GET_ALL_LISTS_USER, payload: response.data });
     } catch (err: any) {
@@ -26,7 +26,7 @@ export const getListFavorite = (userId: any) => {
   return async (dispatch: AppDispatch) => {
     try {
       const response = await axios.get(
-        `${API_ENDPOINT}/list/favorites/${userId}`
+        `/list/favorites/${userId}`
       );
       console.log(response, "get list")
       dispatch({ type: GET_LIST_FAVORITES, payload: response.data });
@@ -40,7 +40,7 @@ export const getListFavorite = (userId: any) => {
 export const getList = (id: number | string) => {
   return async (dispatch: AppDispatch) => {
     try {
-      const response = await axios.get(`${API_ENDPOINT}/list/${id}`);
+      const response = await axios.get(`/list/${id}`);
       dispatch({ type: GET_LIST, payload: response.data });
     } catch (err: any) {
       throw new Error(err.message);
@@ -62,7 +62,7 @@ export const createList = (list: { name: string; email: string; }) => {
   return async (dispatch: AppDispatch) => {
     try {
       const config = {
-        url: `${API_ENDPOINT}/list`,
+        url: `/list`,
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -81,7 +81,7 @@ export const addListProduct = (addProduct: object) => {
   return async (dispatch: AppDispatch) => {
     try {
       const config = {
-        url: `${API_ENDPOINT}/list/add`,
+        url: `/list/add`,
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -110,7 +110,7 @@ export const editListName = (editNameList: object) => {
   return async (dispatch: AppDispatch) => {
     try {
       const config = {
-        url: `${API_ENDPOINT}/list/edit`,
+        url: `/list/edit`,
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -129,7 +129,7 @@ export const deleteProductInList = (deleteAnimeInfo: object) => {
   return async (dispatch: AppDispatch) => {
     try {
       const config = {
-        url: `${API_ENDPOINT}/list/product`,
+        url: `/list/product`,
         method: "DELETE",
         headers: {
           "content-type": "application/json",
@@ -147,7 +147,7 @@ export const deleteProductInList = (deleteAnimeInfo: object) => {
 export const deleteList = (id: number) => {
   return async (dispatch: AppDispatch) => {
     try {
-      const response = await axios.delete(`${API_ENDPOINT}/list/${id}`);
+      const response = await axios.delete(`/list/${id}`);
       return response.data;
     } catch (err: any) {
       throw new Error(err.message);
