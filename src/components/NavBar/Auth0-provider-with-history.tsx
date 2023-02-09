@@ -25,7 +25,7 @@ export const Auth0ProviderWithHistory = (
       domain={"dev-0wcyb0rncjrw1ixe.us.auth0.com"}
       clientId={"r4KZrCUIMDkfPCFGFl6b3dMggKCyxQqm"}
       audience={"http://shopline/"}
-      redirectUri={"http://localhost:3000/home"}
+      redirectUri={"https://shop-line-front.vercel.app/home"}
       onRedirectCallback={onRedirectCallback}
     >
       {prop.children}

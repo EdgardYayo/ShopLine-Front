@@ -40,7 +40,7 @@ const DropdownUser = () => {
     setMenu(!menu);
     if (isAuthenticated) {
       window.localStorage.removeItem("token");
-      logout({ returnTo: "http://localhost:3000/login" });
+      logout({ returnTo: "https://shop-line-front.vercel.app/login" });
     } else {
       window.localStorage.removeItem("token");
       history.push("/login");
