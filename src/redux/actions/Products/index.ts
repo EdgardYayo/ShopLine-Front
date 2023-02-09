@@ -14,6 +14,7 @@ export const FILTER_BY_CATEGORY = "FILTER_BY_CATEGORY";
 export const FILTER_BY_PRICE = "FILTER_BY_PRICE";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_BY_PRICE = "ORDER_BY_PRICE";
+export const ORDER_BY_RATING = "ORDER_BY_RATING";
 export const CREATE_REVIEW = "CREATE_REVIEW";
 export const GET_PAY = "GET_PAY";
 export const GET_RECEIPT = "GET_RECEIPT";
@@ -118,6 +119,13 @@ export const orderByName = (payload: string) => {
 export const orderByPrice = (payload: string) => {
   return {
     type: ORDER_BY_PRICE,
+    payload,
+  };
+};
+
+export const orderByRating = (payload: string) => {
+  return {
+    type: ORDER_BY_RATING,
     payload,
   };
 };

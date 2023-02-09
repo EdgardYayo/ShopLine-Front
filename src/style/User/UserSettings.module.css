@@ -19,27 +19,40 @@
   display: flex;
   flex-direction: column;
   padding: 2em;
-  color: var(--main-color-font-dark);
+  color: black;
   gap: 1em;
 }
+
 .form-user-settings input {
   border: none;
   font-size: inherit;
   font-family: inherit;
   color: inherit;
-  background-color: var(--main-color-content);
+  background-color: var(--purple);
+  border-radius: 15px;
   outline: none;
   padding: 1em;
   width: 80%;
+  color: white;
+  opacity: 0.8;
 }
+
+.form-user-settings input:focus{
+  opacity: 1;
+  box-shadow: 0 0 10px black;
+}
+
 .form-user-option {
   display: flex;
   align-items: center;
 }
+
 .form-user-option label {
   max-width: 20%;
   width: 100%;
   text-align: left;
+  color: #aaa;
+  filter: drop-shadow(0 0 2px #aaa);
 }
 
 .save-changes-btn {
@@ -49,6 +62,9 @@
   padding: 1em;
   cursor: pointer;
   align-self: center;
+  border-radius: 15px;
+  font-size: 16px;
+  text-shadow: 0 0 2px white;
 }
 .save-changes-btn:hover {
   opacity: 0.7;
@@ -57,4 +73,9 @@
 
 .err-msg {
   color: rgba(160, 20, 20, 0.932);
+}
+
+.form__input{
+  color: red;
+  filter: drop-shadow(0 0 1px red);
 }

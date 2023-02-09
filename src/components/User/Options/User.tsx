@@ -105,7 +105,7 @@ export default function User() {
           <div className={style["form-user-option"]}>
             <label>Address</label>
             <Field
-              as="textarea"
+              // as="textarea"
               type={"text"}
               placeholder={"Your address..."}
               value={UserSettings.address}

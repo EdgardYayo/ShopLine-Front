@@ -30,7 +30,6 @@ export default function SubNav({ setOrder, setCurrentPage }: any): JSX.Element {
   return (
     <div className={style["explore"]}>
       <div>
-        {" "}
         <Link to={"/home"} className={style["a-dropdown"]}>
           <button onClick={toggleMenu} className={style["button-dropdown"]}>
             <FontAwesomeIcon icon={faBars} className={style["down"]} />
@@ -42,7 +41,7 @@ export default function SubNav({ setOrder, setCurrentPage }: any): JSX.Element {
             style["nav-dropdown"] + " " + style[`${menu ? "isActive" : ""}`]
           }
         >
-          <select onChange={(e) => handleFilterByCategory(e)}>
+          <select className={style["select-down"]} onChange={(e) => handleFilterByCategory(e)}>
             <option value="all">All</option>
 
             {categories &&
@@ -58,12 +57,13 @@ export default function SubNav({ setOrder, setCurrentPage }: any): JSX.Element {
       <div className={style["sub-filter"]}>
         <ul>
           <Link to={"/"}>
-          <li><span>
-          <FontAwesomeIcon className={style["store"]} icon={faStore}/>
-            </span></li>
+          <li><button className={style["store"]} >
+          {/* <FontAwesomeIcon className={style["store"]} icon={faStore}/> */}
+          🛍️
+            </button></li>
           </Link>
           <Link to={"/home"}>
-          <li><span className={style["shopline"]}>ShopLine <FontAwesomeIcon className={style["icon-bag"]} icon={faBagShopping}/></span></li>
+          <li><span className={style["shopline"]}><strong className={style["shop-word"]}>Shop</strong><strong className={style["line-word"]}>Line</strong><FontAwesomeIcon className={style["icon-bag"]} icon={faBagShopping}/></span></li>
           </Link>
           <li><span className={style["brand"]}>
             <FontAwesomeIcon icon={faTrademark} style={{marginRight:"5px"}}/> 

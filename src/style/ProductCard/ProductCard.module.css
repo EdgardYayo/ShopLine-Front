@@ -28,6 +28,7 @@
     letter-spacing: 3px;
     color: black;
     filter: drop-shadow(0 0 2px black);
+    text-overflow: ellipsis;
 }
 
 .price {
@@ -55,6 +56,7 @@
     border: none;
     background: white;
     transition: all 750ms ease;
+    margin-top: 50px;
 }
 
 .btn-bag:hover {
@@ -65,3 +67,37 @@
     color: green;
     transform: scale(0.95);
 }
+
+.sub-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.icon-star {
+    color: yellow;
+}
+
+.icon-star:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 4px yellow);
+}
+
+.rating {
+    font-size: 25px;
+    font-weight: 100;
+    filter: drop-shadow(0 0 1px);
+    margin-right: 5px;
+}
+
+
+.out{
+    font-weight: bolder;
+    color: red;
+    filter: drop-shadow(0 0 2px red);
+}
+
+.hidden {
+    visibility: hidden;
+    overflow: hidden;
+}
+

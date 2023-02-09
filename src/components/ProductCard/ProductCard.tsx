@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
+import { faDollarSign, faStar } from "@fortawesome/free-solid-svg-icons";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import style from "../../style/ProductCard/ProductCard.module.css";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
@@ -13,6 +13,7 @@ interface product {
   title: string;
   image: string;
   price: number;
+  rating: number;
   stock: number;
 }
 
@@ -43,6 +44,10 @@ export default function ProductCard(props: product): JSX.Element {
 
   return (
     <div className={style["container"]}>
+      <p className={style["rating"]}>
+        <FontAwesomeIcon icon={faStar} className={style["icon-star"]} />
+        {props.rating}
+      </p>
       <Link to={"/detail/" + props.id}>
       <img className={style["image"]} src={props.image} alt={"product"} />
       </Link>
@@ -51,9 +56,12 @@ export default function ProductCard(props: product): JSX.Element {
         <FontAwesomeIcon icon={faDollarSign} className={style["icon-dollar"]} />
         {props.price}
       </p>
+      <div className={style["sub-container"]}>
       <button className={style["btn-bag"]} onClick={() => handleClick(props.id, props.stock)}>
         <FontAwesomeIcon icon={faBagShopping} className={style["icon-bag"]} />
       </button>
+      <p className={props.stock === 1 ? style["out"] : style["hidden"]}>Out of Stock</p>
+      </div>
     </div>
   );
 }
