@@ -3,12 +3,17 @@
   min-height: 100vh;
 }
 
+.no-list{
+  font-style: italic;
+}
+
 .titulo-list-detail {
   padding: 2em 0 1em 0;
   color: var(--main-color-font-dark);
 }
 
 .div-principal-anime {
+  margin-top: 100px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -60,7 +65,7 @@
 }
 
 .anime-detail_name {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
   align-self: center;
   color: var(--main-color-font-dark);
@@ -102,10 +107,11 @@
   display: flex;
   column-gap: 0.5em;
   align-items: center;
-  border: 2px solid var(--secondary-color-content-3);
-  color: var(--secondary-color-content-3);
+  border-radius: 15px;
+  border: none;
+  color: black;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.356);
-  background-color: transparent;
+  background: linear-gradient(45deg, white, var(--orange));
   padding: 0.5em;
   font-size: 16px;
   font-weight: 800;
@@ -114,8 +120,6 @@
 }
 
 .button-back:hover {
-  color: #48037cbe;
-  border: 2px solid #48037cbe;
   transform: scale(1.05);
 }
 
@@ -127,6 +131,7 @@ body.active-modal {
 
 .modal,
 .overlay {
+  margin-top: 200px;
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -232,18 +237,33 @@ body.active-modal {
   column-gap: 0.5em;
   user-select: none;
   cursor: pointer;
-  padding: 0.4em;
+  padding: 0.2em;
   color: var(--main-bg-color-light);
-  background-color: var(--secondary-color-content-3);
+  background-color: white;
   transition: all ease 0.3s;
 }
 
+.list-span {
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.list-span-delete {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
 .list-span:hover {
-  background-color: #48037cb0;
+  color: white;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  background-color: green;
 }
 
 .list-span-delete:hover {
-  background-color: crimson;
+  color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: red;
 }
 
 .div-spans-anime {
@@ -255,10 +275,12 @@ body.active-modal {
 
 .button-delete-anime {
   margin-right: 1em;
-  color: var(--main-color-font-dark);
+  color: white;
+  background-color: var(--blue);
+  border-radius: 5px;
   border: none;
   width: 2em;
-  height: 100%;
+  height: 60%;
 }
 
 .button-delete-anime-svg {
@@ -269,7 +291,7 @@ body.active-modal {
 }
 
 .button-delete-anime-svg:hover {
-  color: crimson;
+  color: red;
 }
 
 .div_lists_span {
@@ -286,7 +308,6 @@ body.active-modal {
   opacity: 1;
   margin: 3em 0 0 0;
   background-color: var(--main-color-content);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.329);
 }
 
 .div-render-principal {
@@ -296,12 +317,13 @@ body.active-modal {
   column-gap: 0.5em;
   flex-direction: column;
   width: 400px;
-  max-height: 300px;
+  border-radius: 15px;
+  max-height: 100px;
   overflow-y: scroll;
   position: absolute;
-  top: 100px;
-  z-index: 10;
-  background-color: var(--main-color-content);
+  top: 80px;
+  z-index: 1;
+  background-color: #f2f4f9;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.575);
 }
 
@@ -317,7 +339,8 @@ body.active-modal {
 }
 
 .div-render-anime:hover {
-  background-color: #ede3f7;
+  color: white;
+  background-color: var(--blue);
 }
 
 .div-render-anime_div_img {

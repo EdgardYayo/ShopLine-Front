@@ -81,7 +81,7 @@ export default function ListComponent({ props, showOptions }: any) {
           <h3>{props.name}</h3>
         </Link>
         <span className={style["div-lists-secondary_div1_span"]}>
-          {props.animes} elementos añadidos
+          {props.animes} added elements
         </span>
       </div>
       {showOptions && props.name !== "Favorites" ? (

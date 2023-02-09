@@ -67,8 +67,7 @@ export default function MyList() {
   return (
     <div className={style["div-principal"]}>
       <div className={style["div-title"]}>
-        <FontAwesomeIcon icon={faBookmark} className={style["icon"]} />
-        <h1 className={style["title"]}>My Lists</h1>
+        <h1 className={style["title"]}>My WishList 📃</h1>
       </div>
       <div className={style["div-button-create"]}>
         <button

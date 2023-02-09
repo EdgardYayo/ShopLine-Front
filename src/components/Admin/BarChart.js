@@ -20,7 +20,7 @@ export default function BarChart(){
     series:[
         {
             name:"Categories Popularity",
-            data:[3.4,2.4,5.6,7.8]
+            data:[3.7,3.68,3.48,3.35]
         }
     ],
     dataLabels: {

@@ -20,6 +20,7 @@ import {
   faArrowLeft,
   faGear,
   faPenToSquare,
+  faDollar,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchBar from "../../SearchBar/SearchBar";
@@ -33,9 +34,9 @@ export default function ListDetail() {
   const { id } = useParams<any>();
   const history = useHistory();
 
-//   let { search } = useLocation();
-//   let searchParams = new URLSearchParams(search);
-//   let name = searchParams.get("name") || "";
+  //   let { search } = useLocation();
+  //   let searchParams = new URLSearchParams(search);
+  //   let name = searchParams.get("name") || "";
 
   const productRender = useAppSelector((state) => state["products"]);
   const listDetail = useAppSelector((state) => state.listDetail);
@@ -109,7 +110,7 @@ export default function ListDetail() {
     // setIsLoading(true);
     await dispatch(deleteProductInList(productToDel));
     await dispatch(clearDetailList());
-    await dispatch(getList(id))/*.then(() => setIsLoading(false));*/
+    await dispatch(getList(id)); /*.then(() => setIsLoading(false));*/
   };
 
   const toggleModalEdit = () => {
@@ -249,11 +250,15 @@ export default function ListDetail() {
                     />
                   </Link>
                   <div className={style["anime-detail_texts"]}>
-                    <h4 className={style["anime-detail_name"]}>{product.title}</h4>
+                    <h4 className={style["anime-detail_name"]}>
+                      {product.title}
+                    </h4>
                     <div className={style["div-spans-anime"]}>
                       <span className={style["anime-detail_span"]}>
+                        💵
                         {product.price}
                       </span>
+
                       <button
                         onClick={() => deleteProductList(product.id)}
                         className={style["button-delete-anime"]}
@@ -275,8 +280,8 @@ export default function ListDetail() {
           )}
           {!listDetail.products?.length && (
             <div>
-              <h1>THERES NO ANIMES IN LIST</h1>
-              <h2>ADD SOME</h2>
+              <h1 className={style["no-list"]}>THERES NO PRODUCTS IN LIST</h1>
+              <h2 className={style["no-list"]}>ADD SOME</h2>
             </div>
           )}
         </div>
